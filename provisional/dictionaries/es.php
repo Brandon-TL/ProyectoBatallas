@@ -1,27 +1,32 @@
 <?php
 	$lang = array(
-		"selectLang" => "ES",
+		"selected_lang" => "ES",
+		
+		// Idiomas
+		"lang_en" => "Inglés",
+		"lang_es" => "Español",
 		
 		// index.php
-		"loginTitle" => "Página de acceso",
-		"tituloLogin" => "Acceso de usuarios",
-        "nombreLogin" => "Nombre de usuario *",
-        "passwordLogin" => "Contraseña *",
-        "btnEntrarLogin" => "ENTRAR",
+		"index_title" => "Página de acceso",
+		"index_h1" => "Acceso de usuarios",
+        "index_label_nombre" => "Nombre de usuario *",
+        "index_label_password" => "Contraseña *",
+		"index_pregunta" => "¿Aún no tienes cuenta?",
+        "index_boton_entrar" => "ENTRAR",
 		
-		// -- REGISTRO --
-		"registroTitle" => "Página de registro",
-        "registroTitulo" => "Registro de usuario",
-        "registroAdvertencia" => "Todos los campos marcados con * son obligatorios.",
-        "registroNombre" => "Nombre de usuario *",
-        "registroPassword" => "Contraseña *",
-        "registroPasswordR" =>"Repita la contraseña *",
-        "registroEmail" => "Dirección email *",
-        "registroFecha" => "Fecha de nacimiento *",
-        "registroAvatar" => "Avatar *",
-        "btnVolverRegistro" => "VOLVER",
-        "btnRegistrarseRegistro" => "CONTINUAR",
-		"btnLogear" =>"CONTINUAR",
+		// registro.php
+		"registro_title" => "Página de registro",
+        "registro_h1" => "Registro de usuario",
+        "" => "Todos los campos con * son obligatorios.",
+        "registro_label_nombre" => "Nombre de usuario *",
+        "registro_label_password" => "Contraseña *",
+        "registro_label_password2" =>"Repita la contraseña *",
+        "registro_label_email" => "E-mail *",
+        "registro_label_fecha" => "Fecha de nacimiento *",
+
+        "registro_label_avatar" => "Avatar *",
+        "registro_boton_volver" => "VOLVER",
+        "registro_boton_entrar" => "REGISTRARSE",
 
 		// -- ERRORES --
 		"userErr1" => "Campo de usuario vacio.",

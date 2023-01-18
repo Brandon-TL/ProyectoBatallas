@@ -1,27 +1,32 @@
 <?php
 	$lang = array(
-		"selectLang" => "EN",
+		"selected_lang" => "EN",
 		
+		// Idiomas
+		"lang_en" => "English",
+		"lang_es" => "Spanish",
+
 		// index.php
-		"loginTitle" => "Login page",
-		"tituloLogin" => "User Login",
-		"nombreLogin" => "User Name *",
-		"passwordLogin" => "Password *",
-		"btnEntrarLogin" => "ACCESS",
+		"index_title" => "Login page",
+		"index_h1" => "User Login",
+		"index_label_nombre" => "User name *",
+		"index_label_password" => "Password *",
+		"index_pregunta" => "Don't have an account yet?",
+		"index_boton_entrar" => "LOGIN",
 		
-		// -- REGISTRO --
-		"registroTitle" => "Register page",
-		"registroTitulo" => "User Register",
-		"registroAdvertencia" => "All fields marked with * are required.",
-		"registroNombre" => "User Name *",
-		"registroPassword" => "Password *",
-		"registroPasswordR" =>"Repeat Password *",
-		"registroEmail" => "Email address *",
-		"registroFecha" =>" Birth Date *",
-		"registroAvatar" => "Avatar *",
-		"btnVolverRegistro" => "RETURN",
-		"btnRegistrarseRegistro" =>"CONTINUE",
-		"btnLogear" =>"CONTINUE",
+		// registro.php
+		"registro_title" => "Register page",
+		"registro_h1" => "User sign up",
+		"" => "All fields with * are required.",
+		"registro_label_nombre" => "User name *",
+		"registro_label_password" => "Password *",
+		"registro_label_password2" =>"Password repeat *",
+		"registro_label_email" => "E-mail *",
+		"registro_label_fecha" =>"Date of birth *",
+
+		"registro_label_avatar" => "Avatar *",
+		"registro_boton_volver" => "BACK",
+		"registro_boton_entrar" => "SIGN IN",
 		
 		// -- ERRORS --
 		"userErr1" => "User field cannot be empty.",
