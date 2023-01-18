@@ -29,7 +29,7 @@
 		"registro_boton_entrar" => "SIGN IN",
 
 		//inicio.php
-		"inicioPeril" => "Porfile",
+		"inicioPerfil" => "Porfile",
 		"inicioBatalla" => "Battles",
 		"inicioElemento" => "Elements",
 		"inicioLogro" => "Achievements",
