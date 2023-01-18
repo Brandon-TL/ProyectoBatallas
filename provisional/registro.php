@@ -62,7 +62,7 @@
         </div>
         
         <div>
-            <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg" value="<?php echo $_avatar; ?>" placeholder="">
+            <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg" value="<?php echo $_avatar; ?>" placeholder="dwe">
             <?php if (isset($_avatar_err)) echo $_avatar_err; ?>
         </div>
         
