@@ -7,10 +7,10 @@
         setcookie("lang", $_GET['lang'], time()+60*60*24*30);
         header("Location: ".$_SERVER['PHP_SELF']);
         require_once "dictionaries/".$_COOKIE['lang'].".php";
-    }else{
+    } else {
         // Solicitar datos del idioma seleccionado
         require_once "dictionaries/".$_COOKIE['lang'].".php";
-    }    
+    }
 	
     // Cambiar tema
     $link_css = 'dark';

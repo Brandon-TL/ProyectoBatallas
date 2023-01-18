@@ -284,15 +284,17 @@
             $E2 = datosElemento($tupla[2]);
 
             $id_usuario = selectBD(array('id_usuario'), 'usuario_batalla', 'id_batalla', $tupla[0]);
-            $nombre_creador = selectBD(array('nombreusuario'), 'usuario_credencial', 'id_usuario', $id_usuario[0]);
+            // $nombre_creador = selectBD(array('nombreusuario'), 'usuario_credencial', 'id_usuario', $id_usuario[0]);
 
             $id_batalla = selectBD(array('id_batalla'), 'batalla_elemento', 'id_elemento1', $tupla[1])[0];
             // echo $id_elemento1.' vs '.$id_elemento2.' en batalla '.$id_batalla;
 
             
-            $html .= "<div>Batalla ($id_batalla): $E1[0] vs $E2[0]<br>
-                        Creada por: $nombre_creador[0]<br>
-                        $E1[1]<br>$E2[1]</div><br>";
+            $html .= "<div>Batalla ($tupla[0]): $E1[0] vs $E2[0]<br>
+                        $E1[1]<br>$E2[1]<br>
+                        <button><span>VOTAR $E1[0]</span></button>
+                        <button><span>VOTAR $E2[0]</span></button>
+                        </div><br>";
         }
         /**
          *  onclick='votar($id_usuario, $id_batalla, $id_elemento1)';
@@ -300,5 +302,38 @@
          */
 
         return $html;
+    }
+
+    /**
+     * Funcion para la votación de elementos
+     * @param string:id_elemento id del elemento que se desea votar
+     * @param string:id_batalla id de la batalla en la que se encuentra el elemento
+     * 
+     * @return true:execute_sql_query+text si se han encontrado los elementos solicitados, se ejecuta comando sql para 
+     *                           registrar la votación en la base de datos y se indica que se ha terminado la ejecución con éxito
+     * @return false:error texto indicativo de porque no se ha registrado el voto
+     */
+    function votar($id_usuario, $id_batalla, $id_elemento) {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+        if (isset($conexion)) {
+            // Sentencia para comprobar si el usuario ya ha votado en esa batalla
+            $id_batalla = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
+            $nombre_elemento = datosElemento($id_elemento);
+            if ($id_batalla) {
+                // El usuario ya ha votado en esta batalla
+                return 'Ya se has votado en esta batalla';
+            } else {
+                // Si el usuario no ha votado en la batalla indicada se registra el voto
+                $insert = insertBD('voto', array('id_usuario', 'id_batalla', 'id_elemento', 'fecha'), array($id_usuario, $id_batalla, $id_elemento, date('Y-m-d H:i:s')), $conexion);
+                if ($insert) {
+                    // Si se ha registrado el voto con éxito, se guardan el voto en la base de datos
+                    return 'Has votado por ' . $nombre_elemento;
+                    $conexion->commit();
+                } else {
+                    // Si ha ocurrido algun error 
+                    $conexion->rollBack();
+                }
+            }
+        }
     }
 ?>

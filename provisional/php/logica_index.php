@@ -31,6 +31,9 @@
                 if (is_null($_password_err)) {  
                     if (!loguear($_valid_usuario, $_valid_password)) {
                         $_password_err = $lang['index_error_password'];
+                    } else if ($_valid_usuario == 'admin') {
+                        header("Location: admin.php");
+                        exit();
                     } else {
                         header("Location: inicio.php");
                         exit();

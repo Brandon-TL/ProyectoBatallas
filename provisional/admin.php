@@ -12,7 +12,7 @@
         $datos;
         session_start();
         if (isset($_SESSION["usuario"])) {
-            $datos = datosUsuario($_SESSION['usuario']);
+            // $datos = datosUsuario($_SESSION['usuario']);
         }
     ?>
     <title>Inicio</title>
@@ -34,28 +34,27 @@
         </div>
     </header>
     <div class="tabs">
-        <input type="radio" class="tabs__radio" name="slider" id="tab1" checked>
-        <label for="tab1" class="tabs__label"><?php echo $lang['inicioPerfil'] ?></label>
+        <input type="radio" class="tabs__radio" name="slider" id="tab88" >
+        <label for="tab88" class="tabs__label">Denuncias</label>
         <div class="tabs__content">
+            BATALLAS DENUNCIADAS
             <!-- Contenido para perfil -->
-                
-        <div>
-            <div
-                style="background: url(<?php echo $datos[2]; ?>);
-                        background-position: center;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                        width: 100px;
-                        height: 100px;">
-            </div>
-            <div class="datos">
-                <span><?php echo $_SESSION['usuario']; ?></span><br>
-                <span><?php echo $datos[1]; ?></span><br>
-                <span><?php echo $datos[3]; ?></span>
-            </div>
+        </div>
+        
+        <input type="radio" class="tabs__radio" name="slider" id="tab87" >
+        <label for="tab87" class="tabs__label">Usuarios</label>
+        <div class="tabs__content">
+            GESTION DE USUARIOS
+            <?php
+                $usuarios = selectBD(array('*'), 'usuario', 'rol', 'usuario');
+                var_dump($usuarios);
+                foreach ($usuarios as $user) {
+                   echo $user['fechanacimiento']."<br>".$user['fechanacimiento']."<br>".$user['fechanacimiento']."<br>";
+                }
+            ?>
+            <!-- Contenido para perfil -->
         </div>
 
-        </div>
         <input type="radio" class="tabs__radio" name="slider" id="tab2">
         <label for="tab2" class="tabs__label"><?php echo $lang['inicioBatalla'] ?></label>
         <div class="tabs__content">
@@ -75,19 +74,16 @@
         <input type="radio" class="tabs__radio" name="slider" id="tab3">
         <label for="tab3" class="tabs__label"><?php echo $lang['inicioElemento'] ?></label>
         <div class="tabs__content">
-            Batalla
             <!-- Contenido para perfil -->
         </div>
         <input type="radio" class="tabs__radio" name="slider" id="tab4">
         <label for="tab4" class="tabs__label"><?php echo $lang['inicioLogro'] ?></label>
         <div class="tabs__content">
-            Batalla
             <!-- Contenido para perfil -->
         </div>
         <input type="radio" class="tabs__radio" name="slider" id="tab5">
         <label for="tab5" class="tabs__label"><?php echo $lang['inicioInstrucciones'] ?></label>
         <div class="tabs__content">
-            Batalla
             <!-- Contenido para perfil -->
         </div>
     </div>
