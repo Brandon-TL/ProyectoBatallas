@@ -102,7 +102,7 @@
             $c = $campos[0];
         }
         $sql = "SELECT " . $c . " FROM " . $tabla . " WHERE " . $condicion . " = '" . $valor . "'";
-        echo $sql;
+        // echo $sql."<br>";
         
         $result = $conexion->query($sql);
         $datos = $result->fetch();
@@ -271,22 +271,11 @@
     /**
      * Función para crear etiquetas especificas y mostrar batallas por pantalla y facilitando dar estilos css y clases
      * @param array:datos 
-     * @param string:_HTML <div class="card">
-     *                  <div class="mostrador">
-     *                      <div>Elemento 1</div>
-     *                      <div>Elemento 2</div>
-     *                  </div>
-     *                  <div class="versus">VS</div>
-     *                  <div class="cardContent">
-     *                      <div class="e1">Elemento 2</div><div class="e2">Elemento 2</div>
-     *                      Creado por <h2>Nombre del creador</h2>
-     *                  </div>
-     *              </div>
      * @return string:html de la información de todas las batallas con clases especificas para cada elemento y batalla
      *                      incluye php para la funcionalidad de votos
      */
     function formatoBatallas($datos) {
-        $html = '<form>';
+        $html = '';
         $id_votante = datosUsuario($_SESSION['usuario'])[0];
         foreach ($datos as $tupla) {
             $id_elemento1 = $tupla[1];
@@ -300,33 +289,11 @@
             $id_batalla = selectBD(array('id_batalla'), 'batalla_elemento', 'id_elemento1', $tupla[1])[0];
             // echo $id_elemento1.' vs '.$id_elemento2.' en batalla '.$id_batalla;
 
-            $html .= "<div class='card'>
-                        <div class='mostrador'>
-                            <button class='image'
-                                style='background: url(./$E1[1]);
-                                        background-position: center;
-                                        background-size: cover;
-                                        background-repeat: no-repeat;
-                                onclick='votar($id_votante, $id_batalla, $id_elemento1)';'>
-                                <span>🢁</span>
-                                </button>
-                            <button class='image'
-                                style='background: url(./$E2[1]);
-                                        background-position: center;
-                                        background-size: cover;
-                                        background-repeat: no-repeat;
-                                onclick='votar($id_votante, $id_batalla, $id_elemento2)';'>
-                                <span>🢁</span>
-                            </button>
-                        </div>
-                        <div class='versus'>VS</div>
-                        <div class='cardContent'>
-                            <div class='e1'>$E1[0]</div><div class='e2'>$E2[0]</div>
-                            Creado por <h2>$nombre_creador[0]</h2>
-                        </div>
-                    </div>";
+            
+            $html .= "<div>Batalla ($id_batalla): $E1[0] vs $E2[0]<br>
+                        Creada por: $nombre_creador[0]<br>
+                        $E1[1]<br>$E2[1]</div><br>";
         }
-        $html .= '</form>';
         /**
          *  onclick='votar($id_usuario, $id_batalla, $id_elemento1)';
          *  onclick='votar($id_usuario, $id_batalla, $id_elemento2)';

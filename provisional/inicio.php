@@ -66,6 +66,10 @@
                 // include_once('./php/funciones.php');
 
                 $datos = obtenerBatallas(false);
+                foreach ($datos as $d) {
+                    echo $d['id_batalla']." > ".$d['id_elemento1']." vs ".$d['id_elemento2'];
+                    echo "<br>";
+                }
                 echo "<div class='contentBatallas'>" . formatoBatallas($datos) . "</div>";
                 votar(2, 2, 3);
 
