@@ -35,6 +35,20 @@
         "registro_boton_entrar" => "REGISTRARSE",
 
 		// registro.php errores
+		//inicio.php
+		"inicioPerfil" => "Perfil",
+		"inicioBatalla" => "Batallas",
+		"inicioElemento" => "Elementos",
+		"inicioLogro" => "Logros",
+		"inicioInstrucciones" => "¿Como jugar?",
+
+		// -- ERRORES --
+		"userErr1" => "Campo de usuario vacio.",
+		"userErr2" => "Nombre de usuario no válido.",
+		"loginUserErr" => "Usuario no encontrado.",
+		"userLogged" => "Usuario logeado con éxito.",
+		"passwdErr1" => "Campo de contraseña vacío.",
+		"passwdErr2" => "La contraseña debe contener dígitos, mayúsculas, minusculas y de 8 a 16 carácteres.",
 		"passwdMatchErr" => "Las contraseñas no coinciden.",
 		"emailErr1" => "Campo de email vacío.",
 		"emailErr2" => "Campo de email no válido.",

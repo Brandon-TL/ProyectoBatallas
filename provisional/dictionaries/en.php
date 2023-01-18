@@ -27,6 +27,13 @@
 		"registro_label_avatar" => "Avatar *",
 		"registro_boton_volver" => "BACK",
 		"registro_boton_entrar" => "SIGN IN",
+
+		//inicio.php
+		"inicioPerfil" => "Porfile",
+		"inicioBatalla" => "Battles",
+		"inicioElemento" => "Elements",
+		"inicioLogro" => "Achievements",
+		"inicioInstrucciones" => "How to play?",
 		
 		// -- ERRORS --
 		"userErr1" => "User field cannot be empty.",
