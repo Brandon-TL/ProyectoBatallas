@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/perfil.css">
     <?php
+        include_once ('./php/funciones.php');
+        $datos = datosUsuario($_SESSION['usuario']);
+
         require_once './php/visual.php';
         if (isset($_SESSION["usuario"])) {
             header("Location: perfil.php");
@@ -19,8 +22,23 @@
         <input type="radio" class="tabs__radio" name="slider" id="tab1" checked>
         <label for="tab1" class="tabs__label"><?php echo $lang['inicioPerfil'] ?></label>
         <div class="tabs__content">
-            Perfil
             <!-- Contenido para perfil -->
+                
+        <!-- <div>
+            <div
+                style="background: url(./tabs/<?php echo $datos[2]; ?>);
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;">
+            </div>
+            <div class="datos">
+                <span><?php echo $_SESSION['usuario']; ?></span><br>
+                <span><?php echo $datos[1]; ?></span><br>
+                <span><?php echo $datos[3]; ?></span>
+                <span><?php echo $datos[0]; ?></span>
+            </div>
+        </div> -->
+
         </div>
         <input type="radio" class="tabs__radio" name="slider" id="tab2">
         <label for="tab2" class="tabs__label"><?php echo $lang['inicioBatalla'] ?></label>
