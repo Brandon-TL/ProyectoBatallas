@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/perfil.css">
     <?php
-        include_once 'php/funciones.php';
-
-        $datos;
-
+        include_once './php/funciones.php';
         require_once './php/visual.php';
+        
+        $datos;
+        session_start();
         if (isset($_SESSION["usuario"])) {
             $datos = datosUsuario($_SESSION['usuario']);
         }
