@@ -58,7 +58,7 @@
             session_start();
             // Creamos sesión con el nombre del usuario
             $_SESSION["usuario"] = $usuario;
-            // Cogemos la fecha y hora de inicio para registrarla en sesionews
+            // Cogemos la fecha y hora de inicio para registrarla en sesiones
             $_SESSION["fInicio"] = date('Y-m-d H:i:s');
 
             return true;
