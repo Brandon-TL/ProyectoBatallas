@@ -324,7 +324,7 @@ function formatoBatallas($datos)
                     <div class='versus'>VS</div>
                     <div class='cardContent'>
                         <div class='e1'>$E1[0]</div><div class='e2'>$E2[0]</div>
-                        Creado por <h2>$nombre_creador[0]</h2>
+                         Creado por <h2>$nombre_creador[0]</h2>
                     </div>
                 </div>";
     }
