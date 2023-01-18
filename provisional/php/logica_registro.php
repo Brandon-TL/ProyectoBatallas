@@ -127,13 +127,5 @@
                 ?><style>.post {display: block;}.pre {display: none;}</style><?php
             }
         }
-
-        // Si las variables de error no son NULL, las muestra en pantalla
-        if ($_usuario_err != null) {?><style>.usuario-alert {opacity: 1;}</style><?php }
-        if ($_password_err != null) {?><style>.password_alert {opacity: 1;}</style><?php }
-        if ($_password2_err != null) {?><style>.password2-alert {opacity: 1;}</style><?php }
-        if ($_email_err != null) {?><style>.email-alert {opacity: 1}</style><?php }
-        if ($_fecha_err != null) {?><style>.fecha-alert {opacity: 1;}</style><?php }
-        if ($_avatar_err != null) {?><style>.avatar-alert {opacity: 1;}</style><?php }
     }
 ?>

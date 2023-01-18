@@ -13,6 +13,12 @@
         "index_label_password" => "Contraseña *",
 		"index_pregunta" => "¿Aún no tienes cuenta?",
         "index_boton_entrar" => "ENTRAR",
+
+		// index.php errores
+		"index_vacio_usuario" => "Campo de usuario vacío",
+		"index_vacio_password" => "Campo de contraseña vacío",
+		"index_error_usuario" => "Usuario no encontrado",
+		"index_error_password" => "Contraseña incorrecta",
 		
 		// registro.php
 		"registro_title" => "Página de registro",
@@ -28,13 +34,7 @@
         "registro_boton_volver" => "VOLVER",
         "registro_boton_entrar" => "REGISTRARSE",
 
-		// -- ERRORES --
-		"userErr1" => "Campo de usuario vacio.",
-		"userErr2" => "Nombre de usuario no válido.",
-		"loginUserErr" => "Usuario no encontrado.",
-		"userLogged" => "Usuario logeado con éxito.",
-		"passwdErr1" => "Campo de contraseña vacío.",
-		"passwdErr2" => "La contraseña debe contener dígitos, mayúsculas, minusculas y de 8 a 16 carácteres.",
+		// registro.php errores
 		"passwdMatchErr" => "Las contraseñas no coinciden.",
 		"emailErr1" => "Campo de email vacío.",
 		"emailErr2" => "Campo de email no válido.",
@@ -42,9 +42,12 @@
 		"dateErr1" => "Campo de fecha de nacimiento vacio.",
 		"dateErr2" => "Campo de fecha de nacimiento no válido.",
 		"dateErr3" => "Fecha de nacimiento fuera de los limites.",
-		"sizeErr" => "El archivo seleccionado supera el peso maximo (1MB).",
 		"fileErr" => "Solo se acepta archivos jpg, jpge o png.",
 		"fileErr2" => "Campo de avatar vacio.",
+		"sizeErr" => "El archivo seleccionado supera el peso maximo (1MB).",
+
+		// 
+		"userErr2" => "Nombre de usuario no válido.",
 		"userRegistered" => "Usuario registrado con éxito.",
 		"userErr3" => "Nombre de usuario ya está en uso.",
 		"elementNameErr" => "Campo nombre vacío",
