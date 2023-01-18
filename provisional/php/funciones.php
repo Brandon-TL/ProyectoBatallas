@@ -35,8 +35,7 @@
      * 
      * @return array:datos conjunto de datos obtenidos de del select a la base de datos
      */
-    function selectBD($campos, $tabla, $condicion, $valor)
-    {
+    function selectBD($campos, $tabla, $condicion, $valor) {
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
         $c = "";
         if (count($campos) > 1) {
@@ -48,9 +47,11 @@
             $c = $campos[0];
         }
         $sql = "SELECT " . $c . " FROM " . $tabla . " WHERE " . $condicion . " = '" . $valor . "'";
-
+        echo $sql."<br>";
+        
         $result = $conexion->query($sql);
         $datos = $result->fetch();
+        // echo $datos;
         return $datos;
     }
 ?>

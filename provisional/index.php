@@ -35,7 +35,7 @@
     <h1><?php echo $lang['index_h1'] ?></h1>
     <form action="" method="post" class="containerForm pre" enctype="multipart/form-data">
         <div>
-            <input type="text" name="usuario" placeholder="<?php echo $lang['index_label_nombre'] ?>">
+            <input type="text" name="usuario" placeholder="<?php echo $lang['index_label_nombre'] ?>" value="<?php  if (isset($_valid_usuario)) echo $_valid_usuario ?>">
             <?php if (isset($_usuario_err)) echo $_usuario_err; ?>
         </div>
 
@@ -43,7 +43,7 @@
             <input type="password" name="password" placeholder="<?php echo $lang['index_label_password'] ?>">
             <?php if (isset($_password_err)) echo $_password_err; ?>
         </div>
-        
+
         <a href="registro.php"><?php echo $lang['index_pregunta'] ?></a><br>
         <input type="submit" name="ENTRAR" value="<?php echo $lang['index_boton_entrar'] ?>" class="loginButton btn">
     </form>
