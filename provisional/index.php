@@ -11,7 +11,7 @@
             exit();
         }
     ?>
-    <title><?php echo $lang['loginTitle'] ?></title>
+    <title><?php echo $lang['index_title'] ?></title>
 </head>
     <?php
         require_once './php/funciones.php';
@@ -20,7 +20,7 @@
     <header>
         <div class="selectors">
             <div class="dropdown" title="Select language">
-                <button><?php echo $lang['selectLang']; ?></button>
+                <button><?php echo $lang['selected_lang']; ?></button>
                 <ul>
                     <li><a href="index.php?lang=en"><div class="flag en"></div><?php echo $lang['lang_en'] ?></a></li>
                     <li><a href="index.php?lang=es"><div class="flag es"></div><?php echo $lang['lang_es'] ?></a></li>
@@ -32,22 +32,22 @@
             </form>
         </div>
     </header>
-    <h1><?php echo $lang['tituloLogin'] ?></h1>
+    <h1><?php echo $lang['index_h1'] ?></h1>
     <form action="" method="post" class="containerForm pre" enctype="multipart/form-data">
         <div>
-            <label for="usuario" class="nonClickable"><?php echo $lang['nombreLogin'] ?></label>
-            <input type="text" name="usuario">
+            <input type="text" name="usuario" placeholder="<?php echo $lang['index_label_nombre'] ?>">
             <?php if (isset($_usuario_err)) echo $_usuario_err; ?>
         </div>
 
         <div>
-            <label for="password" class="nonClickable"><?php echo $lang['passwordLogin'] ?></label>
-            <input type="password" name="password">
+            <input type="password" name="password" placeholder="<?php echo $lang['index_label_password'] ?>">
             <?php if (isset($_password_err)) echo $_password_err; ?>
         </div>
         
-        <a href="registro.php"><?php echo $lang['indexPreg2'] ?></a><br>
-        <input type="submit" name="ENTRAR" value="<?php echo $lang['btnEntrarLogin'] ?>" class="loginButton btn">
+        <a href="registro.php"><?php echo $lang['index_pregunta'] ?></a><br>
+        <input type="submit" name="ENTRAR" value="<?php echo $lang['index_boton_entrar'] ?>" class="loginButton btn">
     </form>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

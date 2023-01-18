@@ -12,7 +12,7 @@
             exit();
         }
     ?>
-    <title><?php echo $lang['registroTitle'] ?></title>
+    <title><?php echo $lang['registro_title'] ?></title>
 </head>
 <body>
     <?php
@@ -22,7 +22,7 @@
     <header>
         <div class="selectors">
             <div class="dropdown" title="Select language">
-                <button><?php echo $lang['selectLang']; ?></button>
+                <button><?php echo $lang['selected_lang']; ?></button>
                 <ul>
                     <li><a href="registro.php?lang=en"><div class="flag en"></div><?php echo $lang['lang_en'] ?></a></li>
                     <li><a href="registro.php?lang=es"><div class="flag es"></div><?php echo $lang['lang_es'] ?></a></li>
@@ -34,46 +34,43 @@
             </form>
         </div>
     </header>
+    <h1><?php echo $lang['registro_h1'] ?></h1>
     <form action="" method="post" class="containerForm pre" enctype="multipart/form-data">
         <div>
-            <label for="usuario">Nombre de usuario</label>
-            <input type="text" name="usuario" value="<?php echo $_usuario;?>">
-            <?php echo $_usuario_err; ?>
+            <input type="text" name="usuario" value="<?php echo $_usuario;?>" placeholder="<?php echo $lang['registro_label_nombre']; ?>">
+            <?php if (isset($_usuario_err)) echo $_usuario_err; ?>
         </div>
 
         <div>
-            <label for="password">Contraseña</label>
-            <input type="password" name="password" value="<?php echo $_password; ?>">
-            <?php echo $_password_err; ?>
+            <input type="password" name="password" value="<?php echo $_password; ?>" placeholder="<?php echo $lang['registro_label_password']; ?>">
+            <?php if (isset($_password_err)) echo $_password_err; ?>
         </div>
 
         <div>
-            <label for="password2">Repita su contraseña</label>
-            <input type="password" name="password2" value="<?php echo $_password; ?>">
-            <?php echo $_password2_err; ?>
+            <input type="password" name="password2" value="<?php echo $_password; ?>" placeholder="<?php echo $lang['registro_label_password2']; ?>">
+            <?php if (isset($_password2_err)) echo $_password2_err; ?>
         </div>
         
         <div>
-            <label for="email">E-mail</label>
-            <input type="email" name="email" value="<?php echo $_email; ?>">
-            <?php echo $_email_err; ?>
+            <input type="email" name="email" value="<?php echo $_email; ?>" placeholder="<?php echo $lang['registro_label_email']; ?>">
+            <?php if (isset($_email_err)) echo $_email_err; ?>
         </div>
         
         <div>
-            <label for="fecha">Fecha de nacimiento</label>
-            <input type="date" name="fecha" value="<?php echo $_fecha; ?>">
-            <?php echo $_fecha_err; ?>
+            <input type="text" name="fecha" value="<?php echo $_fecha; ?>" placeholder="<?php echo $lang['registro_label_fecha']; ?>" onfocus="(this.type='date')">
+            <?php if (isset($_fecha_err)) echo $_fecha_err; ?>
         </div>
         
         <div>
-            <label for="avatar">Foto de perfil</label>
-            <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg" value="<?php echo $_avatar; ?>">
-            <?php echo $_avatar_err; ?>
+            <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg" value="<?php echo $_avatar; ?>" placeholder="">
+            <?php if (isset($_avatar_err)) echo $_avatar_err; ?>
         </div>
         
-        <input type="button" value="VOLVER" class="registroButton btn" onclick="window.location.href='index.php'">
+        <input type="button" value="<?php echo $lang['registro_boton_volver']; ?>" onclick="window.location.href='index.php'">
         
-        <input type="submit" name="REGISTRARSE" value="REGISTRARSE" class="registroButton btn" />
+        <input type="submit" name="REGISTRARSE" value="<?php echo $lang['registro_boton_entrar']; ?>">
     </form>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
