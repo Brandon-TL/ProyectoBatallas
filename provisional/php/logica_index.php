@@ -10,25 +10,32 @@
         if (empty(trim($_usuario))) {
             $_usuario_err = $lang['index_vacio_usuario'];
         } else {
-            $_valid_usuario = $_POST["usuario"];
+            // echo $_usuario . " es el usuario<br>";
+            $_valid_usuario = $_usuario;
         }
         
         if (empty(trim($_password))) {
             $_password_err = $lang['index_vacio_password'];
         } else {
-            $_valid_password = $_POST["usuario"];
+            // echo $_password . " es la contraseña";
+            $_valid_password = $_password;
         }
 
-        if (!is_null($_valid_usuario) || !is_null($_valid_password)) {
+        if (is_null($_usuario_err)) {
             $encontrado = selectBD(array('nombreusuario'), 'credencial', 'nombreusuario', $_valid_usuario);
-            if ($encontrado) {
-                echo "usuario no encontrado";
+            // echo "<br>". $encontrado['nombreusuario'];
+            if (!$encontrado) {
+                // var_dump($encontrado);
                 $_usuario_err = $lang['index_error_usuario'];
-            } else if (!loguear($_valid_usuario, $_valid_password)) {
-                $_password_err = $lang['index_error_password'];
-            } else {
-                header("Location: inicio.php");
-                exit();
+            } else if ($encontrado) {
+                if (is_null($_password_err)) {  
+                    if (!loguear($_valid_usuario, $_valid_password)) {
+                        $_password_err = $lang['index_error_password'];
+                    } else {
+                        header("Location: inicio.php");
+                        exit();
+                    }
+                }
             }
         }
     }

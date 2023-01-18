@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/perfil.css">
     <?php
         include_once ('./php/funciones.php');
-        $datos = datosUsuario($_SESSION['usuario']);
+        // $datos = datosUsuario($_SESSION['usuario']);
 
         require_once './php/visual.php';
         if (isset($_SESSION["usuario"])) {

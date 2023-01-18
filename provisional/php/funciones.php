@@ -13,7 +13,7 @@
         // Buscar el usuario con el nombre introducido
         $stmt = selectBD(array('password'), 'credencial', 'nombreusuario', $usuario);
 
-        if ($stmt['password'] === $password) {
+        if (isset($stmt['password']) && $stmt['password'] === $password) {
             session_start();
             // Creamos sesión con el nombre del usuario
             $_SESSION["usuario"] = $usuario;
@@ -47,11 +47,9 @@
             $c = $campos[0];
         }
         $sql = "SELECT " . $c . " FROM " . $tabla . " WHERE " . $condicion . " = '" . $valor . "'";
-        echo $sql."<br>";
         
         $result = $conexion->query($sql);
         $datos = $result->fetch();
-        // echo $datos;
         return $datos;
     }
 ?>
