@@ -108,6 +108,22 @@
         $datos = $result->fetch();
         return $datos;
     }
+
+    /**
+ * Función para obtener los datos del los elementos
+ * @param string:id_elemento id del elemento cuyos datos se solicitan
+ * 
+ * @return array de dos posicines, array[0] = nombre del elemento, array[1] = ruta de la imagen
+ */
+function datosElemento($id_elemento)
+{
+    $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+    // Obtener los datos de los elementos
+    $datoNombre = selectBD(array('nombre'), 'elemento', 'id', $id_elemento);
+    $datoFoto = selectBD(array('foto'), 'elemento', 'id', $id_elemento);
+
+    return array(strtoupper($datoNombre[0]), $datoFoto[0]);
+}
         
     /**
      * Función par aregistrar nuevos usuarios en la base de  datos
@@ -201,5 +217,124 @@
         $stmt->execute(array_combine($etiquetas, $valores));
         return true;
     }
+
+        /**
+     * Función para obtener los datos sobre las batallas
+     * @param boolean:creadas true (solo batallas creadas por el usuario) o false (batallas que el usuario no ha creado)
+     * 
+     * @return array:datos de las batallas solicitadas
+     */
+    function obtenerBatallas($creadas)
+    {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+
+        // Obetener el id del usuario que ha iniciado sesión : array[]
+        $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario']);
+        // Como solo es un array de una posición se puede guardar en una variable string, para un uso más fácil
+        $id_usuario = $id_usuario[0];
+
+        // Obtener todas las batallas creadas por el usuario que ha iniciado sesión : array[]
+        $batallasDeUsuario = selectBD(array('id_batalla'), 'usuario_batalla', 'id_usuario', $id_usuario);
+
+        // Obtener todas las batallas existentes y filtrar a un array solo las que no ha creado el usuario en cuestión
+        $sql = "SELECT * FROM `batalla_elemento`;";
+        $resultBatalla = $conexion->query($sql);
+
+        $datos = array();
+        // Para cada uno de los id's de batallas creadas por el usuario logeado
+        for ($i = 0; $i < count($batallasDeUsuario); $i++) {
+            // Comparar con el id de cada batalla obtenida en el resultado del fetch() $tupla[0]
+            while ($tupla = $resultBatalla->fetch()) {
+                if ($creadas) {
+                    // Si el id de la batalla creada por el usuario coincide con de el la batalla obtenida en el fetch()
+                    if ($batallasDeUsuario[$i] == $tupla[0]) {
+                        // Se añade la información de la batalla al array $datos
+                        $datos[count($datos)] = $tupla;
+                    }
+                    // Si los id's no coinciden, continuar...
+                } else {
+                    // Si el id de la batalla creada por el usuario es distinto al de la batalla obtenida en el fetch()
+                    if ($batallasDeUsuario[$i] != $tupla[0]) {
+                        // Se añade la información de la batalla al array $datos
+                        $datos[count($datos)] = $tupla;
+                    }
+                    // Si los id's coinciden, continuar...
+                }
+            }
+        }
+
+        // Devolver todas las batallas que no han sido creadas por el usuario logeado
+        return $datos;
+    }
+
+    
+
+    /**
+ * Función para crear etiquetas especificas y mostrar batallas por pantalla y facilitando dar estilos css y clases
+ * @param array:datos 
+ * @param string:_HTML <div class="card">
+ *                  <div class="mostrador">
+ *                      <div>Elemento 1</div>
+ *                      <div>Elemento 2</div>
+ *                  </div>
+ *                  <div class="versus">VS</div>
+ *                  <div class="cardContent">
+ *                      <div class="e1">Elemento 2</div><div class="e2">Elemento 2</div>
+ *                      Creado por <h2>Nombre del creador</h2>
+ *                  </div>
+ *              </div>
+ * @return string:html de la información de todas las batallas con clases especificas para cada elemento y batalla
+ *                      incluye php para la funcionalidad de votos
+ */
+function formatoBatallas($datos)
+{
+    $html = '<form>';
+    $id_votante = datosUsuario($_SESSION['usuario'])[0];
+    foreach ($datos as $tupla) {
+        $id_elemento1 = $tupla[1];
+        $id_elemento2 = $tupla[2];
+        $E1 = datosElemento($tupla[1]);
+        $E2 = datosElemento($tupla[2]);
+
+        $id_usuario = selectBD(array('id_usuario'), 'usuario_batalla', 'id_batalla', $tupla[0]);
+        $nombre_creador = selectBD(array('nombreusuario'), 'usuario_credencial', 'id_usuario', $id_usuario[0]);
+
+        $id_batalla = selectBD(array('id_batalla'), 'batalla_elemento', 'id_elemento1', $tupla[1])[0];
+        // echo $id_elemento1.' vs '.$id_elemento2.' en batalla '.$id_batalla;
+
+        $html .= "<div class='card'>
+                    <div class='mostrador'>
+                        <button class='image'
+                            style='background: url(./$E1[1]);
+                                    background-position: center;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                            onclick='votar($id_votante, $id_batalla, $id_elemento1)';'>
+                            <span>🢁</span>
+                            </button>
+                        <button class='image'
+                            style='background: url(./$E2[1]);
+                                    background-position: center;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                            onclick='votar($id_votante, $id_batalla, $id_elemento2)';'>
+                            <span>🢁</span>
+                        </button>
+                    </div>
+                    <div class='versus'>VS</div>
+                    <div class='cardContent'>
+                        <div class='e1'>$E1[0]</div><div class='e2'>$E2[0]</div>
+                        Creado por <h2>$nombre_creador[0]</h2>
+                    </div>
+                </div>";
+    }
+    $html .= '</form>';
+    /**
+     *  onclick='votar($id_usuario, $id_batalla, $id_elemento1)';
+     *  onclick='votar($id_usuario, $id_batalla, $id_elemento2)';
+     */
+
+    return $html;
+}
 
 ?>

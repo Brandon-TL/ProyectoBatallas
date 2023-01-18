@@ -59,7 +59,17 @@
         <input type="radio" class="tabs__radio" name="slider" id="tab2">
         <label for="tab2" class="tabs__label"><?php echo $lang['inicioBatalla'] ?></label>
         <div class="tabs__content">
-            Batalla
+            <?php
+
+                // require('./php/visual.php');
+
+                // include_once('./php/funciones.php');
+
+                $datos = obtenerBatallas(false);
+                echo "<div class='contentBatallas'>" . formatoBatallas($datos) . "</div>";
+                votar(2, 2, 3);
+
+            ?>
             <!-- Contenido para perfil -->
         </div>
         <input type="radio" class="tabs__radio" name="slider" id="tab3">
