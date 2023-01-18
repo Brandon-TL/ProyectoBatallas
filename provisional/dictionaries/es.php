@@ -35,6 +35,15 @@
         "registro_boton_entrar" => "REGISTRARSE",
 
 		// registro.php errores
+		"registro_vacio_usuario" => "Campo de usuario vacío",
+		"registro_error_usuario" => "Nombre de usuario no válido",
+		"registro_vacio_password" => "Campo de contraseña vacío",
+		"registro_error_password" => "La contraseña debe contener dígitos, mayúsculas, minusculas y de 8 a 16 carácteres.",
+		"registro_error_match" => "Las contraseñas no coinciden",
+		"registro_vacio_email" => "Campo de email vacío",
+		"registro_error_email" => "Campo de email no válido",
+		"registro_vacio_fecha" => "Campo de fecha de nacimiento vacío",
+
 		//inicio.php
 		"inicioPerfil" => "Perfil",
 		"inicioBatalla" => "Batallas",
@@ -43,18 +52,9 @@
 		"inicioInstrucciones" => "¿Como jugar?",
 
 		// -- ERRORES --
-		"userErr1" => "Campo de usuario vacio.",
-		"userErr2" => "Nombre de usuario no válido.",
-		"loginUserErr" => "Usuario no encontrado.",
-		"userLogged" => "Usuario logeado con éxito.",
-		"passwdErr1" => "Campo de contraseña vacío.",
-		"passwdErr2" => "La contraseña debe contener dígitos, mayúsculas, minusculas y de 8 a 16 carácteres.",
-		"passwdMatchErr" => "Las contraseñas no coinciden.",
-		"emailErr1" => "Campo de email vacío.",
-		"emailErr2" => "Campo de email no válido.",
+		
 		"emailErr3" => "Email ya está en uso.",
-		"dateErr1" => "Campo de fecha de nacimiento vacio.",
-		"dateErr2" => "Campo de fecha de nacimiento no válido.",
+		"registro_" => "Campo de fecha de nacimiento no válido",
 		"dateErr3" => "Fecha de nacimiento fuera de los limites.",
 		"fileErr" => "Solo se acepta archivos jpg, jpge o png.",
 		"fileErr2" => "Campo de avatar vacio.",

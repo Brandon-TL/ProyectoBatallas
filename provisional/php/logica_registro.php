@@ -19,11 +19,11 @@
         // Usuario
         if (empty(trim($v1))) {
             // Error si el campo de usuario esta vacio
-            $_usuario_err = $lang['userErr1'];
+            $_usuario_err = $lang['registro_vacio_usuario'];
         } else {
             if (!validar($v1, VALID_USER)) {
                 // Error si el campo de contraseña no es valido
-                $_usuario_err = $lang['userErr2'];
+                $_usuario_err = $lang['registro_error_usuario'];
             } else {
                 $_usuario = $v1;
             }
@@ -32,16 +32,16 @@
         // Contraseña
         if (empty(($v2))) {
             // Error si el campo de contraseña esta vacio
-            $_password_err = $lang['passwdErr1'];
+            $_password_err = $lang['registro_vacio_password'];
         } else {
             if (!validar($v2, VALID_PASSWORD)) {
                 // Error si el campo de contraseña no es valido
-                $_password_err = $lang['passwdErr2'];
+                $_password_err = $lang['registro_error_password'];
             } else {
                 // Contraseña 2
                 if (empty(($v3))) {
                     // Error si el campo de repetir contraseña esta vacio
-                    $_password2_err = $lang['passwdErr1'];
+                    $_password2_err = $lang['registro_vacio_password'];
                 } else {
                     if ($v3 === $v2) {
                         // Guardamos una contraseña válida
@@ -49,8 +49,8 @@
                     } else {
                         // Error si los campos campos de contraseñas no coinciden
                         // Mostramos error en ambos campos
-                        $_password2_err = $lang['passwdMatchErr'];
-                        $_password_err = $lang['passwdMatchErr'];
+                        $_password2_err = $lang['registro_error_match'];
+                        $_password_err = $lang['registro_error_match'];
                     }
                 }
             }
@@ -59,11 +59,11 @@
         // Email
         if (empty(trim($v4))) {
             // Error si el campo de email esta vacío
-            $_email_err = $lang['emailErr1'];
+            $_email_err = $lang['registro_vacio_email'];
         } else {
             if (!validar($v4, VALID_EMAIL)) {
                 // Error si el campo de email esta no es valido
-                $_email_err = $lang['emailErr2'];
+                $_email_err = $lang['registro_error_email'];
             } else {
                 // Guardamos una dirección email correcta
                 $_email = $v4;
@@ -73,10 +73,10 @@
         // Fecha
         if (empty(trim($v5))) {
             // Error si el campo de fecha de nacimiento esta vacío
-            $_fecha_err = $lang['dateErr1'];
+            $_fecha_err = $lang['registro_vacio_fecha'];
         } else {
             if (!validar($v5, VALID_DATE)) {
-                // Error si el campo de email esta no es valido
+                // Error si el campo de fecha esta no es valido
                 $_fecha_err = $lang['dateErr2'];
             } else {
                 if (!validar_edad($v5)) {
