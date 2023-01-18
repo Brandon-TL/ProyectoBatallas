@@ -15,8 +15,8 @@
         "index_boton_entrar" => "ENTRAR",
 
 		// index.php errores
-		"index_vacio_usuario" => "Campo de usuario vacío",
-		"index_vacio_password" => "Campo de contraseña vacío",
+		"index_vacio_usuario" => "Nombre de usuario no introducido",
+		"index_vacio_password" => "Contraseña no introducida",
 		"index_error_usuario" => "Usuario no encontrado",
 		"index_error_password" => "Contraseña incorrecta",
 		
@@ -29,20 +29,27 @@
         "registro_label_password2" =>"Repita la contraseña *",
         "registro_label_email" => "E-mail *",
         "registro_label_fecha" => "Fecha de nacimiento *",
-
-        "registro_label_avatar" => "Avatar *",
+        "registro_label_avatar" => "Foto de perfil *",
         "registro_boton_volver" => "VOLVER",
         "registro_boton_entrar" => "REGISTRARSE",
 
 		// registro.php errores
 		"registro_vacio_usuario" => "Campo de usuario vacío",
 		"registro_error_usuario" => "Nombre de usuario no válido",
+		"registro_existing_usuario" => "Nombre de usuario ya está en uso.",
 		"registro_vacio_password" => "Campo de contraseña vacío",
-		"registro_error_password" => "La contraseña debe contener dígitos, mayúsculas, minusculas y de 8 a 16 carácteres.",
+		"registro_error_password" => "La contraseña debe contener dígitos, mayúsculas, minusculas y de 8 a 16 caracteres",
 		"registro_error_match" => "Las contraseñas no coinciden",
 		"registro_vacio_email" => "Campo de email vacío",
 		"registro_error_email" => "Campo de email no válido",
+		"registro_existing_email" => "Email ya está en uso.",
 		"registro_vacio_fecha" => "Campo de fecha de nacimiento vacío",
+		"registro_error_fecha" => "Campo de fecha de nacimiento no válido",
+		"registro_error_edad" => "Fecha de nacimiento fuera de los limites",
+		"registro_error_max" => "El archivo seleccionado supera el peso máximo",
+		"registro_error_extension" => "Solo se acepta archivos jpg, jpge o png.",
+		"registro_vacio_foto" => "Campo de foto de perfil vacío",
+		"registro_failed_new_login" => "Lo sentimos, no se ha podido iniciar sesión con el usuario registrado",
 
 		//inicio.php
 		"inicioPerfil" => "Perfil",
@@ -51,19 +58,9 @@
 		"inicioLogro" => "Logros",
 		"inicioInstrucciones" => "¿Como jugar?",
 
-		// -- ERRORES --
+		// HASTA AQUI ESTA FUNCIONANDO « /provisional »
 		
-		"emailErr3" => "Email ya está en uso.",
-		"registro_" => "Campo de fecha de nacimiento no válido",
-		"dateErr3" => "Fecha de nacimiento fuera de los limites.",
-		"fileErr" => "Solo se acepta archivos jpg, jpge o png.",
-		"fileErr2" => "Campo de avatar vacio.",
-		"sizeErr" => "El archivo seleccionado supera el peso maximo (1MB).",
 
-		// 
-		"userErr2" => "Nombre de usuario no válido.",
-		"userRegistered" => "Usuario registrado con éxito.",
-		"userErr3" => "Nombre de usuario ya está en uso.",
 		"elementNameErr" => "Campo nombre vacío",
 		"elementNameErr2" => "Nombre de elemento no válido",
 
