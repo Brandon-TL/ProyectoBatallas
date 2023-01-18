@@ -17,10 +17,11 @@
     <!-- comit -->
     <header>
         <ul>
-            <li>Perfil</li>
-            <li>Batallas</li>
-            <li>Elementos</li>
-            <li>Logros</li>
+            <li><?php echo $lang['inicioPerfil']?></li>
+            <li><?php echo $lang['inicioBatalla']?></li>
+            <li><?php echo $lang['inicioElemento']?></li>
+            <li><?php echo $lang['inicioLogro']?></li>
+            <li><?php echo $lang['inicioInstrucciones']?></li>
         </ul>
     </header>
     <h1>Estas en inicio</h1>

@@ -28,6 +28,13 @@
         "registro_boton_volver" => "VOLVER",
         "registro_boton_entrar" => "REGISTRARSE",
 
+		//inicio.php
+		"inicioPeril" => "Perfil",
+		"inicioBatalla" => "Batallas",
+		"inicioElemento" => "Elementos",
+		"inicioLogro" => "Logros",
+		"inicioInstrucciones" => "¿Como jugar?",
+
 		// -- ERRORES --
 		"userErr1" => "Campo de usuario vacio.",
 		"userErr2" => "Nombre de usuario no válido.",
