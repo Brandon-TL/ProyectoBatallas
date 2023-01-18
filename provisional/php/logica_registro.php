@@ -98,7 +98,7 @@
         //Si el archivo es jpg jpeg o png lo guarda en la ruta solicitada
         if (isset($nombre) && $nombre != "") {
             if ($tipo == "image/jpg" || $tipo == "image/jpeg" || $tipo == "image/png") {
-                move_uploaded_file($rutaTemporal, "tabs/IMG/".$nombre);
+                move_uploaded_file($rutaTemporal, "./img/".$nombre);
                 if ($size > SIZE_MB) {
                     $_avatar_err = $lang['sizeErr'];
                 } else {
