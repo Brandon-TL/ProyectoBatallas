@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/perfil.css">
     <?php
-        include_once ('./php/funciones.php');
-        // $datos = datosUsuario($_SESSION['usuario']);
+        include_once 'php/funciones.php';
+
+        $datos;
 
         require_once './php/visual.php';
         if (isset($_SESSION["usuario"])) {
-            header("Location: perfil.php");
-            exit();
+            $datos = datosUsuario($_SESSION['usuario']);
         }
     ?>
     <title>Inicio</title>
