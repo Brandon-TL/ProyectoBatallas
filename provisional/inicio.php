@@ -24,7 +24,7 @@
         <div class="tabs__content">
             <!-- Contenido para perfil -->
                 
-        <!-- <div>
+        <div>
             <div
                 style="background: url(./tabs/<?php echo $datos[2]; ?>);
                         background-position: center;
@@ -37,7 +37,7 @@
                 <span><?php echo $datos[3]; ?></span>
                 <span><?php echo $datos[0]; ?></span>
             </div>
-        </div> -->
+        </div>
 
         </div>
         <input type="radio" class="tabs__radio" name="slider" id="tab2">

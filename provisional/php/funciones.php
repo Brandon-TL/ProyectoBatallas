@@ -25,6 +25,7 @@
             return false;
         }
     }
+
         
     /**
      * Función genérica para obtener información de la base de datos dbbatallas
