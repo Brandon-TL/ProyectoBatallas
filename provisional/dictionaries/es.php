@@ -8,11 +8,12 @@
 		
 		// index.php
 		"index_title" => "Página de acceso",
-		"index_h1" => "Entra en Batallas.com",
+		"index_h1" => "Batallas.com #1: Fomulario de acceso",
         "index_label_nombre" => "Nombre de usuario *",
         "index_label_password" => "Contraseña *",
 		"index_pregunta" => "¿Aún no tienes cuenta?",
         "index_boton_entrar" => "ENTRAR",
+		"copyright_text" => "Creado por",
 
 		// index.php errores
 		"index_vacio_usuario" => "Nombre de usuario no introducido",

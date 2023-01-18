@@ -18,7 +18,7 @@
         require_once './php/funciones.php';
         require_once './php/logica_index.php';
     ?>
-    <header>
+    <!-- <header>
         <div class="selectors">
             <div class="dropdown" title="Select language">
                 <button><?php echo $lang['selected_lang']; ?></button>
@@ -32,7 +32,7 @@
                 <button name="tema" value="light" class="light"><ion-icon name="sunny-outline"></ion-icon></button>
             </form>
         </div>
-    </header>
+    </header> -->
     <h1><?php echo $lang['index_h1'] ?></h1>
     <form action="" method="post" class="containerForm pre" enctype="multipart/form-data">
         <div>
@@ -48,6 +48,11 @@
         <a href="registro.php"><?php echo $lang['index_pregunta'] ?></a><br>
         <input type="submit" name="ENTRAR" value="<?php echo $lang['index_boton_entrar'] ?>" class="loginButton btn">
     </form>
+    <footer>
+        <p>
+            <?php echo $lang['copyright_text']; ?> <a target="_blank" href="https://www.instagram.com/_time_leaper_/?hl=es">Brandon Martínez</a> & <a target="_blank" href="https://www.instagram.com/_luisetee__/?hl=es">Luis Sánchez</a>
+        </p>
+    </footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
