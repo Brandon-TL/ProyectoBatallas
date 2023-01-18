@@ -26,7 +26,7 @@
                 
         <div>
             <div
-                style="background: url(./tabs/<?php echo $datos[2]; ?>);
+                style="background: url(img/<?php echo $datos[2]; ?>);
                         background-position: center;
                         background-size: cover;
                         background-repeat: no-repeat;">
