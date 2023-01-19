@@ -7,15 +7,16 @@
 		"lang_es" => "Español",
 		
 		// index.php
-		"index_h2" => "Batallas.com",
-		"index_copyright_text" => "Creado por",
 		"index_title" => "Acceso a Batallas.com",
+		"index_h2" => "Batallas.com",
+		"index_footer_text" => "Creado por",
 		
 		// sección de logueo
 		"logueo_h1" => "Iniciar sesión",
         "logueo_label_nombre" => "Nombre de usuario *",
         "logueo_label_password" => "Contraseña *",
         "logueo_boton_entrar" => "ENTRAR",
+
         "logueo_cambio_h1" => "¿Aún no tienes cuenta?",
         "logueo_cambio_text" => "Introduce tus datos y empieza a luchar con nosotros",
 								// Enter your personal details and battling with us
@@ -38,7 +39,7 @@
         "registro_boton_entrar" => "REGISTRARSE",
 		
         "registro_cambio_h1" => "¿Ya tienes cuenta?",
-        "registro_cambio_text" => "Inicia sesión y que empieze la lucha",
+        "registro_cambio_text" => "Inicia sesión y que empiecen las batallas",
         "registro_cambio_logueo" => "INICIAR SESIÓN",
 		
 		// errores sección de registro

@@ -1,7 +1,4 @@
-*, ::before, ::after {
-    color: white;
-}
+:root {
+    --background-color: black;
 
-body {
-    background-color: black;
 }

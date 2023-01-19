@@ -1,7 +1,7 @@
-*, ::before, ::after {
-    color: black;
-}
+:root {
+    --background-color: #f6f5f7;
 
-bady {
-    background-color: white;
+    --button-background-color: black;
+    --theme-icon-color: #fff;
+
 }
