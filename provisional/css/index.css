@@ -25,9 +25,10 @@ body {
 	padding: 0;
 	width: 40px;
 	height: 40px;
+	border-radius: 40px;
 	top: 30px;
 	right: 30px;
-	background-color: transparent;
+	overflow: hidden;
 }
 
 .theme-form > button {
@@ -35,8 +36,8 @@ body {
 	height: 40px;
 	padding: 0;
 	position: absolute;
-	border-radius: 40px;
-	background-color: var(--button-background-color);
+	border: none;
+	background-color: var(--theme-button-background-color);
 }
 
 button > ion-icon {
@@ -62,6 +63,7 @@ h1 {
 h2 {
 	text-align: center;
 	padding-bottom: 30px;
+	color: var(--h2-color);
 }
 
 p {
@@ -86,15 +88,19 @@ a {
 button, input[type="submit"] {
     cursor: pointer;
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
-	color: #FFFFFF;
+	color: var(--button-and-sumbit-color);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+}
+
+
+input[type="submit"] {
+	border: 1px solid var(--submit-border-color);
+	background-color: var(--submit-background-color);
 }
 
 button:active {
@@ -107,11 +113,13 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	border: 1px solid;
+	border-color: var(--button-border-color);
 }
 
 form {
-	background-color: #FFFFFF;
+	background-color: var(--form-background-color);
+	color: var(--form-color);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -122,7 +130,7 @@ form {
 }
 
 input {
-	background-color: #eee;
+	background-color: var(--input-background-color);
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
@@ -130,9 +138,9 @@ input {
 }
 
 .container {
-    background-color: #fff;
+    background-color: var(--container-background-color);
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+    box-shadow: var(--container-box-shadow);
     position: relative;
     overflow: hidden;
     width: 1000px;
@@ -199,9 +207,9 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: var(--overlay-background-color);
+	background: var(--overlay-background-webkit-color);
+	background: var(--overlay-background-linear-color);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -253,26 +261,11 @@ input {
 	transform: translateX(20%);
 }
 
-.social-container {
-	margin: 20px 0;
-}
-
-.social-container a {
-	border: 1px solid #DDDDDD;
-	border-radius: 50%;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 5px;
-	height: 40px;
-	width: 40px;
-}
 
 /* FOOTER */
 
 footer {
-    background-color: #222;
-    color: #fff;
+    background-color: var(--footer-background-color);
     font-size: 14px;
     bottom: 0;
     position: fixed;
@@ -284,14 +277,10 @@ footer {
 
 footer p {
     margin: 10px 0;
-    color: #fff;
-}
-
-footer i {
-    color: red;
+    color: var(--footer-p-color);
 }
 
 footer a {
-    color: #3c97bf;
+    color: var(--footer-a-color);
     text-decoration: none;
 }

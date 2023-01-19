@@ -1,7 +1,30 @@
 :root {
+    /* FONTS COLOR */
     --background-color: #f6f5f7;
-
-    --button-background-color: black;
+    --h2-color: #000;
     --theme-icon-color: #fff;
+    --form-color: #000;
+    --footer-p-color: #fff;
+    --footer-a-color: #3c97bf;
+    --button-and-sumbit-color: #fff;
+    --button-border-color: #FFFFFF;
 
+    /* BACKGROUNDS COLOR */
+    --theme-button-background-color: #222;
+    --container-background-color: #fff;
+    --form-background-color: #FFFFFF;
+    --submit-background-color: #FF4B2B;
+    --submit-border-color: #FF4B2B;
+    --input-background-color: #eee;
+    --footer-background-color: #222;
+    --overlay-background-color: #FF416C;
+    --overlay-background-webkit-color: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    --overlay-background-linear-color: linear-gradient(to right, #FF4B2B, #FF416C);
+
+    /* THEME BUTTON DISPLAY */
+    --dark-display: block;
+    --light-display: none;
+
+    /* CONTAINER BOX SHADOW */
+    --container-box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
 }

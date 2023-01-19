@@ -27,5 +27,5 @@
     }
 
     // Imprimir etiqueta html con link css seleccionado
-    echo '<link rel="stylesheet" href="CSS/'.$link_css.'.css">';
+    echo '<link rel="stylesheet" href="./css/'.$link_css.'.css">';
 ?>
