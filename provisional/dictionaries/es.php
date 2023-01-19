@@ -9,6 +9,7 @@
 		// index.php
 		"index_h2" => "Batallas.com",
 		"index_copyright_text" => "Creado por",
+		"index_title" => "Acceso a Batallas.com",
 		
 		// sección de logueo
 		"logueo_h1" => "Iniciar sesión",
@@ -30,7 +31,7 @@
         "registro_h1" => "Crea una cuenta",
         "registro_label_nombre" => "Nombre de usuario *",
         "registro_label_password" => "Contraseña *",
-        "registro_label_password2" =>"Repitir contraseña *",
+        "registro_label_password2" =>"Repetir contraseña *",
         "registro_label_email" => "E-mail *",
         "registro_label_fecha" => "Fecha de nacimiento *",
         "registro_label_avatar" => "Foto de perfil *",

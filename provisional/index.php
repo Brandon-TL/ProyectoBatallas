@@ -17,6 +17,7 @@
     <?php
         require_once './php/funciones.php';
         require_once './php/logica_index.php';
+        require_once './php/logica_registro.php';
     ?>
     <!-- <header>
         <div class="selectors">
