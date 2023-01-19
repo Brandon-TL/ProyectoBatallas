@@ -7,35 +7,40 @@
 		"lang_es" => "Español",
 		
 		// index.php
-		"index_title" => "Página de acceso",
-		"index_h1" => "Batallas.com #1: Fomulario de acceso",
-		"index_h2" => "Crear cuenta",
-        "index_label_nombre" => "Nombre de usuario *",
-        "index_label_password" => "Contraseña *",
-		"index_pregunta" => "¿Aún no tienes cuenta?",
-        "index_boton_entrar" => "ENTRAR",
+		"index_h2" => "Batallas.com",
 		"index_copyright_text" => "Creado por",
-
-		// index.php errores
-		"index_vacio_usuario" => "Nombre de usuario no introducido",
-		"index_vacio_password" => "Contraseña no introducida",
-		"index_error_usuario" => "Usuario no encontrado",
-		"index_error_password" => "Contraseña incorrecta",
 		
-		// registro.php
-		"registro_title" => "Página de registro",
-        "registro_h1" => "Registro de usuario",
-        "" => "Todos los campos con * son obligatorios.",
+		// sección de logueo
+		"logueo_h1" => "Iniciar sesión",
+        "logueo_label_nombre" => "Nombre de usuario *",
+        "logueo_label_password" => "Contraseña *",
+        "logueo_boton_entrar" => "ENTRAR",
+        "logueo_cambio_h1" => "¿Aún no tienes cuenta?",
+        "logueo_cambio_text" => "Introduce tus datos y empieza a luchar con nosotros",
+								// Enter your personal details and battling with us
+        "logueo_cambio_registro" => "CREAR CUENTA",
+
+		// errores sección de logueo
+		"logueo_vacio_usuario" => "Nombre de usuario no introducido",
+		"logueo_vacio_password" => "Contraseña no introducida",
+		"logueo_error_usuario" => "Usuario no encontrado",
+		"logueo_error_password" => "Contraseña incorrecta",
+		
+		// sección de registro
+        "registro_h1" => "Crea una cuenta",
         "registro_label_nombre" => "Nombre de usuario *",
         "registro_label_password" => "Contraseña *",
-        "registro_label_password2" =>"Repita la contraseña *",
+        "registro_label_password2" =>"Repitir contraseña *",
         "registro_label_email" => "E-mail *",
         "registro_label_fecha" => "Fecha de nacimiento *",
         "registro_label_avatar" => "Foto de perfil *",
-        "registro_boton_volver" => "VOLVER",
         "registro_boton_entrar" => "REGISTRARSE",
-
-		// registro.php errores
+		
+        "registro_cambio_h1" => "¿Ya tienes cuenta?",
+        "registro_cambio_text" => "Inicia sesión y que empieze la lucha",
+        "registro_cambio_logueo" => "INICIAR SESIÓN",
+		
+		// errores sección de registro
 		"registro_vacio_usuario" => "Campo de usuario vacío",
 		"registro_error_usuario" => "Nombre de usuario no válido",
 		"registro_existing_usuario" => "Nombre de usuario ya está en uso.",
@@ -53,7 +58,7 @@
 		"registro_vacio_foto" => "Campo de foto de perfil vacío",
 		"registro_failed_new_login" => "Lo sentimos, no se ha podido iniciar sesión con el usuario registrado",
 
-		//inicio.php
+		// inicio.php
 		"inicioPerfil" => "Perfil",
 		"inicioBatalla" => "Batallas",
 		"inicioElemento" => "Elementos",
