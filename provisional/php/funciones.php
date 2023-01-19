@@ -77,7 +77,8 @@
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
         $conexion->beginTransaction();
 
-        $id = selectBD(array("id_usuario"), "usuario_credencial", "nombreusuario", $user)[0];
+        $id = selectBD(array("id_usuario"), "usuario_credencial", "nombreusuario", $user);
+        var_dump($id);
         return selectBD(array("*"), "usuario", "id", $id);
     }
 
