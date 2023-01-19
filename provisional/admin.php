@@ -6,36 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/perfil.css">
     <?php
-        require_once './php/funciones_admin.php';
+        require_once './php/funciones.php';
         require_once './php/visual.php';
-
-        session_start();
-        logueo_admin();
     ?>
     <title>Inicio</title>
 </head>
 <body>
     <div class="tabs">
-        <!-- CONTENIDO TAB DENUNCIAS -->
+        <!-- |||||||||| CONTENIDO TAB DENUNCIAS |||||||||| -->
         <input type="radio" class="tabs__radio" name="slider" id="tab88" checked>
         <label for="tab88" class="tabs__label">Denuncias</label>
         <div class="tabs__content">
             TAB DENUNCIAS
         </div>
-        <!-- CONTENIDO TAB USUARIOS -->
+        <!-- |||||||||| CONTENIDO TAB USUARIOS |||||||||| -->
         <input type="radio" class="tabs__radio" name="slider" id="tab87" >
         <label for="tab87" class="tabs__label">Usuarios</label>
         <div class="tabs__content">
             TAB DE USUARIOS
             <?php
-                $usuarios = selectBD(array('*'), 'usuario', 'rol', 'usuario');
-                var_dump($usuarios);
-                foreach ($usuarios as $user) {
-                    //    echo $user['fechanacimiento']."<br>".$user['fechanacimiento']."<br>".$user['fechanacimiento']."<br>"; 
-                }
-                ?>
+                // $usuarios = selectBD(array('*'), 'usuario', 'rol', 'usuario');
+                // var_dump($usuarios);
+                // foreach ($usuarios as $user) {
+                //     //    echo $user['fechanacimiento']."<br>".$user['fechanacimiento']."<br>".$user['fechanacimiento']."<br>"; 
+                // }
+            ?>
         </div>
-        <!-- CONTENIDO TAB BATALLAS -->
+        <!-- |||||||||| CONTENIDO TAB BATALLAS |||||||||| -->
         <input type="radio" class="tabs__radio" name="slider" id="tab2">
         <label for="tab2" class="tabs__label"><?php echo $lang['inicioBatalla'] ?></label>
         <div class="tabs__content">
@@ -51,11 +48,11 @@
 
             ?>
         </div>
-        <!-- CONTENIDO TAB ELEMENTOS -->
+        <!-- |||||||||| CONTENIDO TAB ELEMENTOS |||||||||| -->
         <input type="radio" class="tabs__radio" name="slider" id="tab3">
         <label for="tab3" class="tabs__label"><?php echo $lang['inicioElemento'] ?></label>
         <div class="tabs__content">
-                TAB ELEMENTOS
+            TAB ELEMENTOS
         </div>
     </div>
 </body>

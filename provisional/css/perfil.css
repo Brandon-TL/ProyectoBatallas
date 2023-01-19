@@ -1,27 +1,131 @@
-.tabs{
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: var(--index-background);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	overflow: hidden;
+	margin: -20px 0 50px;
+}
+
+/* SELECTOR IDIOMA */
+
+.selectors {
+	position: absolute;
+	display: flex;
+	top: 30px;
+	right: 30px;
+}
+
+.dropdown button {
+	border: none;
+	background-color: var(--dropdown-button-background-color);
+	color: var(--dropdown-color);
+	box-shadow: var(--dropdown-box-shadow);
+}
+
+.dropdown > ul {
+	background-color: var(--dropdown-background-color);
+	margin-top: 10px;
+	transform: translateY(30px);
+	opacity: 0;
+    transition: all .4s ease;
+}
+
+.dropdown > button:focus + ul {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.dropdown > ul > li {
+	list-style: none;
+}
+
+.dropdown > ul > li > a {
+	padding: 10px 15px;
+	margin: 0;
+	display: block;
+	background-color: var(--dropdown-a-background-color);
+	color: var(--dropdown-a-color);
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+
+.dropdown > ul > li > a:hover {
+	background-color: var(--dropdown-a-hover-color);
+}
+
+/* FORMULARIO TEMA */
+
+.theme-form {
+	padding: 0;
+	margin-left: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	overflow: hidden;
+}
+
+.theme-form > button {
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	position: absolute;
+	border: none;
+	background-color: var(--theme-button-background-color);
+	box-shadow: var(--theme-button-box-shadow);
+}
+
+button > ion-icon {
+	font-size: 20px;
+	color: var(--theme-button-icon-color);
+}
+
+.dark {
+	display: var(--theme-button-dark-display);
+}
+
+.light {
+	display: var(--theme-button-light-display);
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.tabs {
     display: flex;
     flex-wrap: wrap;
 }
 
-.tabs__label{
+.tabs__label {
     padding: 10px 16px;
     cursor: pointer;
 }
 
-.tabs__radio{
+.tabs__radio{ 
     display: none;
 }
 
-.tabs__content{
+.tabs__content {
     order: 1;
     width: 100%;
     display: none;
 }
 
-.tabs__radio:checked+.tabs__label{
+.tabs__radio:checked + .tabs__label {
     font-weight: bold;
 }
 
-.tabs__radio:checked+.tabs__label+.tabs__content{
+.tabs__radio:checked + .tabs__label + .tabs__content {
     display: initial;
 }

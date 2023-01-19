@@ -60,7 +60,8 @@
 		"registro_failed_new_login" => "Lo sentimos, no se ha podido iniciar sesión con el usuario registrado",
 
 		// inicio.php
-		"inicioPerfil" => "Perfil",
+		"perfil_title" => "Página principal",
+
 		"inicioBatalla" => "Batallas",
 		"inicioElemento" => "Elementos",
 		"inicioLogro" => "Logros",

@@ -36,7 +36,7 @@
                         header("Location: admin.php");
                         exit();
                     } else {
-                        header("Location: inicio.php");
+                        header("Location: perfil.php");
                         exit();
                     }
                 }
@@ -138,7 +138,7 @@
                 $_registro_email_err = $lang['registro_existing_email'];
             } else {
                 if (loguear($_usuario, $_password)) {
-                    header("Location: inicio.php");
+                    header("Location: perfil.php");
                     exit();
                 } else {
                     echo $lang['registro_failed_new_login'];
