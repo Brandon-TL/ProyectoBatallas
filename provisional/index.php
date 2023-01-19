@@ -71,7 +71,7 @@
                 <input type="text" name="fecha" value="<?php if (isset($_fecha)) echo $_fecha; ?>" placeholder="<?php echo $lang['registro_label_fecha']; ?>" onfocus="(this.type='date')">
                 <?php if (isset($_registro_fecha_err)) echo $_registro_fecha_err; ?>
                     
-                <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg" value="<?php if (isset($_)) echo $_avatar; ?>" placeholder="dwe">
+                <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg" value="<?php if (isset($_)) echo $_avatar; ?>" placeholder="<?php echo $lang['registro_label_avatar']; ?>">
                 <?php if (isset($_registro_avatar_err)) echo $_registro_avatar_err; ?>
                 
                 <input type="submit" name="REGISTRARSE" value="<?php echo $lang['registro_boton_entrar']; ?>">

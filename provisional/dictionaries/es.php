@@ -19,7 +19,6 @@
 
         "logueo_cambio_h1" => "¿Aún no tienes cuenta?",
         "logueo_cambio_text" => "Introduce tus datos y empieza a luchar con nosotros",
-								// Enter your personal details and battling with us
         "logueo_cambio_registro" => "CREAR CUENTA",
 
 		// errores sección de logueo
@@ -56,7 +55,7 @@
 		"registro_error_fecha" => "Campo de fecha de nacimiento no válido",
 		"registro_error_edad" => "Fecha de nacimiento fuera de los limites",
 		"registro_error_max" => "El archivo seleccionado supera el peso máximo",
-		"registro_error_extension" => "Solo se acepta archivos jpg, jpge o png.",
+		"registro_error_extension" => "Solo se acepta archivos .jpg, .jpge o .png",
 		"registro_vacio_foto" => "Campo de foto de perfil vacío",
 		"registro_failed_new_login" => "Lo sentimos, no se ha podido iniciar sesión con el usuario registrado",
 

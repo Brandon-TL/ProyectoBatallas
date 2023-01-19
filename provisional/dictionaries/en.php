@@ -5,55 +5,70 @@
 		// Idiomas
 		"lang_en" => "English",
 		"lang_es" => "Spanish",
-
+		
 		// index.php
-		"index_title" => "Login page",
-		"index_h1" => "User Login",
-		"index_label_nombre" => "User name *",
-		"index_label_password" => "Password *",
-		"index_pregunta" => "Don't have an account yet?",
-		"index_boton_entrar" => "LOGIN",
+		"index_title" => "Access to Batallas.com",
+		"index_h2" => "Batallas.com",
+		"index_footer_text" => "Created by",
 		
-		// registro.php
-		"registro_title" => "Register page",
-		"registro_h1" => "User sign up",
-		"" => "All fields with * are required.",
-		"registro_label_nombre" => "User name *",
-		"registro_label_password" => "Password *",
-		"registro_label_password2" =>"Password repeat *",
-		"registro_label_email" => "E-mail *",
-		"registro_label_fecha" =>"Date of birth *",
+		// sección de logueo
+		"logueo_h1" => "Log in",
+        "logueo_label_nombre" => "User name *",
+        "logueo_label_password" => "Password *",
+        "logueo_boton_entrar" => "ACCESS",
 
-		"registro_label_avatar" => "Avatar *",
-		"registro_boton_volver" => "BACK",
-		"registro_boton_entrar" => "SIGN IN",
+        "logueo_cambio_h1" => "It's your first time here?",
+        "logueo_cambio_text" => "Enter your personal details and start battling with us",
+        "logueo_cambio_registro" => "CREATE ACCOUNT",
 
-		//inicio.php
-		"inicioPerfil" => "Porfile",
-		"inicioBatalla" => "Battles",
-		"inicioElemento" => "Elements",
-		"inicioLogro" => "Achievements",
-		"inicioInstrucciones" => "How to play?",
+		// errores sección de logueo
+		"logueo_vacio_usuario" => "User name not inserted",
+		"logueo_vacio_password" => "Password not inserted",
+		"logueo_error_usuario" => "User not found",
+		"logueo_error_password" => "Incorrect password",
 		
-		// -- ERRORS --
-		"userErr1" => "User field cannot be empty.",
-		"userErr2" => "Invalid user name.",
-		"loginUserErr" => "User not found.",
-		"userLogged" => "User successfully logged.",
-		"passwdErr1" => "Password field cannot be empty.",
-		"passwdErr2" => "Password must have at least 4 numbers, 1 capital and from 8 to 16 characters.",
-		"passwdMatchErr" => "Passwords must match.",
-		"emailErr1" => "E-mail field cannot be empty",
-		"emailErr2" => "Invalid e-mail.",
-		"emailErr3" => "Email already taken.",
-		"dateErr1" => "Birth date field cannot be empty.",
-		"dateErr2" => "Invalid birth date.",
-		"dateErr3" => "Birth date out of limits.",
-		"sizeErr" => "Maximum upload size overpassed (1MB).",
-		"fileErr" => "Only accepted jpg, jpge or png files.",
-		"fileErr2" => "Avatar field cannot be empty.",
-		"userRegistered" => "User successfully registered.",
-		"userErr3" => "User name already taken.",
+		// sección de registro
+        "registro_h1" => "Create an account",
+        "registro_label_nombre" => "User name *",
+        "registro_label_password" => "Password *",
+        "registro_label_password2" =>"Repeat password *",
+        "registro_label_email" => "E-mail *",
+        "registro_label_fecha" => "Date of birth *",
+        "registro_label_avatar" => "Profile photo *",
+        "registro_boton_entrar" => "Sign in",
+		
+        "registro_cambio_h1" => "Already have an account?",
+        "registro_cambio_text" => "Log in and let's the Battling start",
+        "registro_cambio_logueo" => "LOG IN",
+		
+		// errores sección de registro
+		"registro_vacio_usuario" => "User name not inserted",
+		"registro_error_usuario" => "Invalid user name",
+		"registro_existing_usuario" => "User name is already taken",
+		"registro_vacio_password" => "Password not inserted",
+		"registro_error_password" => "Password must have at least one number, from 8 to 16 characters and caps",
+		"registro_error_match" => "Las contraseñas no coinciden",
+		"registro_vacio_email" => "E-mail not inserted",
+		"registro_error_email" => "Invalid e-mail",
+		"registro_existing_email" => "Email ya está en uso.",
+		"registro_vacio_fecha" => "Date of birth not inserted",
+		"registro_error_fecha" => "Invalid date of birth",
+		"registro_error_edad" => "Date of birth out of bounds",
+		"registro_error_max" => "The selected file exceeds the maximum weight",
+		"registro_error_extension" => "Only .jpg, .jpge or .png files are accepted",
+		"registro_vacio_foto" => "Profile photo not inserted",
+		"registro_failed_new_login" => "Sorry, could not log in with the registered user",
+
+		// inicio.php
+		"inicioPerfil" => "Perfil",
+		"inicioBatalla" => "Batallas",
+		"inicioElemento" => "Elementos",
+		"inicioLogro" => "Logros",
+		"inicioInstrucciones" => "¿Como jugar?",
+
+		// HASTA AQUI ESTA FUNCIONANDO « /provisional »
+		
+
 		"elementNameErr" => "Empty name field",
 		"elementNameErr2" => "Invalid element name",
 		
