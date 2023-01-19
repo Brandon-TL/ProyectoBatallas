@@ -24,13 +24,13 @@
     ?>
     <header>
         <div class="selectors">
-            <!-- <div class="dropdown" title="Select language">
+            <div class="dropdown" title="Select language">
                 <button><?php echo $lang['selected_lang']; ?></button>
                 <ul>
                     <li><a href="index.php?lang=en"><div class="flag en"></div><?php echo $lang['lang_en'] ?></a></li>
                     <li><a href="index.php?lang=es"><div class="flag es"></div><?php echo $lang['lang_es'] ?></a></li>
                 </ul>
-            </div> -->
+            </div>
             <form action="" method="POST" class="theme-form">
                 <button name="tema" value="dark" class="dark"><ion-icon name="moon-outline"></ion-icon></button>
                 <button name="tema" value="light" class="light"><ion-icon name="sunny-outline"></ion-icon></button>

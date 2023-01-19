@@ -1,6 +1,6 @@
 <?php
 	$lang = array(
-		"selected_lang" => "ES",
+		"selected_lang" => "Español",
 		
 		// Idiomas
 		"lang_en" => "Inglés",

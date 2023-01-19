@@ -1,30 +1,43 @@
 :root {
     /* FONTS COLOR */
-    --background-color: #222;
-    --h2-color: #fff;
-    --theme-icon-color: #222;
-    --form-color: #fff;
-    --footer-p-color: #fff;
-    --footer-a-color: #3c97bf;
-    --button-and-sumbit-color: #fff;
-    --button-border-color: #FFFFFF;
+    --index-background: #222;
 
-    /* BACKGROUNDS COLOR */
+    /* DROPDOWN IDIOMA */
+    --dropdown-button-background-color: #eee;
+    --dropdown-color: #000;
+    --dropdown-box-shadow: 0 5px 5px rgb(0 0 0 / 60%), 0 10px 10px rgb(0 0 0 / 60%);
+    --dropdown-hover-color: 0 5px 5px rgb(0 0 0 / 60%), 0 10px 10px rgb(0 0 0 / 60%);
+    --dropdown-background-color: #eee;
+    --dropdown-a-background-color: transparent;
+    --dropdown-a-color: #000;
+    --dropdown-a-hover-color: rgba(0, 0, 0, 0.1);
+
+    /* THEME BUTTON */
     --theme-button-background-color: #f6f5f7;
-    --container-background-color: #222;
-    --form-background-color: #222;
-    --submit-background-color: #0987db;
+    --theme-button-box-shadow: 0 5px 5px rgb(0 0 0 / 30%), 0 10px 10px rgb(0 0 0 / 30%);
+    --theme-button-icon-color: #222;
+    --theme-button-dark-display: none;
+    --theme-button-light-display: block;
+
+    /* FORM CONTAINER */
+    --h2-color: #fff;
+    --button-and-sumbit-color: #fff;
     --submit-border-color: #0987db;
+    --submit-background-color: #0987db;
+    --ghost-border-color: #FFFFFF;
+    --form-background-color: #222;
+    --form-color: #fff;
     --input-background-color: #eee;
-    --footer-background-color: #222;
+    --container-background-color: #222;
+    --container-box-shadow: 0 14px 28px rgb(0 0 0 / 30%), 0 10px 10px rgb(0 0 0 / 25%);
+
+    /* OVERLAY*/
     --overlay-background-color: #0987db;
     --overlay-background-webkit-color: -webkit-linear-gradient(to right, #072f64, #0987db);
     --overlay-background-linear-color: linear-gradient(to right, #072f64, #0987db);
 
-    /* THEME BUTTON DISPLAY */
-    --dark-display: none;
-    --light-display: block;
-    
-    /* CONTAINER BOX SHADOW */
-    --container-box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+    /* FOOTER */
+    --footer-p-color: #fff;
+    --footer-a-color: #3c97bf;
+    --footer-background-color: #222;
 }
