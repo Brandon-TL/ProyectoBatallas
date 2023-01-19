@@ -47,7 +47,7 @@
 		"registro_existing_usuario" => "User name is already taken",
 		"registro_vacio_password" => "Password not inserted",
 		"registro_error_password" => "Password must have at least one number, from 8 to 16 characters and caps",
-		"registro_error_match" => "Las contraseñas no coinciden",
+		"registro_error_match" => "Passwords do not match",
 		"registro_vacio_email" => "E-mail not inserted",
 		"registro_error_email" => "Invalid e-mail",
 		"registro_existing_email" => "Email ya está en uso.",

@@ -28,6 +28,8 @@
     --form-background-color: #FFFFFF;
     --form-color: #000;
     --input-background-color: #eee;
+    --error-background-color: rgb(255, 182, 193);
+    --error-color: red;
     --container-background-color: #fff;
     --container-box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
     

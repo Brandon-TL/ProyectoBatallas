@@ -227,6 +227,16 @@ input {
 	}
 }
 
+span.error {
+	width: 100%;
+	margin-top: -8px;
+	padding: 2px 0;
+	background-color: var(--error-background-color);
+	color: var(--error-color);
+}
+
+/* OVERLAY */
+
 .overlay-container {
 	position: absolute;
 	top: 0;
@@ -242,7 +252,6 @@ input {
 	transform: translateX(-100%);
 }
 
-/* OVERLAY */
 
 .overlay {
 	background: var(--overlay-background-color);
