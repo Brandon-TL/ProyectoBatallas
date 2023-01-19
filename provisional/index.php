@@ -27,8 +27,8 @@
             <div class="dropdown" title="Select language">
                 <button><?php echo $lang['selected_lang']; ?></button>
                 <ul>
-                    <li><a href="index.php?lang=en"><div class="flag en"></div><?php echo $lang['lang_en'] ?></a></li>
-                    <li><a href="index.php?lang=es"><div class="flag es"></div><?php echo $lang['lang_es'] ?></a></li>
+                    <li><a href="index.php?lang=en"><?php echo $lang['lang_en'] ?></a></li>
+                    <li><a href="index.php?lang=es"><?php echo $lang['lang_es'] ?></a></li>
                 </ul>
             </div>
             <form action="" method="POST" class="theme-form">

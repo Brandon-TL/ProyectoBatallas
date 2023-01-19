@@ -34,9 +34,17 @@ body {
 	box-shadow: var(--dropdown-box-shadow);
 }
 
+.dropdown > button:focus + ul {
+	transform: translateY(0);
+	opacity: 1;
+}
+
 .dropdown > ul {
 	background-color: var(--dropdown-background-color);
 	margin-top: 10px;
+	transform: translateY(30px);
+	opacity: 0;
+    transition: all .4s ease;
 }
 
 .dropdown > ul > li {
