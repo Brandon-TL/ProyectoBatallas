@@ -1,6 +1,5 @@
 :root {
-    /* INDEX */
-    --index-background: #f6f5f7;
+    --body-background: #f6f5f7;
 
     /* DROPDOWN IDIOMA */
     --dropdown-button-background-color: #222;
@@ -20,18 +19,18 @@
     --theme-button-light-display: none;
     
     /* FORM CONTAINER */
-    --h2-color: #000;
-    --button-and-sumbit-color: #fff;
-    --submit-border-color: #FF4B2B;
-    --submit-background-color: #FF4B2B;
-    --ghost-border-color: #FFFFFF;
-    --form-background-color: #FFFFFF;
-    --form-color: #000;
-    --input-background-color: #eee;
-    --error-background-color: rgb(255, 182, 193);
-    --error-color: red;
-    --container-background-color: #fff;
-    --container-box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+    --index-h2-color: #000;
+    --index-button-and-sumbit-color: #fff;
+    --index-submit-border-color: #FF4B2B;
+    --index-submit-background-color: #FF4B2B;
+    --index-ghost-border-color: #FFFFFF;
+    --index-form-background-color: #FFFFFF;
+    --index-form-color: #000;
+    --index-input-background-color: #eee;
+    --index-error-background-color: rgb(255, 182, 193);
+    --index-error-color: red;
+    --index-container-background-color: #fff;
+    --index-container-box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
     
     /* OVERLAY*/
     --overlay-background-color: #FF416C;

@@ -1,6 +1,5 @@
 :root {
-    /* FONTS COLOR */
-    --index-background: #222;
+    --body-background: #eee;
 
     /* DROPDOWN IDIOMA */
     --dropdown-button-background-color: #eee;
@@ -19,21 +18,21 @@
     --theme-button-dark-display: none;
     --theme-button-light-display: block;
 
-    /* FORM CONTAINER */
-    --h2-color: #fff;
-    --button-and-sumbit-color: #fff;
-    --submit-border-color: #0987db;
-    --submit-background-color: #0987db;
-    --ghost-border-color: #FFFFFF;
-    --form-background-color: #222;
-    --form-color: #fff;
-    --input-background-color: #eee;
-    --error-background-color: rgb(255, 182, 193);
-    --error-color: red;
-    --container-background-color: #222;
-    --container-box-shadow: 0 14px 28px rgb(0 0 0 / 30%), 0 10px 10px rgb(0 0 0 / 25%);
+    /* INDEX FORM CONTAINER */
+    --index-h2-color: #fff;
+    --index-button-and-sumbit-color: #fff;
+    --index-submit-border-color: #0987db;
+    --index-submit-background-color: #0987db;
+    --index-ghost-border-color: #FFFFFF;
+    --index-form-background-color: #222;
+    --index-form-color: #fff;
+    --index-input-background-color: #eee;
+    --index-error-background-color: rgb(255, 182, 193);
+    --index-error-color: red;
+    --index-container-background-color: #222;
+    --index-container-box-shadow: 0 14px 28px rgb(0 0 0 / 30%), 0 10px 10px rgb(0 0 0 / 25%);
 
-    /* OVERLAY*/
+    /* INDEX OVERLAY */
     --overlay-background-color: #0987db;
     --overlay-background-webkit-color: -webkit-linear-gradient(to right, #072f64, #0987db);
     --overlay-background-linear-color: linear-gradient(to right, #072f64, #0987db);

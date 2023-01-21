@@ -11,9 +11,6 @@
         if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] != 'admin') {
             header("Location: inicio.php");
             exit();
-        } else if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] === 'admin') {
-            header("Location: admin.php");
-            exit();
         }
     ?>
     <title><?php echo $lang['index_title'] ?></title>

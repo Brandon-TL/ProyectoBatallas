@@ -7,7 +7,7 @@
 }
 
 body {
-	background: var(--index-background);
+	background: var(--body-background);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -37,9 +37,9 @@ body {
 .dropdown > ul {
 	background-color: var(--dropdown-background-color);
 	margin-top: 10px;
-	transform: translateY(30px);
+	transform: translateY(-200px);
 	opacity: 0;
-    transition: all .4s ease;
+    transition: all .4s ease-in-out;
 }
 
 .dropdown > button:focus + ul {
@@ -110,6 +110,7 @@ button > ion-icon {
 .tabs__label {
     padding: 10px 16px;
     cursor: pointer;
+	background-color: white;
 }
 
 .tabs__radio{ 
@@ -128,4 +129,49 @@ button > ion-icon {
 
 .tabs__radio:checked + .tabs__label + .tabs__content {
     display: initial;
+}
+
+
+
+button {
+    cursor: pointer;
+	border-radius: 20px;
+	color: var(--button-and-sumbit-color);
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: var(--footer-background-color);
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+    color: var(--footer-p-color);
+}
+
+footer a {
+    color: var(--footer-a-color);
+    text-decoration: none;
 }

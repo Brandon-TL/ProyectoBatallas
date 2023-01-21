@@ -59,13 +59,14 @@
 		"registro_vacio_foto" => "Campo de foto de perfil vacío",
 		"registro_failed_new_login" => "Lo sentimos, no se ha podido iniciar sesión con el usuario registrado",
 
-		// inicio.php
+		// perfil.php
 		"perfil_title" => "Página principal",
 
-		"inicioBatalla" => "Batallas",
-		"inicioElemento" => "Elementos",
-		"inicioLogro" => "Logros",
-		"inicioInstrucciones" => "¿Como jugar?",
+		"perfil_tab_perfil_title" => "Perfil",
+		"perfil_tab_batallas_title" => "Batallas",
+		"perfil_tab_elementos_title" => "Elementos",
+		"perfil_tab_logros_title" => "Logros",
+		"perfil_tab_como_title" => "¿Como jugar?",
 
 		// HASTA AQUI ESTA FUNCIONANDO « /provisional »
 		

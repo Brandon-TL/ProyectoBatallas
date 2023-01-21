@@ -59,8 +59,9 @@
 		"registro_vacio_foto" => "Profile photo not inserted",
 		"registro_failed_new_login" => "Sorry, could not log in with the registered user",
 
-		// inicio.php
-		"inicioPerfil" => "Perfil",
+		// perfil.php
+		"perfil_title" => "Homepage",
+
 		"inicioBatalla" => "Batallas",
 		"inicioElemento" => "Elementos",
 		"inicioLogro" => "Logros",
