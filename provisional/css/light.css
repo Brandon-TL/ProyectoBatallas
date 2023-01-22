@@ -1,5 +1,13 @@
 :root {
     --body-background: #f6f5f7;
+    --header-background-color: #f6f5f7;
+
+    /* NAV TAB SELECTORS */
+    --tabs-label-color: #000;
+    --tabs-label-hover-color: #FF4B2B;
+    --tabs-active-label-color: #fff;
+    --tabs-active-label-box-shadow: -3px 7px 6px 0px rgb(0 0 0 / 30%);
+    --tabs-active-label-background: #FF4B2B;
 
     /* DROPDOWN IDIOMA */
     --dropdown-button-background-color: #FF4B2B;
@@ -42,15 +50,18 @@
     --overlay-background-webkit-color: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
     --overlay-background-linear-color: linear-gradient(to right, #FF4B2B, #FF416C);
 
-    /* NAV TAB SELECTORS */
-    --tabs-label-color: #000;
-    --tabs-label-hover-background-color: rgba(0, 0, 0, 0.2);
-    --tabs-active-label-color: #fff;
-    --tabs-active-label-box-shadow: -3px 7px 6px 0px rgb(0 0 0 / 30%);
-    --tabs-active-label-background: #FF4B2B;
-
     /* SECTION */
     --section-background-color: transparent;
+
+    /* SETTINGS TAB */
+    --settings-dropdown-color: #000;
+    --settings-h2-border-color: rgb(255 255 255 / 10%);
+    --settings-hover-color: #00000020;
+    --settings-content-color: #777;
+    --settings-input-background-color: #eee;
+    --settings-submit-color: #fff;
+    --settings-submit-border-color: #FF4B2B;
+    --settings-submit-background-color: #FF4B2B;
 
     /* FOOTER */
     --footer-background-color: #222;

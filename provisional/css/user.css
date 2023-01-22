@@ -50,16 +50,17 @@ header {
 	line-height: 40px;
 	text-align: center;
 	text-transform: uppercase;
+	border-radius: 40px;
     cursor: pointer;
 	padding: 0 15px;
 	margin: 0 5px;
+	font-weight: bold;
 	color: var(--tabs-label-color);
 	z-index: 1;
 }
 
 .tabs__label:hover {
-	border-radius: 40px;
-	background-color: var(--tabs-label-hover-background-color);
+	box-shadow: inset 0 0 0 2px var(--tabs-label-hover-color);
 }
 
 .tabs__label.active {

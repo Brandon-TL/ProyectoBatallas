@@ -5,12 +5,12 @@
 
 .settings_accordion .settings_dropdown {
     list-style: none;
-    color: white;
+    color: var(--settings-dropdown-color);
     width: 100%;
 }
 
 .settings_hr {
-    border-color: rgb(255 255 255 / 10%);
+    border-color: var(--settings-h2-border-color);
 }
 
 .settings_accordion .settings_dropdown .settings_label .icon {
@@ -38,7 +38,7 @@
 }
 
 .settings_accordion .settings_dropdown .settings_label:hover {
-    background-color: #00000040;
+    background-color: var(--settings-hover-color);
 }
 
 .settings_accordion .settings_radio {
@@ -50,7 +50,7 @@
 	grid-template-columns: repeat(3, 1fr);
 	grid-auto-rows: repeat(6, 1fr);
 	grid-gap: 5px;
-    color: #777;
+    color: var(--settings-content-color);
     padding: 0 10px;
     line-height: 26px;
     max-height: 0;
@@ -90,7 +90,7 @@
 }
 
 input {
-	background-color: var(--index-input-background-color);
+	background-color: var(--settings-input-background-color);
 	border: none;
 	padding: 12px 15px;
 	width: 100%;
@@ -98,7 +98,7 @@ input {
 
 input[type="submit"] {
     cursor: pointer;
-	color: var(--index-button-and-sumbit-color);
+	color: var(--settings-submit-color);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
@@ -108,8 +108,8 @@ input[type="submit"] {
 }
 
 input[type="submit"] {
-	border: 1px solid var(--index-submit-border-color);
-	background-color: var(--index-submit-background-color);
+	border: 1px solid var(--settings-submit-border-color);
+	background-color: var(--settings-submit-background-color);
 }
 
 input[type="submit"]:active {

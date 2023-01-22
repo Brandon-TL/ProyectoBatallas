@@ -24,8 +24,8 @@
             <label for="perfi" class="tabs__label"><?php echo $lang['perfil_tab_perfil_title'] ?></label>
             <label for="batallas" class="tabs__label"><?php echo $lang['perfil_tab_batallas_title'] ?></label>
             <label for="elementos" class="tabs__label"><?php echo $lang['perfil_tab_elementos_title'] ?></label>
-            <label for="logros" class="tabs__label active"><?php echo $lang['perfil_tab_logros_title'] ?></label>
-            <label for="como" class="tabs__label"><?php echo $lang['perfil_tab_como_title'] ?></label>
+            <label for="logros" class="tabs__label"><?php echo $lang['perfil_tab_logros_title'] ?></label>
+            <label for="como" class="tabs__label active"><?php echo $lang['perfil_tab_como_title'] ?></label>
         </nav>
         <div class="selectors">
             <div class="dropdown" title="Select language">
