@@ -5,11 +5,11 @@
 		// Idiomas
 		"lang_en" => "English",
 		"lang_es" => "Spanish",
+		"footer_text" => "Created by",
 		
 		// index.php
 		"index_title" => "Access to Batallas.com",
 		"index_h2" => "Batallas.com",
-		"index_footer_text" => "Created by",
 		
 		// sección de logueo
 		"logueo_h1" => "Log in",
@@ -62,10 +62,11 @@
 		// perfil.php
 		"perfil_title" => "Homepage",
 
-		"inicioBatalla" => "Batallas",
-		"inicioElemento" => "Elementos",
-		"inicioLogro" => "Logros",
-		"inicioInstrucciones" => "¿Como jugar?",
+		"perfil_tab_perfil_title" => "Profile",
+		"perfil_tab_batallas_title" => "Battles",
+		"perfil_tab_elementos_title" => "Elements",
+		"perfil_tab_logros_title" => "Achivements",
+		"perfil_tab_como_title" => "How to play?",
 
 		// HASTA AQUI ESTA FUNCIONANDO « /provisional »
 		

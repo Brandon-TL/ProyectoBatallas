@@ -23,8 +23,9 @@ body {
 .selectors {
 	position: absolute;
 	display: flex;
-	top: 30px;
+	top: 20px;
 	right: 30px;
+	z-index: 99;
 }
 
 .dropdown button {
@@ -100,43 +101,109 @@ button > ion-icon {
 	display: var(--theme-button-light-display);
 }
 
-/* CONTENIDO PRINCIPAL */
+/* SETTINGS BUTTON */
 
-.tabs {
-    display: flex;
-    flex-wrap: wrap;
+.settings {
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	margin: 0;
+	border-radius: 40px;
+	margin-left: 20px;
+	overflow: hidden;
+	border: none;
+	color: var(--settings-button-color);
+	background-color: var(--settings-button-background-color);
+	box-shadow: var(--settings-button-box-shadow);
 }
 
-.tabs__label {
-    padding: 10px 16px;
-    cursor: pointer;
-	background-color: white;
+.settings label {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
 }
+
+.settings label ion-icon {
+	width: 20px;
+	height: 40px;
+}
+
+/* NAV TAB SELECTORS */
 
 .tabs__radio{ 
     display: none;
 }
 
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+	position: fixed;
+	left: 30px;
+	top: 20px;
+	width: max-content;
+	height: 40px;
+	z-index: 99;
+}
+
+.tabs__label {
+	display: inline-block;
+	line-height: 40px;
+	border-radius: 40px;
+	text-align: center;
+	text-transform: uppercase;
+    cursor: pointer;
+	padding: 0 15px;
+	margin: 0 5px;
+	color: var(--tabs-label-color);
+	z-index: 1;
+}
+
+.tabs__label:hover {
+	background-color: var(--tabs-label-hover-background-color);
+}
+
+.tabs__label.active {
+	background-color: var(--tabs-active-label-background);
+	color: var(--tabs-active-label-color);
+	border-radius: 40px;
+	font-weight: bold;
+	box-shadow: var(--tabs-active-label-box-shadow);
+}
+
+section {
+	width: 100%;
+    height: 100vh;
+	position: absolute;
+	display: flex;
+	padding: 180px;
+	justify-content: center;
+	background-color: var(--section-background-color);
+	z-index: 1;
+}
+
 .tabs__content {
-    order: 1;
-    width: 100%;
     display: none;
 }
 
-.tabs__radio:checked + .tabs__label {
-    font-weight: bold;
+.tabs__content::-webkit-scrollbar {
+    display: none;
 }
 
-.tabs__radio:checked + .tabs__label + .tabs__content {
-    display: initial;
+#perfil:checked ~ section .tab__1,
+#batallas:checked ~ section .tab__2,
+#elementos:checked ~ section .tab__3,
+#logros:checked ~ section .tab__4,
+#como:checked ~ section .tab__5,
+#ajustes:checked ~ section .tab__6 {
+    display: block;
 }
 
-
+/* CONTENIDO PRINCIPAL */
 
 button {
     cursor: pointer;
 	border-radius: 20px;
-	color: var(--button-and-sumbit-color);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
@@ -163,7 +230,7 @@ footer {
     left: 0;
     right: 0;
     text-align: center;
-    z-index: 999;
+	z-index: 99;
 }
 
 footer p {

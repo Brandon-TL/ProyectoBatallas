@@ -9,7 +9,7 @@
         require_once './php/visual.php';
         session_start();
         if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] != 'admin') {
-            header("Location: inicio.php");
+            header("Location: perfil.php");
             exit();
         }
     ?>

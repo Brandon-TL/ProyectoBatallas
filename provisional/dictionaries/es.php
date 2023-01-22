@@ -5,11 +5,11 @@
 		// Idiomas
 		"lang_en" => "Inglés",
 		"lang_es" => "Español",
+		"footer_text" => "Creado por",
 		
 		// index.php
 		"index_title" => "Acceso a Batallas.com",
 		"index_h2" => "Batallas.com",
-		"index_footer_text" => "Creado por",
 		
 		// sección de logueo
 		"logueo_h1" => "Iniciar sesión",

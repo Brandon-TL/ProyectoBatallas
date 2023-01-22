@@ -2,7 +2,7 @@
     --body-background: #f6f5f7;
 
     /* DROPDOWN IDIOMA */
-    --dropdown-button-background-color: #222;
+    --dropdown-button-background-color: #FF4B2B;
     --dropdown-color: #fff;
     --dropdown-box-shadow: 0 5px 5px rgb(0 0 0 / 30%), 0 10px 10px rgb(0 0 0 / 30%);
     --dropdown-hover-color: 0 5px 5px rgb(0 0 0 / 30%), 0 10px 10px rgb(0 0 0 / 30%);
@@ -18,7 +18,12 @@
     --theme-button-dark-display: block;
     --theme-button-light-display: none;
     
-    /* FORM CONTAINER */
+    /* SETTINGS BUTTON */
+    --settings-button-color: #fff;
+    --settings-button-background-color: #FF4B2B;
+    --settings-button-box-shadow: 0 5px 5px rgb(0 0 0 / 30%), 0 10px 10px rgb(0 0 0 / 30%);
+
+    /* INDEX FORM CONTAINER */
     --index-h2-color: #000;
     --index-button-and-sumbit-color: #fff;
     --index-submit-border-color: #FF4B2B;
@@ -32,11 +37,21 @@
     --index-container-background-color: #fff;
     --index-container-box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
     
-    /* OVERLAY*/
+    /*  INDEX OVERLAY*/
     --overlay-background-color: #FF416C;
     --overlay-background-webkit-color: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
     --overlay-background-linear-color: linear-gradient(to right, #FF4B2B, #FF416C);
-    
+
+    /* NAV TAB SELECTORS */
+    --tabs-label-color: #000;
+    --tabs-label-hover-background-color: rgba(0, 0, 0, 0.2);
+    --tabs-active-label-color: #fff;
+    --tabs-active-label-box-shadow: -3px 7px 6px 0px rgb(0 0 0 / 30%);
+    --tabs-active-label-background: #FF4B2B;
+
+    /* SECTION */
+    --section-background-color: transparent;
+
     /* FOOTER */
     --footer-background-color: #222;
     --footer-p-color: #fff;

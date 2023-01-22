@@ -1,9 +1,9 @@
 :root {
-    --body-background: #eee;
+    --body-background: #222;
 
     /* DROPDOWN IDIOMA */
-    --dropdown-button-background-color: #eee;
-    --dropdown-color: #000;
+    --dropdown-button-background-color: #0987db;
+    --dropdown-color: #fff;
     --dropdown-box-shadow: 0 5px 5px rgb(0 0 0 / 60%), 0 10px 10px rgb(0 0 0 / 60%);
     --dropdown-hover-color: 0 5px 5px rgb(0 0 0 / 60%), 0 10px 10px rgb(0 0 0 / 60%);
     --dropdown-background-color: #eee;
@@ -14,9 +14,14 @@
     /* THEME BUTTON */
     --theme-button-background-color: #f6f5f7;
     --theme-button-box-shadow: 0 5px 5px rgb(0 0 0 / 30%), 0 10px 10px rgb(0 0 0 / 30%);
-    --theme-button-icon-color: #222;
+    --theme-button-icon-color: #000;
     --theme-button-dark-display: none;
     --theme-button-light-display: block;
+
+    /* SETTINGS BUTTON */
+    --settings-button-color: #fff;
+    --settings-button-background-color: #0987db;
+    --settings-button-box-shadow: 0 5px 5px rgb(0 0 0 / 60%), 0 10px 10px rgb(0 0 0 / 60%);
 
     /* INDEX FORM CONTAINER */
     --index-h2-color: #fff;
@@ -36,6 +41,16 @@
     --overlay-background-color: #0987db;
     --overlay-background-webkit-color: -webkit-linear-gradient(to right, #072f64, #0987db);
     --overlay-background-linear-color: linear-gradient(to right, #072f64, #0987db);
+
+    /* NAV TAB SELECTORS */
+    --tabs-label-color: #fff;
+    --tabs-label-hover-background-color: rgba(255, 255, 255, 0.2);
+    --tabs-active-label-color: #fff;
+    --tabs-active-label-box-shadow: 0 5px 5px rgb(0 0 0 / 60%), 0 10px 10px rgb(0 0 0 / 60%);
+    --tabs-active-label-background: #0987db;
+
+    /* SECTION */
+    --section-background-color: transparent;
 
     /* FOOTER */
     --footer-p-color: #fff;
