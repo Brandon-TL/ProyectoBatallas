@@ -31,7 +31,7 @@
         "registro_h1" => "Crea una cuenta",
         "registro_label_nombre" => "Nombre de usuario *",
         "registro_label_password" => "Contraseña *",
-        "registro_label_password2" =>"Repetir contraseña *",
+        "registro_label_password2" =>"Confirmar contraseña *",
         "registro_label_email" => "E-mail *",
         "registro_label_fecha" => "Fecha de nacimiento *",
         "registro_label_avatar" => "Foto de perfil *",
