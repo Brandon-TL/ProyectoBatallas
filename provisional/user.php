@@ -20,6 +20,13 @@
 </head>
 <body>
     <header>
+        <nav class="tabs">
+            <label for="perfi" class="tabs__label active"><?php echo $lang['perfil_tab_perfil_title'] ?></label>
+            <label for="batallas" class="tabs__label"><?php echo $lang['perfil_tab_batallas_title'] ?></label>
+            <label for="elementos" class="tabs__label"><?php echo $lang['perfil_tab_elementos_title'] ?></label>
+            <label for="logros" class="tabs__label"><?php echo $lang['perfil_tab_logros_title'] ?></label>
+            <label for="como" class="tabs__label"><?php echo $lang['perfil_tab_como_title'] ?></label>
+        </nav>
         <div class="selectors">
             <div class="dropdown" title="Select language">
                 <button><?php echo $lang['selected_lang']; ?></button>
@@ -42,13 +49,6 @@
     <input type="radio" class="tabs__radio" name="slider" id="logros">
     <input type="radio" class="tabs__radio" name="slider" id="como">
     <input type="radio" class="tabs__radio" name="slider" id="ajustes" checked>
-    <nav class="tabs">
-        <label for="perfi" class="tabs__label active"><?php echo $lang['perfil_tab_perfil_title'] ?></label>
-        <label for="batallas" class="tabs__label"><?php echo $lang['perfil_tab_batallas_title'] ?></label>
-        <label for="elementos" class="tabs__label"><?php echo $lang['perfil_tab_elementos_title'] ?></label>
-        <label for="logros" class="tabs__label"><?php echo $lang['perfil_tab_logros_title'] ?></label>
-        <label for="como" class="tabs__label"><?php echo $lang['perfil_tab_como_title'] ?></label>
-    </nav>
     <section>
         <div class="tab__1 tabs__content"><?php require_once ('./tabs/perfil.php') ?></div>
         <div class="tab__2 tabs__content"><?php require_once ('./tabs/batallas.php') ?></div>
