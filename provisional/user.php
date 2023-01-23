@@ -47,8 +47,8 @@
     <input type="radio" class="tabs__radio" name="slider" id="batallas">
     <input type="radio" class="tabs__radio" name="slider" id="elementos">
     <input type="radio" class="tabs__radio" name="slider" id="logros">
-    <input type="radio" class="tabs__radio" name="slider" id="como">
-    <input type="radio" class="tabs__radio" name="slider" id="ajustes" checked>
+    <input type="radio" class="tabs__radio" name="slider" id="como" checked>
+    <input type="radio" class="tabs__radio" name="slider" id="ajustes">
     <section>
         <div class="tab__1 tabs__content"><?php require_once ('./tabs/perfil.php') ?></div>
         <div class="tab__2 tabs__content"><?php require_once ('./tabs/batallas.php') ?></div>

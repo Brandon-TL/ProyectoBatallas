@@ -17,6 +17,7 @@
         "logueo_label_password" => "Contraseña *",
         "logueo_boton_entrar" => "ENTRAR",
 
+		// overlay sección de logueo
         "logueo_cambio_h1" => "¿Aún no tienes cuenta?",
         "logueo_cambio_text" => "Introduce tus datos y empieza a luchar con nosotros",
         "logueo_cambio_registro" => "CREAR CUENTA",
@@ -37,6 +38,7 @@
         "registro_label_avatar" => "Foto de perfil *",
         "registro_boton_entrar" => "REGISTRARSE",
 		
+		// overlay sección de registro
         "registro_cambio_h1" => "¿Ya tienes cuenta?",
         "registro_cambio_text" => "Inicia sesión y que empiecen las batallas",
         "registro_cambio_logueo" => "INICIAR SESIÓN",
@@ -61,16 +63,51 @@
 
 		// perfil.php
 		"perfil_title" => "Página principal",
-
 		"perfil_tab_perfil_title" => "Perfil",
 		"perfil_tab_batallas_title" => "Batallas",
 		"perfil_tab_elementos_title" => "Elementos",
 		"perfil_tab_logros_title" => "Logros",
 		"perfil_tab_como_title" => "¿Como jugar?",
 
+		// ajustes.php
+		"ajustes_boton_confirmar" => "CONFIRMAR CAMBIO",
+		"ajustes_boton_salir" => "CERRAR SESIÓN",
+		"ajustes_boton_eliminar" => "ELIMINAR CUENTA",
+		"ajustes_foto_label" => "Cambiar foto de perfil",
+		"ajustes_foto_title" => "CAMBIA TU FOTO DE PERFIL",
+		"ajustes_foto_text" => "Puedes hacer esto cuando te hayas aburrido de la que tienes.",
+		"ajustes_nombre_label" => "Cambiar nombre de usuario",
+		"ajustes_nombre_title" => "CAMBIA TU NOMBRE DE USUARIO",
+		"ajustes_nombre_text" => "Puedes hacer esto si no te convence el que ya tienes.",
+		"ajustes_nombre_placeholder" => "Nuevo nombre de usuario *",
+		"ajustes_nombre_placeholder2" => "Confirmar nombre de usuario *",
+		"ajustes_password_label" => "Cambiar contraseña",
+		"ajustes_password_title" => "CAMBIA TU CONTRASEÑA",
+		"ajustes_password_text" => "Realizar esta acción cada cierto tiempo es bueno para la seguridad de tu cuenta.",
+		"ajustes_password_placeholder" => "Nueva contraseña *",
+		"ajustes_password_placeholder2" => "Confirmar contraseña *",
+		"ajustes_email_label" => "Cambiar e-mail",
+		"ajustes_email_title" => "CAMBIA TU E-MAIL",
+		"ajustes_email_text" => "Aquí puede cambiar el correo electrónico vinculado a tu cuenta.",
+		"ajustes_email_placeholder" => "Nuevo e-mail *",
+		"ajustes_email_placeholder2" => "Confirmar e-mail *",
+		"ajustes_fecha_label" => "Cambiar fecha de nacimiento",
+		"ajustes_fecha_title" => "CAMBIA TU FECHA DE NACIMIENTO",
+		"ajustes_fecha_text" => "Si por algún casual indrodujiste mal tu fecha de nacimiento al registrar tu cuenta, no te preocupes, nosotros pensamos en todo.",
+		"ajustes_fecha_placeholder" => "Nueva fecha de nacimiento *",
+		"ajustes_fecha_placeholder2" => "Confirmar fecha de nacimiento *",
+		"ajustes_logout_label" => "Cerrar sesión",
+		"ajustes_logout_title" => "NO ES UN ADIÓS, ES UN HASTA LUEGO",
+		"ajustes_logout_text" => "Manten la calma, nosotros guardaremos todo tal y como lo dejaste hasta tu regreso.",
+		"ajustes_eliminar_label" => "Eliminar cuenta",
+		"ajustes_eliminar_title" => "ELIMINAR CUENTA",
+		"ajustes_eliminar_text" => "¿Estás seguro de esto?",
+		"ajustes_eliminar_confirm" => "Escribe 'CONFIRMAR' para estar seguros de que no es un error.",
+		"ajustes_eliminar_confirm_placeholder" => "Escriba la palabra de seguridad *",
+		"ajustes_eliminar_confirm_placeholder2" => "Queremos mejorar y para ello puedes indicarnos el motivo por el que quieres eliminar tu cuenta",
+
 		// HASTA AQUI ESTA FUNCIONANDO « /provisional »
 		
-
 		"elementNameErr" => "Campo nombre vacío",
 		"elementNameErr2" => "Nombre de elemento no válido",
 

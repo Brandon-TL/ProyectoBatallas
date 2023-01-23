@@ -17,6 +17,7 @@
         "logueo_label_password" => "Password *",
         "logueo_boton_entrar" => "ACCESS",
 
+		// overlay sección de logueo
         "logueo_cambio_h1" => "It's your first time here?",
         "logueo_cambio_text" => "Enter your personal details and start battling with us",
         "logueo_cambio_registro" => "CREATE ACCOUNT",
@@ -33,10 +34,11 @@
         "registro_label_password" => "Password *",
         "registro_label_password2" =>"Confirm password *",
         "registro_label_email" => "E-mail *",
-        "registro_label_fecha" => "Date of birth *",
+        "registro_label_fecha" => "Birth date *",
         "registro_label_avatar" => "Profile photo *",
         "registro_boton_entrar" => "Sign in",
 		
+		// overlay sección de registro
         "registro_cambio_h1" => "Already have an account?",
         "registro_cambio_text" => "Log in and let's the Battling start",
         "registro_cambio_logueo" => "LOG IN",
@@ -51,9 +53,9 @@
 		"registro_vacio_email" => "E-mail not inserted",
 		"registro_error_email" => "Invalid e-mail",
 		"registro_existing_email" => "Email ya está en uso.",
-		"registro_vacio_fecha" => "Date of birth not inserted",
-		"registro_error_fecha" => "Invalid date of birth",
-		"registro_error_edad" => "Date of birth out of bounds",
+		"registro_vacio_fecha" => "Birth date not inserted",
+		"registro_error_fecha" => "Invalid birth date",
+		"registro_error_edad" => "Birth date out of bounds",
 		"registro_error_max" => "The selected file exceeds the maximum weight",
 		"registro_error_extension" => "Only .jpg, .jpge or .png files are accepted",
 		"registro_vacio_foto" => "Profile photo not inserted",
@@ -61,16 +63,51 @@
 
 		// perfil.php
 		"perfil_title" => "Homepage",
-
 		"perfil_tab_perfil_title" => "Profile",
 		"perfil_tab_batallas_title" => "Battles",
 		"perfil_tab_elementos_title" => "Elements",
 		"perfil_tab_logros_title" => "Achivements",
 		"perfil_tab_como_title" => "How to play?",
 
+		// ajustes.php
+		"ajustes_boton_confirmar" => "CONFIRM",
+		"ajustes_boton_salir" => "LOG OUT",
+		"ajustes_boton_eliminar" => "DELETE ACCOUNT",
+		"ajustes_foto_label" => "Change profile photo",
+		"ajustes_foto_title" => "CHANGE YOUR PROFILE PHOTO",
+		"ajustes_foto_text" => "You can do this whenever you get bored with the one you have.",
+		"ajustes_nombre_label" => "Change user name",
+		"ajustes_nombre_title" => "CHANGE YOUR USER NAME",
+		"ajustes_nombre_text" => "You can do this if you don't like the one you already have.",
+		"ajustes_nombre_placeholder" => "New user name *",
+		"ajustes_nombre_placeholder2" => "Confirm user name *",
+		"ajustes_password_label" => "Change password",
+		"ajustes_password_title" => "CHANGE YOUR PASSWORD",
+		"ajustes_password_text" => "Performing this action from time to time is good for the security of your account.",
+		"ajustes_password_placeholder" => "New password *",
+		"ajustes_password_placeholder2" => "Confirm new password *",
+		"ajustes_email_label" => "Change e-mail",
+		"ajustes_email_title" => "CHANGE YOUR E-MAIL",
+		"ajustes_email_text" => "Here you can change the e-mail linked to your account.",
+		"ajustes_email_placeholder" => "New e-mail *",
+		"ajustes_email_placeholder2" => "Confirm e-mail *",
+		"ajustes_fecha_label" => "Change birth date",
+		"ajustes_fecha_title" => "CHANGE YOUR BIRHT DATE",
+		"ajustes_fecha_text" => "If by any chance you entered your birth date wrong when registering your account, don't worry, we think of everything.",
+		"ajustes_fecha_placeholder" => "New birth date *",
+		"ajustes_fecha_placeholder2" => "Confirm birth date *",
+		"ajustes_logout_label" => "Log out",
+		"ajustes_logout_title" => "IT'S NOT A GOODBYE, IT'S A SEE YOU LATER",
+		"ajustes_logout_text" => "Keep calm, we will keep everything as you left it until your return.",
+		"ajustes_eliminar_label" => "Delete account",
+		"ajustes_eliminar_title" => "DELETE YOUR ACCOUNT",
+		"ajustes_eliminar_text" => "Are your sure about this?",
+		"ajustes_eliminar_confirm" => "Type 'CONFIRM' to make sure it's not an error.",
+		"ajustes_eliminar_confirm_placeholder" => "Enter the security word *",
+		"ajustes_eliminar_confirm_placeholder2" => "We want to improve and to do so you can let us know the reason why you want to delete your account",
+
 		// HASTA AQUI ESTA FUNCIONANDO « /provisional »
 		
-
 		"elementNameErr" => "Empty name field",
 		"elementNameErr2" => "Invalid element name",
 		

@@ -63,7 +63,7 @@ body {
 }
 
 .dropdown > ul > li > a:hover {
-	background-color: var(--dropdown-a-hover-color);
+	background-color: var(--dropdown-a-hover-background-color);
 }
 
 /* FORMULARIO TEMA */

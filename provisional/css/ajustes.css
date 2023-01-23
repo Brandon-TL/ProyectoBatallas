@@ -38,7 +38,7 @@
 }
 
 .settings_accordion .settings_dropdown .settings_label:hover {
-    background-color: var(--settings-hover-color);
+    background-color: var(--settings-hover-background-color);
 }
 
 .settings_accordion .settings_radio {
@@ -83,6 +83,10 @@
 .settings_accordion .settings_radio:checked + .settings_label + .settings_content {
     max-height: 400px;
     padding: 10px 10px 20px;
+}
+
+.settings_accordion .settings_radio:checked + .settings_label {
+    background-color: var(--settings-selected-label-background);
 }
 
 .settings_accordion .settings_radio:checked + .settings_label .arrow {
