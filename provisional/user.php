@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/user.css">
     <link rel="stylesheet" href="./css/ajustes.css">
     <link rel="stylesheet" href="./css/como.css">
+    <link rel="stylesheet" href="./css/perfil.css">
     <?php
         require_once './php/logica_perfil.php';
         require_once './php/visual.php';
@@ -22,11 +23,11 @@
 <body>
     <header>
         <nav class="tabs">
-            <label for="perfi" class="tabs__label"><?php echo $lang['perfil_tab_perfil_title'] ?></label>
+            <label for="perfil" class="tabs__label active"><?php echo $lang['perfil_tab_perfil_title'] ?></label>
             <label for="batallas" class="tabs__label"><?php echo $lang['perfil_tab_batallas_title'] ?></label>
             <label for="elementos" class="tabs__label"><?php echo $lang['perfil_tab_elementos_title'] ?></label>
             <label for="logros" class="tabs__label"><?php echo $lang['perfil_tab_logros_title'] ?></label>
-            <label for="como" class="tabs__label active"><?php echo $lang['perfil_tab_como_title'] ?></label>
+            <label for="como" class="tabs__label"><?php echo $lang['perfil_tab_como_title'] ?></label>
         </nav>
         <div class="selectors">
             <div class="dropdown" title="Select language">
@@ -44,11 +45,11 @@
             <button class="settings"><label for="ajustes"><ion-icon name="settings-outline"></ion-icon></label></button>
         </div>
     </header>
-    <input type="radio" class="tabs__radio" name="slider" id="perfi">
+    <input type="radio" class="tabs__radio" name="slider" id="perfil" checked>
     <input type="radio" class="tabs__radio" name="slider" id="batallas">
     <input type="radio" class="tabs__radio" name="slider" id="elementos">
     <input type="radio" class="tabs__radio" name="slider" id="logros">
-    <input type="radio" class="tabs__radio" name="slider" id="como" checked>
+    <input type="radio" class="tabs__radio" name="slider" id="como">
     <input type="radio" class="tabs__radio" name="slider" id="ajustes">
     <section>
         <div class="tab__1 tabs__content"><?php require_once ('./tabs/perfil.php') ?></div>
