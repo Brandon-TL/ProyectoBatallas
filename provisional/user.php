@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/user.css">
     <link rel="stylesheet" href="./css/ajustes.css">
+    <link rel="stylesheet" href="./css/como.css">
     <?php
         require_once './php/logica_perfil.php';
         require_once './php/visual.php';

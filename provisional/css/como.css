@@ -1,0 +1,15 @@
+.como_container {
+    margin: 0 auto;
+}
+
+.faq-h1 {
+    position: absolute;
+    background-color: var(--body-background);
+    width: 60vw;
+    top: 100px;
+}
+
+.faq-container {
+    background-color: rgba(127, 255, 212, 0.13);
+    width: 60vw;
+}
