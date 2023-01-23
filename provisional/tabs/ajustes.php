@@ -156,7 +156,6 @@
         <div class="settings_content">
             <h2 class="grid_title"><?php echo $lang['ajustes_eliminar_title']; ?></h2>
             <p class="grid_text"><?php echo $lang['ajustes_eliminar_text']; ?></p>
-            <table>
                 <input type="text" name="usuario" placeholder="<?php echo $lang['logueo_label_nombre'] ?>" value="<?php  if (isset($_valid_usuario)) echo $_valid_usuario ?>">
                 <?php if (isset($_logueo_usuario_err)) echo '<span class="error">'.$_logueo_usuario_err.'</span>'; ?>
 
