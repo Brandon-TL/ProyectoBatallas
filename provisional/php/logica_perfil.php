@@ -40,13 +40,13 @@
     function obtenerBatallas($creadas) {
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
 
-        // Obetener el id del usuario que ha iniciado sesión : array[]
-        $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario']);
+        // Obetener el id del usuario que ha iniciado sesión
+        $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
         // var_dump($id_usuario);
         // Como solo es un array de una posición se puede guardar en una variable string, para un uso más fácil
-        $id_usuario = $id_usuario[0];
+        // $id_usuario = $id_usuario[0];
 
-        // Obtener todas las batallas creadas por el usuario que ha iniciado sesión : array[]
+        // Obtener todas las batallas creadas por el usuario que ha iniciado sesión
         $batallasDeUsuario = selectBD(array('id_batalla'), 'usuario_batalla', 'id_usuario', $id_usuario);
         // var_dump($batallasDeUsuario);
 
@@ -81,6 +81,54 @@
         return $datos;
     }
     
+    /**
+     * Función para obtener los datos sobre las batallas ignoradas por el usuario logueado
+     * 
+     * @return array:datos de las batallas solicitadas
+     */
+    function obtenerIgnoradas () {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+
+        // Obetener el id del usuario que ha iniciado sesión
+        $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
+
+        // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
+        $batallasIgnoradas = selectBD(array('*'), 'usuario_batalla', 'accion', 'ignorar');
+        var_dump($batallasIgnoradas);
+        foreach ($batallasIgnoradas as $key => $value) {
+            if (!is_numeric($key)) {
+                echo $key. ' = '. $value. '<br><br>';
+                if ($key == 'id_usuario' && $value == 4) {
+                    echo $key. ', id = '. $value. '<br><br>';
+                }
+            }
+        }
+    }
+    
+    /**
+     * Función para obtener los datos sobre las batallas denunciadas por el usuario
+     * 
+     * @return array:datos de las batallas solicitadas
+     */
+    function obtenerDenunciadas () {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+
+        // Obetener el id del usuario que ha iniciado sesión
+        $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
+
+        // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
+        $batallasIgnoradas = selectBD(array('*'), 'usuario_batalla', 'accion', 'denunciar');
+        var_dump($batallasIgnoradas);
+        foreach ($batallasIgnoradas as $key => $value) {
+            if (!is_numeric($key)) {
+                echo $key. ' = '. $value. '<br><br>';
+                if ($key == 'id_usuario' && $value == 4) {
+                    echo $key. ', id = '. $value. '<br><br>';
+                }
+            }
+        }
+    }
+
     /**
      * Función para crear etiquetas especificas y mostrar batallas por pantalla y facilitando dar estilos css y clases
      * @param array:datos 

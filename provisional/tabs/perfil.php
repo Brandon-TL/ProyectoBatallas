@@ -61,17 +61,37 @@
                 <div class="pmt">
                     <input type="radio" name="css-pmt" id="pmt-3" class="pmt-switch">
                     <label for="pmt-3" class="pmt-label">Batallas denunciadas</label>
-                    <div class="pmt-content">Tab batallas denunciadas</div>
+                    <div class="pmt-content">
+                        <?php
+                            echo obtenerDenunciadas();
+                        ?>
+                    </div>
                 </div>
                 <div class="pmt">
                     <input type="radio" name="css-pmt" id="pmt-2" class="pmt-switch">
                     <label for="pmt-2" class="pmt-label">Batallas ignoradas</label>
-                    <div class="pmt-content">Tab batallas ignoradas</div>
+                    <div class="pmt-content">
+                        <?php
+                            echo obtenerIgnoradas();
+                        ?>
+                    </div>
                 </div>
                 <div class="pmt">
                     <input type="radio" name="css-pmt" id="pmt-1" class="pmt-switch" checked>
                     <label for="pmt-1" class="pmt-label">Batallas creadas</label>
-                    <div class="pmt-content">Tab batallas creadas</div>
+                    <div class="pmt-content">
+                        <?php
+                            $creadas = obtenerBatallas(true);
+
+                            foreach ($creadas as $batallas) {
+                                foreach ($batallas as $key => $value) {
+                                    if (!is_numeric($key)) {
+                                        echo $key . ' = ' . $value . '<br><br>';
+                                    }
+                                }
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
