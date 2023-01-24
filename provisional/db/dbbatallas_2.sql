@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-01-2023 a las 15:36:30
+-- Tiempo de generación: 24-01-2023 a las 14:19:48
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -74,6 +74,7 @@ INSERT INTO `credencial` (`nombreusuario`, `password`) VALUES
 ('Antonio', 'Antonio123'),
 ('Claramente', 'Lanena1'),
 ('MigueLombarda', 'CafeCum1'),
+('Raul', 'Raulitups123'),
 ('sete7', 'SeteSiete1'),
 ('TimeLeaper', 'LeaperTime1'),
 ('Twitter_Enjoyer', 'MgTwitter1');
@@ -152,7 +153,8 @@ INSERT INTO `usuario` (`id`, `fechanacimiento`, `foto`, `email`, `modovis`, `idi
 (4, '1990-11-29', 'img/fotoCoche.jpg', 'miguel@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
 (5, '1996-08-18', 'img/porch.jpg', 'clara@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
 (6, '1999-01-01', '', 'admin@gmail.com', 'light', 'es', 'admin', 0, 0, 0, 0, 0, 0),
-(7, '1986-05-06', 'tabs/IMG/IMG.jpg', 'antonio@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0);
+(7, '1986-05-06', 'tabs/IMG/IMG.jpg', 'antonio@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
+(8, '1997-10-15', 'img/IMG.jpg', 'raul@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -181,7 +183,9 @@ INSERT INTO `usuario_batalla` (`id`, `id_usuario`, `id_batalla`, `accion`, `fech
 (9, 1, 5, 'denunciar', '2022-11-30 00:00:00'),
 (10, 2, 5, 'denunciar', '2022-11-30 00:00:00'),
 (11, 4, 4, 'ignorar', '2022-11-30 00:00:00'),
-(12, 6, 4, 'eliminar', '2022-11-30 00:00:00');
+(12, 6, 4, 'eliminar', '2022-11-30 00:00:00'),
+(13, 2, 4, 'ignorar', '2023-01-24 13:39:24'),
+(14, 2, 12, 'denunciar', '2023-01-24 13:39:24');
 
 -- --------------------------------------------------------
 
@@ -207,7 +211,8 @@ INSERT INTO `usuario_credencial` (`id`, `id_usuario`, `nombreusuario`, `accion`,
 (10, 3, 'Twitter_Enjoyer', 'registrar', '2022-11-29 00:00:00'),
 (11, 4, 'MigueLombarda', 'registrar', '2022-11-29 00:00:00'),
 (12, 5, 'Claramente', 'registrar', '2022-11-29 00:00:00'),
-(13, 7, 'Antonio', 'registrar', '2023-01-18 00:00:00');
+(13, 7, 'Antonio', 'registrar', '2023-01-18 00:00:00'),
+(14, 8, 'Raul', 'registrar', '2023-01-18 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -364,19 +369,19 @@ ALTER TABLE `elemento`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_batalla`
 --
 ALTER TABLE `usuario_batalla`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_credencial`
 --
 ALTER TABLE `usuario_credencial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_elemento`
