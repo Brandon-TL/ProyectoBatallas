@@ -63,7 +63,7 @@
                     <label for="pmt-3" class="pmt-label">Batallas denunciadas</label>
                     <div class="pmt-content">
                         <?php
-                            echo obtenerDenunciadas();
+                            ignoradas_o_denunciadas('denunciar');
                         ?>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                     <label for="pmt-2" class="pmt-label">Batallas ignoradas</label>
                     <div class="pmt-content">
                         <?php
-                            echo obtenerIgnoradas();
+                            ignoradas_o_denunciadas('ignorar');
                         ?>
                     </div>
                 </div>

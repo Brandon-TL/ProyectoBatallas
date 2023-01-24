@@ -6,6 +6,7 @@
 }
 
 .perfil_aside {
+    user-select: none;
     display: inline-block;
     height: 100%;
     width: 20vw;

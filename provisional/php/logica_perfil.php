@@ -82,48 +82,43 @@
     }
     
     /**
-     * Función para obtener los datos sobre las batallas ignoradas por el usuario logueado
+     * Función para obtener los datos sobre las batallas filtradas por el usuario logueado
+     * @param ignorar:filtro solo batallas ignoradas por el usuario
+     * @param denunciar:filtro solo batallas denunciadas el usuario no ha creado
      * 
-     * @return array:datos de las batallas solicitadas
+     * @return array:ids especificos de las batallas solicitadas
      */
-    function obtenerIgnoradas () {
-        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+    function ignoradas_o_denunciadas ($filtro) {
+        $filtro = trim($filtro);
+        
+        if ($filtro === 'ignorar' || $filtro === 'denunciar') {   
+            $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
 
-        // Obetener el id del usuario que ha iniciado sesión
-        $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
+            // Obetener el id del usuario que ha iniciado sesión
+            $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
+            echo 'id de usuario = ' . $id_usuario. '<br><br>';
 
-        // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
-        $batallasIgnoradas = selectBD(array('*'), 'usuario_batalla', 'accion', 'ignorar');
-        var_dump($batallasIgnoradas);
-        foreach ($batallasIgnoradas as $key => $value) {
-            if (!is_numeric($key)) {
-                echo $key. ' = '. $value. '<br><br>';
-                if ($key == 'id_usuario' && $value == 4) {
-                    echo $key. ', id = '. $value. '<br><br>';
+            if ($filtro === 'ignorar') {
+                // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
+                $batallasIgnoradas = selectBD(array('*'), 'usuario_batalla', 'accion', 'ignorar');
+                foreach ($batallasIgnoradas as $key => $value) {
+                    if (!is_numeric($key)) {
+                        echo $key. ' = '. $value. '<br><br>';
+                        if ($key == 'id_usuario' && $value == $id_usuario) {
+                            echo $key. ' = '. $value. '<br><br>';
+                        }
+                    }
                 }
-            }
-        }
-    }
-    
-    /**
-     * Función para obtener los datos sobre las batallas denunciadas por el usuario
-     * 
-     * @return array:datos de las batallas solicitadas
-     */
-    function obtenerDenunciadas () {
-        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
-
-        // Obetener el id del usuario que ha iniciado sesión
-        $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
-
-        // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
-        $batallasIgnoradas = selectBD(array('*'), 'usuario_batalla', 'accion', 'denunciar');
-        var_dump($batallasIgnoradas);
-        foreach ($batallasIgnoradas as $key => $value) {
-            if (!is_numeric($key)) {
-                echo $key. ' = '. $value. '<br><br>';
-                if ($key == 'id_usuario' && $value == 4) {
-                    echo $key. ', id = '. $value. '<br><br>';
+            } else if ($filtro === 'denunciar') {
+                // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
+                $batallasIgnoradas = selectBD(array('*'), 'usuario_batalla', 'accion', 'denunciar');
+                foreach ($batallasIgnoradas as $key => $value) {
+                    if (!is_numeric($key)) {
+                        echo $key. ' = '. $value. '<br><br>';
+                        if ($key == 'id_usuario' && $value == $id_usuario) {
+                            echo $key. ' = '. $value. '<br><br>';
+                        }
+                    }
                 }
             }
         }
