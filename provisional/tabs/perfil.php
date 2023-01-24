@@ -63,7 +63,14 @@
                     <label for="pmt-3" class="pmt-label">Batallas denunciadas</label>
                     <div class="pmt-content">
                         <?php
-                            ignoradas_o_denunciadas('denunciar');
+                            foreach (ignoradas_o_denunciadas('denunciar') as $key => $value) {
+                                if (!is_numeric($key)) {
+                                    echo $key. ' = '. $value. '<br><br>';
+                                    // if ($key == 'id_usuario' && $value == $id_usuario) {
+                                    //     echo $key. ' = '. $value. '<br><br>';
+                                    // }
+                                }
+                            }
                         ?>
                     </div>
                 </div>
@@ -72,7 +79,14 @@
                     <label for="pmt-2" class="pmt-label">Batallas ignoradas</label>
                     <div class="pmt-content">
                         <?php
-                            ignoradas_o_denunciadas('ignorar');
+                            foreach (ignoradas_o_denunciadas('ignorar') as $key => $value) {
+                                if (!is_numeric($key)) {
+                                    echo $key. ' = '. $value. '<br><br>';
+                                    // if ($key == 'id_usuario' && $value == $id_usuario) {
+                                    //     echo $key. ' = '. $value. '<br><br>';
+                                    // }
+                                }
+                            }
                         ?>
                     </div>
                 </div>

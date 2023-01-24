@@ -96,35 +96,28 @@
 
             // Obetener el id del usuario que ha iniciado sesión
             $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
-            echo 'id de usuario = ' . $id_usuario. '<br><br>';
+            // echo 'id de usuario = ' . $id_usuario. '<br><br>';
 
-            if ($filtro === 'ignorar') {
-                // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
-                $batallas = selectBD(array('*'), 'usuario_batalla', 'accion', 'ignorar');
-                var_dump($batallas);
-                echo '<br><br>';
-                foreach ($batallas as $key => $value) {
+            $sql = "SELECT * FROM `usuario_batalla`;";
+            $resultBatalla = $conexion->query($sql);
+
+            $batallas = array();
+    
+            while ($tupla = $resultBatalla->fetch()) {
+                foreach ($tupla as $key => $value) {
                     if (!is_numeric($key)) {
-                        echo $key. ' = '. $value. '<br><br>';
-                        if ($key == 'id_usuario' && $value == $id_usuario) {
-                            echo $key. ' = '. $value. '<br><br>';
-                        }
-                    }
-                }
-            } else if ($filtro === 'denunciar') {
-                // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
-                $batallas = selectBD(array('*'), 'usuario_batalla', 'accion', 'denunciar');
-                var_dump($batallas);
-                echo '<br><br>';
-                foreach ($batallas as $key => $value) {
-                    if (!is_numeric($key)) {
-                        echo $key. ' = '. $value. '<br><br>';
-                        if ($key == 'id_usuario' && $value == $id_usuario) {
-                            echo $key. ' = '. $value. '<br><br>';
+                        if ($key == $filtro && $filtro == 'ignorar' && $tupla['id_usuario'] == $id_usuario) {
+                            // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
+                            array_push($batallas, $tupla);
+                        } else if ($key == $filtro && $filtro == 'denunciar' && $tupla['id_usuario'] == $id_usuario) {
+                            // Obtener todas las batallas denunciadas por el usuario que ha iniciado sesión
+                            array_push($batallas, $tupla);
                         }
                     }
                 }
             }
+
+            return $batallas;
         }
     }
 
