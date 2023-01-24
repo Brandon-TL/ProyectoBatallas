@@ -100,8 +100,10 @@
 
             if ($filtro === 'ignorar') {
                 // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
-                $batallasIgnoradas = selectBD(array('*'), 'usuario_batalla', 'accion', 'ignorar');
-                foreach ($batallasIgnoradas as $key => $value) {
+                $batallas = selectBD(array('*'), 'usuario_batalla', 'accion', 'ignorar');
+                var_dump($batallas);
+                echo '<br><br>';
+                foreach ($batallas as $key => $value) {
                     if (!is_numeric($key)) {
                         echo $key. ' = '. $value. '<br><br>';
                         if ($key == 'id_usuario' && $value == $id_usuario) {
@@ -111,8 +113,10 @@
                 }
             } else if ($filtro === 'denunciar') {
                 // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
-                $batallasIgnoradas = selectBD(array('*'), 'usuario_batalla', 'accion', 'denunciar');
-                foreach ($batallasIgnoradas as $key => $value) {
+                $batallas = selectBD(array('*'), 'usuario_batalla', 'accion', 'denunciar');
+                var_dump($batallas);
+                echo '<br><br>';
+                foreach ($batallas as $key => $value) {
                     if (!is_numeric($key)) {
                         echo $key. ' = '. $value. '<br><br>';
                         if ($key == 'id_usuario' && $value == $id_usuario) {
