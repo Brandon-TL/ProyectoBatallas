@@ -284,6 +284,51 @@
     }
 
     /**
+     * Función para obtener en forma de string la información más inportante de una batlla
+     * @param string:id_batalla de la cual que solicita la información
+     * 
+     * @return string:info de la batalla
+     */
+    function info_batalla ($id_batalla) {
+        $batalla = selectBD(array('*'), 'batalla_elemento', 'id_batalla', $id_batalla);
+        $nombre_e1 = selectBD(array('*'), 'elemento', 'id', $batalla['id_elemento1']);
+        $nombre_e2 = selectBD(array('*'), 'elemento', 'id', $batalla['id_elemento2']);
+        
+        $info = $nombre_e1['nombre'] . " VS " . $nombre_e2['nombre'];
+        return $info;
+    }
+
+    /**
+     * Función para obtener en forma de string la información más inportante de una batlla
+     * @param string:id_batalla de la cual que solicita la información
+     * 
+     * @return string:info de la batalla
+     */
+    function info_batalla_creada ($id_batalla) {
+        $batalla = selectBD(array('*'), 'batalla_elemento', 'id_batalla', $id_batalla);
+        $nombre_e1 = selectBD(array('*'), 'elemento', 'id', $batalla['id_elemento1']);
+        $nombre_e2 = selectBD(array('*'), 'elemento', 'id', $batalla['id_elemento2']);
+       
+        $batallas_denunciadas = selectBD(array('id_batalla'), 'usuario_batalla', 'accion', 'denunciar');
+        $denuncias = 0;
+        foreach ($batallas_denunciadas as $id_batalla_denunciada) {
+            if ($id_batalla_denunciada == $id_batalla) {
+                $denuncias++;
+            }
+        }
+
+        $fecha = selectBD(array('fecha'), 'usuario_batalla', 'id_batalla', $id_batalla)[0];
+
+        $info = array(
+            "elemento1" => $nombre_e1['nombre'],
+            "elemento2" => $nombre_e2['nombre'],
+            "denuncias" => $denuncias,
+            "fecha" => $fecha,
+        );
+        return $info;
+    }
+    
+    /**
      * Función para crear etiquetas especificas y mostrar batallas por pantalla y facilitando dar estilos css y clases
      * @param array:datos 
      * @return string:html de la información de todas las batallas con clases especificas para cada elemento y batalla

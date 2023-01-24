@@ -59,38 +59,51 @@
         <div class="perfil_wrapper">
             <div class="perfil_main_tabs">
                 <div class="pmt pmt_creadas">
-                    <input type="radio" name="css-pmt" id="pmt-1" class="pmt-switch" >
+                    <input type="radio" name="css-pmt" id="pmt-1" class="pmt-switch" checked>
                     <label for="pmt-1" class="pmt-label">Batallas creadas</label>
                     <div class="pmt-content">
-                        <?php
-                            $creadas = obtenerBatallas(true);
-
-                            foreach ($creadas as $batallas) {
-                                foreach ($batallas as $key => $value) {
-                                    if (!is_numeric($key)) {
-                                        echo $key . ' = ' . $value . '<br><br>';
-                                    }
+                        <table class="pmt_table">
+                            <tr>
+                                <th>ID BATALLA</th>
+                                <th>DESCRIPCIÓN</th>
+                                <th>DENUNCIAS</th>
+                                <th>FECHA DE CREACIÓN</th>
+                            </tr>
+                            <?php
+                                $batallas = obtenerBatallas(true);
+                                foreach ($batallas as $batalla) {
+                                    $info = info_batalla_creada($batalla['id_batalla']);
+                                    echo "<tr class='pmt_tr'>" . 
+                                        "<td>" . $batalla['id_batalla'] . "</td>" .
+                                        "<td>" . $info['elemento1'] . " VS " . $info['elemento2'] . "</td>" .
+                                        "<td class='pmt_table_content'>" . $info['denuncias'] . "</td>" .
+                                        "<td>" . $info['fecha'] . "</td>" .
+                                    "</tr>";
                                 }
-                            }
-                        ?>
+                            ?>
+                        </table>
                     </div>
                 </div>
                 <div class="pmt pmt_ignoradas">
-                    <input type="radio" name="css-pmt" id="pmt-2" class="pmt-switch" checked>
+                    <input type="radio" name="css-pmt" id="pmt-2" class="pmt-switch">
                     <label for="pmt-2" class="pmt-label">Batallas ignoradas</label>
                     <div class="pmt-content">
                         <table class="pmt_table">
                             <?php
                                 $batallas = ignoradas_o_denunciadas('ignorar');
-                                foreach ($batallas as $batalla) {
-                                    echo "<tr class='pmt_tr'>" . 
-                                        "<td>" . $batalla['id_batalla'] . "</td>" .
-                                        "<td class='pmt_table_content'>" . "</td>" .
-                                        "<td>" . $batalla['fecha'] . "</td>" .
-                                        "<td>".
-                                            "<input type='submit' name='NO_IGNORAR' value='DEJAR DE IGNORAR' class='pmt_submit'>" .
-                                        "</td>" .
-                                    "</tr>";
+                                if ($batallas) {
+                                    foreach ($batallas as $batalla) {
+                                        echo "<tr class='pmt_tr'>" . 
+                                            "<td>" . $batalla['id_batalla'] . "</td>" .
+                                            "<td class='pmt_table_content'>" . info_batalla($batalla['id_batalla']) . "</td>" .
+                                            "<td>" . $batalla['fecha'] . "</td>" .
+                                            "<td>".
+                                                "<input type='submit' name='NO_IGNORAR' value='DEJAR DE IGNORAR' class='pmt_submit'>" .
+                                            "</td>" .
+                                        "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td>No has ignorado ninguna batalla</td></tr>";
                                 }
                             ?>
                         </table>
@@ -103,13 +116,19 @@
                         <table class="pmt_table">
                             <?php
                                 $batallas = ignoradas_o_denunciadas('denunciar');
-                                foreach ($batallas as $batalla) {
-                                    echo "<tr class='pmt_tr'>" . 
-                                        "<td>" . $batalla['id_batalla'] . "</td>" .
-                                        "<td class='pmt_table_content'>" . "</td>" .
-                                        "<td>" . $batalla['fecha'] . "</td>" .
-                                        "<td><button>RETIRAR DEUNUCIA</button></td>" .
-                                    "</tr>";
+                                if ($batallas) {
+                                    foreach ($batallas as $batalla) {
+                                        echo "<tr class='pmt_tr'>" . 
+                                            "<td>" . $batalla['id_batalla'] . "</td>" .
+                                            "<td class='pmt_table_content'>" . info_batalla($batalla['id_batalla']) . "</td>" .
+                                            "<td>" . $batalla['fecha'] . "</td>" .
+                                            "<td>".
+                                                "<input type='submit' name='NO_DENUNCIA' value='RETIRAR DENUNCIA' class='pmt_submit'>" .
+                                            "</td>" .
+                                        "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td>No has denunciado ninguna batalla</td></tr>";
                                 }
                             ?>
                         </table>

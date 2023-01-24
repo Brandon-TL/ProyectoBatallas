@@ -110,7 +110,7 @@
     text-align: center  ;
 }
 
-.pmt_table, .pmt_table tr, .pmt_table td {
+.pmt_table, .pmt_table th, .pmt_table tr, .pmt_table td {
     border-collapse: collapse;
     padding: 15px 5px;
 }
