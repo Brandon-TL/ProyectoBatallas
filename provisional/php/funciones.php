@@ -219,23 +219,25 @@
 
         $datos = array();
         // Para cada uno de los id's de batallas creadas por el usuario logeado
-        for ($i = 0; $i < count($batallasDeUsuario); $i++) {
-            // Comparar con el id de cada batalla obtenida en el resultado del fetch() $tupla[0]
-            while ($tupla = $resultBatalla->fetch()) {
-                if ($creadas) {
-                    // Si el id de la batalla creada por el usuario coincide con de el la batalla obtenida en el fetch()
-                    if ($batallasDeUsuario[$i] == $tupla[0]) {
-                        // Se añade la información de la batalla al array $datos
-                        $datos[count($datos)] = $tupla;
+        if ($batallasDeUsuario) {
+            for ($i = 0; $i < count($batallasDeUsuario); $i++) {
+                // Comparar con el id de cada batalla obtenida en el resultado del fetch() $tupla[0]
+                while ($tupla = $resultBatalla->fetch()) {
+                    if ($creadas) {
+                        // Si el id de la batalla creada por el usuario coincide con de el la batalla obtenida en el fetch()
+                        if ($batallasDeUsuario[$i] == $tupla[0]) {
+                            // Se añade la información de la batalla al array $datos
+                            $datos[count($datos)] = $tupla;
+                        }
+                        // Si los id's no coinciden, continuar...
+                    } else {
+                        // Si el id de la batalla creada por el usuario es distinto al de la batalla obtenida en el fetch()
+                        if ($batallasDeUsuario[$i] != $tupla[0]) {
+                            // Se añade la información de la batalla al array $datos
+                            $datos[count($datos)] = $tupla;
+                        }
+                        // Si los id's coinciden, continuar...
                     }
-                    // Si los id's no coinciden, continuar...
-                } else {
-                    // Si el id de la batalla creada por el usuario es distinto al de la batalla obtenida en el fetch()
-                    if ($batallasDeUsuario[$i] != $tupla[0]) {
-                        // Se añade la información de la batalla al array $datos
-                        $datos[count($datos)] = $tupla;
-                    }
-                    // Si los id's coinciden, continuar...
                 }
             }
         }

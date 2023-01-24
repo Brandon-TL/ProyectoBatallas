@@ -63,22 +63,26 @@
                     <label for="pmt-1" class="pmt-label">Batallas creadas</label>
                     <div class="pmt-content">
                         <table class="pmt_table">
-                            <tr>
-                                <th>ID BATALLA</th>
-                                <th>DESCRIPCIÓN</th>
-                                <th>DENUNCIAS</th>
-                                <th>FECHA DE CREACIÓN</th>
-                            </tr>
                             <?php
                                 $batallas = obtenerBatallas(true);
-                                foreach ($batallas as $batalla) {
-                                    $info = info_batalla_creada($batalla['id_batalla']);
-                                    echo "<tr class='pmt_tr'>" . 
-                                        "<td>" . $batalla['id_batalla'] . "</td>" .
-                                        "<td>" . $info['elemento1'] . " VS " . $info['elemento2'] . "</td>" .
-                                        "<td class='pmt_table_content'>" . $info['denuncias'] . "</td>" .
-                                        "<td>" . $info['fecha'] . "</td>" .
-                                    "</tr>";
+                                if ($batallas) {
+                                    echo "<tr>
+                                            <th>ID BATALLA</th>
+                                            <th>DESCRIPCIÓN</th>
+                                            <th>DENUNCIAS</th>
+                                            <th>FECHA DE CREACIÓN</th>
+                                        </tr>";
+                                    foreach ($batallas as $batalla) {
+                                        $info = info_batalla_creada($batalla['id_batalla']);
+                                        echo "<tr class='pmt_tr'>" . 
+                                            "<td>" . $batalla['id_batalla'] . "</td>" .
+                                            "<td>" . $info['elemento1'] . " VS " . $info['elemento2'] . "</td>" .
+                                            "<td class='pmt_table_content'>" . $info['denuncias'] . "</td>" .
+                                            "<td>" . $info['fecha'] . "</td>" .
+                                        "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td>Aún no has creado ninguna batalla</td></tr>";
                                 }
                             ?>
                         </table>
