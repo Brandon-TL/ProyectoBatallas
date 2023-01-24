@@ -14,8 +14,8 @@ body {
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
-	overflow: hidden;
 	margin: -20px 0 50px;
+	overflow: hidden;
 }
 
 header {

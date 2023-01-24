@@ -20,7 +20,7 @@
             <input class="grid_input_avatar" type="file" name="avatar" accept="image/png, image/jpeg, image/jpg" value="<?php if (isset($_)) echo $_avatar; ?>" placeholder="<?php echo $lang['registro_label_avatar']; ?>">
             <?php if (isset($_registro_avatar_err)) echo '<span class="error">'.$_registro_avatar_err.'</span>'; ?>
 
-            <input class="grid_button1" type="submit" name="CAMBIAR_AVATAR" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
+            <input class="ajustes_button grid_button1" type="submit" name="CAMBIAR_AVATAR" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
         </div>
     </li>
     <hr class="settings_hr"><!-- DROPDOWN CAMBIAR NOMBRE DE USUARIO -->
@@ -47,7 +47,7 @@
             <input class="grid_input_remake" type="text" name="new_usuario2" value="<?php if (isset($_new_usuario2)) echo $_new_usuario2;?>" placeholder="<?php echo $lang['ajustes_nombre_placeholder2'] ?>">
             <?php if (isset($_registro_new_usuario2_err)) echo '<span class="error">'.$_registro_new_usuario2_err.'</span>'; ?>
 
-            <input class="grid_button1" type="submit" name="CAMBIAR_NOMBRE" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
+            <input class="ajustes_button grid_button1" type="submit" name="CAMBIAR_NOMBRE" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
         </div>
     </li>
     <hr class="settings_hr"><!-- DROPDOWN CAMBIAR CONTRASEÑA -->
@@ -74,7 +74,7 @@
                 <input class="grid_input_remake" type="password" name="password2" value="<?php if (isset($_password)) echo $_password; ?>" placeholder="<?php echo $lang['ajustes_password_placeholder2']; ?>">
                 <?php if (isset($_registro_password2_err)) echo '<span class="error">'.$_registro_password2_err.'</span>'; ?>
 
-                <input class="grid_button1" type="submit" name="CAMBIAR_PASSWORD" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
+                <input class="ajustes_button grid_button1" type="submit" name="CAMBIAR_PASSWORD" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
         </div>
     </li>
     <hr class="settings_hr"><!-- DROPDOWN CAMBIAR CORREO ELECTRONICO -->
@@ -101,7 +101,7 @@
             <input class="grid_input_remake" type="email" name="email" value="<?php if (isset($_email)) echo $_email; ?>" placeholder="<?php echo $lang['ajustes_email_placeholder2']; ?>">
             <?php if (isset($_registro_email_err)) echo '<span class="error">'.$_registro_email_err.'</span>'; ?>            
 
-            <input class="grid_button1" type="submit" name="CAMBIAR_EMAIL" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
+            <input class="ajustes_button grid_button1" type="submit" name="CAMBIAR_EMAIL" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
         </div>
     </li>
     <hr class="settings_hr"><!-- DROPDOWN CAMBIAR FECHA DE NACIMIENTO -->
@@ -128,7 +128,7 @@
             <input class="grid_input_remake" type="text" name="fecha" value="<?php if (isset($_fecha)) echo $_fecha; ?>" placeholder="<?php echo $lang['ajustes_fecha_placeholder2']; ?>" onfocus="(this.type='date')">
             <?php if (isset($_registro_fecha_err)) echo '<span class="error">'.$_registro_fecha_err.'</span>'; ?>
                         
-            <input class="grid_button1" type="submit" name="CAMBIAR_EMAIL" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
+            <input class="ajustes_button grid_button1" type="submit" name="CAMBIAR_EMAIL" value="<?php echo $lang['ajustes_boton_confirmar']; ?>">
         </div>
     </li>
     <hr class="settings_hr"><!-- DROPDOWN CERRAR SESIÓN -->
@@ -142,7 +142,7 @@
         <div class="settings_content">
             <h2 class="grid_title"><?php echo $lang['ajustes_logout_title']; ?></h2>
             <p class="grid_text"><?php echo $lang['ajustes_logout_text']; ?></p>
-            <input class="grid_button1" type="submit" name="CERRAR_SESION" value="<?php echo $lang['ajustes_boton_salir']; ?>">
+            <input class="ajustes_button grid_button1" type="submit" name="CERRAR_SESION" value="<?php echo $lang['ajustes_boton_salir']; ?>">
         </div>
     </li>
     <hr class="settings_hr"><!-- DROPDOWN ELIMINAR CUENTA -->
@@ -167,7 +167,7 @@
 
                 <textarea class="grid_textarea" name="reason" id="reason" placeholder="<?php echo $lang['ajustes_eliminar_confirm_placeholder2']; ?>"></textarea>
 
-                <input class="grid_button2" type="submit" name="CAMBIAR_AVATAR" value="<?php echo $lang['ajustes_boton_eliminar']; ?>">
+                <input class="ajustes_button rid_button2" type="submit" name="CAMBIAR_AVATAR" value="<?php echo $lang['ajustes_boton_eliminar']; ?>">
         </div>
     </li>
 </ul>

@@ -100,7 +100,7 @@ input {
 	width: 100%;
 }
 
-input[type="submit"] {
+.ajustes_button {
     cursor: pointer;
 	color: var(--settings-submit-color);
 	font-size: 12px;
@@ -111,11 +111,11 @@ input[type="submit"] {
 	transition: all 80ms ease-in;
 }
 
-input[type="submit"] {
+.ajustes_button {
 	border: 1px solid var(--settings-submit-border-color);
 	background-color: var(--settings-submit-background-color);
 }
 
-input[type="submit"]:active {
+.ajustes_button:active {
 	transform: scale(0.95);
 }

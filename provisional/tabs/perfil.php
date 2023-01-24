@@ -58,40 +58,8 @@
     <main class="perfil_main">
         <div class="perfil_wrapper">
             <div class="perfil_main_tabs">
-                <div class="pmt">
-                    <input type="radio" name="css-pmt" id="pmt-3" class="pmt-switch">
-                    <label for="pmt-3" class="pmt-label">Batallas denunciadas</label>
-                    <div class="pmt-content">
-                        <?php
-                            foreach (ignoradas_o_denunciadas('denunciar') as $key => $value) {
-                                if (!is_numeric($key)) {
-                                    echo $key. ' = '. $value. '<br><br>';
-                                    // if ($key == 'id_usuario' && $value == $id_usuario) {
-                                    //     echo $key. ' = '. $value. '<br><br>';
-                                    // }
-                                }
-                            }
-                        ?>
-                    </div>
-                </div>
-                <div class="pmt">
-                    <input type="radio" name="css-pmt" id="pmt-2" class="pmt-switch">
-                    <label for="pmt-2" class="pmt-label">Batallas ignoradas</label>
-                    <div class="pmt-content">
-                        <?php
-                            foreach (ignoradas_o_denunciadas('ignorar') as $key => $value) {
-                                if (!is_numeric($key)) {
-                                    echo $key. ' = '. $value. '<br><br>';
-                                    // if ($key == 'id_usuario' && $value == $id_usuario) {
-                                    //     echo $key. ' = '. $value. '<br><br>';
-                                    // }
-                                }
-                            }
-                        ?>
-                    </div>
-                </div>
-                <div class="pmt">
-                    <input type="radio" name="css-pmt" id="pmt-1" class="pmt-switch" checked>
+                <div class="pmt pmt_creadas">
+                    <input type="radio" name="css-pmt" id="pmt-1" class="pmt-switch" >
                     <label for="pmt-1" class="pmt-label">Batallas creadas</label>
                     <div class="pmt-content">
                         <?php
@@ -105,6 +73,46 @@
                                 }
                             }
                         ?>
+                    </div>
+                </div>
+                <div class="pmt pmt_ignoradas">
+                    <input type="radio" name="css-pmt" id="pmt-2" class="pmt-switch" checked>
+                    <label for="pmt-2" class="pmt-label">Batallas ignoradas</label>
+                    <div class="pmt-content">
+                        <table class="pmt_table">
+                            <?php
+                                $batallas = ignoradas_o_denunciadas('ignorar');
+                                foreach ($batallas as $batalla) {
+                                    echo "<tr class='pmt_tr'>" . 
+                                        "<td>" . $batalla['id_batalla'] . "</td>" .
+                                        "<td class='pmt_table_content'>" . "</td>" .
+                                        "<td>" . $batalla['fecha'] . "</td>" .
+                                        "<td>".
+                                            "<input type='submit' name='NO_IGNORAR' value='DEJAR DE IGNORAR' class='pmt_submit'>" .
+                                        "</td>" .
+                                    "</tr>";
+                                }
+                            ?>
+                        </table>
+                    </div>
+                </div>
+                <div class="pmt pmt_denunciadas">
+                    <input type="radio" name="css-pmt" id="pmt-3" class="pmt-switch">
+                    <label for="pmt-3" class="pmt-label">Batallas denunciadas</label>
+                    <div class="pmt-content">
+                        <table class="pmt_table">
+                            <?php
+                                $batallas = ignoradas_o_denunciadas('denunciar');
+                                foreach ($batallas as $batalla) {
+                                    echo "<tr class='pmt_tr'>" . 
+                                        "<td>" . $batalla['id_batalla'] . "</td>" .
+                                        "<td class='pmt_table_content'>" . "</td>" .
+                                        "<td>" . $batalla['fecha'] . "</td>" .
+                                        "<td><button>RETIRAR DEUNUCIA</button></td>" .
+                                    "</tr>";
+                                }
+                            ?>
+                        </table>
                     </div>
                 </div>
             </div>
