@@ -9,11 +9,12 @@
     display: inline-block;
     height: 100%;
     width: 20vw;
-    padding: 15px;
+    padding: 3em 1em 0 1em;
 }
 
-.perfil_aside h2, .perfil_aside p {
-    padding: 10px;
+.perfil_aside h2, .perfil_aside .perfil_datos {
+    text-align: center;
+    padding: 0;
 }
 
 .perfil_aside .foto_perfil {
@@ -21,6 +22,27 @@
     width: 150px;
     border-radius: 100%;
     margin: 30px auto 30px auto;
+}
+
+.perfil_aside .perfil_stats_hr {
+    width: 70%;
+    margin: 20px auto;
+    border-color: var(--settings-h2-border-color);
+}
+
+.perfil_aside table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.perfil_aside table td:first-of-type {
+    padding: 5px 0;
+    text-align: right;
+}
+
+.perfil_aside table td:nth-child(2) {
+    width: 30%;
+    padding: 5px 10px;
 }
 
 .perfil_main {
@@ -64,10 +86,10 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    padding: 3em;
+    padding: 30px;
     left: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), #00000000);
-    color: #000;
+    box-shadow: inset 1px 1px 0px 0px var(--settings-h2-border-color);
+    color: #fff;
     opacity: 0;
     transition: all 0.35s;
 }

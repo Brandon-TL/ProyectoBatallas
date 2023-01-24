@@ -24,17 +24,36 @@
                     background-position: center;
                     background-size: cover;
                     background-repeat: no-repeat;"></div>
-        <p><?php echo $_SESSION['usuario'] ?><br>
+        <p class="perfil_datos"><?php echo $_SESSION['usuario'] ?><br>
         <?php echo $datos['fechanacimiento'] . " (". $edad .")"; ?><br>
         <?php echo $datos['email']; ?></p>
-        <p>Elementos creados: <?php echo $datos['num_elementos_creados']; ?><br>
-        Batallas creadas: <?php echo $datos['num_batallas_creadas']; ?><br>
-        Batallas votadas: <?php echo $datos['num_batallas_votadas']; ?><br>
-        Batallas ignoradas: <?php echo $datos['num_batallas_ignoradas']; ?><br>
-        Batallas denunciadas: <?php echo $datos['num_batallas_denunciadas']; ?><br>
-        Puntos Trol: <?php echo $datos['puntos_troll']; ?></p>
-
-
+        <hr class="perfil_stats_hr">
+        <table class="perfil_stats">
+            <tr>
+                <td>Elementos creados:</td>
+                <td><?php echo $datos['num_elementos_creados']; ?></td>
+            </tr>
+            <tr>
+                <td>Batallas creadas:</td>
+                <td><?php echo $datos['num_batallas_creadas']; ?></td>
+            </tr>
+            <tr>
+                <td>Batallas votadas:</td>
+                <td><?php echo $datos['num_batallas_votadas']; ?></td>
+            </tr>
+            <tr>
+                <td>Batallas ignoradas:</td>
+                <td><?php echo $datos['num_batallas_ignoradas']; ?></td>
+            </tr>
+            <tr>
+                <td>Batallas denunciadas:</td>
+                <td><?php echo $datos['num_batallas_denunciadas']; ?></td>
+            </tr>
+            <tr>
+                <td>Puntos Trol:</td>
+                <td><?php echo $datos['puntos_troll']; ?></td>
+            </tr>
+        </table>
     </aside>
     <main class="perfil_main">
         <div class="perfil_wrapper">
@@ -42,17 +61,17 @@
                 <div class="pmt">
                     <input type="radio" name="css-pmt" id="pmt-3" class="pmt-switch">
                     <label for="pmt-3" class="pmt-label">Batallas denunciadas</label>
-                    <div class="pmt-content">TAB TRES</div>
+                    <div class="pmt-content">Tab batallas denunciadas</div>
                 </div>
                 <div class="pmt">
                     <input type="radio" name="css-pmt" id="pmt-2" class="pmt-switch">
                     <label for="pmt-2" class="pmt-label">Batallas ignoradas</label>
-                    <div class="pmt-content">Tab Two</div>
+                    <div class="pmt-content">Tab batallas ignoradas</div>
                 </div>
                 <div class="pmt">
                     <input type="radio" name="css-pmt" id="pmt-1" class="pmt-switch" checked>
                     <label for="pmt-1" class="pmt-label">Batallas creadas</label>
-                    <div class="pmt-content">Tab One</div>
+                    <div class="pmt-content">Tab batallas creadas</div>
                 </div>
             </div>
         </div>
