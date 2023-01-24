@@ -95,7 +95,6 @@
         return $datos;
     }
 
-        
     /**
      * Función par aregistrar nuevos usuarios en la base de  datos
      * @param array:usuario datos del usuario a registrar
