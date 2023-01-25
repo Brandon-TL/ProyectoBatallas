@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-01-2023 a las 14:29:36
+-- Tiempo de generación: 25-01-2023 a las 12:23:42
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -147,14 +147,14 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `fechanacimiento`, `foto`, `email`, `modovis`, `idioma`, `rol`, `num_elementos_creados`, `num_batallas_creadas`, `num_batallas_votadas`, `num_batallas_ignoradas`, `num_batallas_denunciadas`, `puntos_troll`) VALUES
-(1, '1999-05-12', 'img/ferrari.jpg', 'luis@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
-(2, '2001-06-25', 'img/fotoNaruto.jpg', 'brandon@gmail.com', 'dark', 'en', 'usuario', 2, 1, 5, 1, 2, 0),
-(3, '1995-08-14', 'img/twitter.jpg', 'elonmusk@gmail.com', 'dark', 'en', 'usuario', 0, 0, 0, 0, 0, 0),
-(4, '1990-11-29', 'img/fotoCoche.jpg', 'miguel@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
-(5, '1996-08-18', 'img/porch.jpg', 'clara@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
+(1, '1999-05-12', 'img/foto_perfil/ferrari.jpg', 'luis@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
+(2, '2001-06-25', 'img/foto_perfil/fotoNaruto.jpg', 'brandon@gmail.com', 'dark', 'en', 'usuario', 2, 1, 5, 1, 2, 0),
+(3, '1995-08-14', 'img/foto_perfil/twitter.jpg', 'elonmusk@gmail.com', 'dark', 'en', 'usuario', 0, 0, 0, 0, 0, 0),
+(4, '1990-11-29', 'img/foto_perfil/fotoCoche.jpg', 'miguel@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
+(5, '1996-08-18', 'img/foto_perfil/porch.jpg', 'clara@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
 (6, '1999-01-01', '', 'admin@gmail.com', 'light', 'es', 'admin', 0, 0, 0, 0, 0, 0),
-(7, '1986-05-06', 'tabs/IMG/IMG.jpg', 'antonio@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
-(8, '1997-10-15', 'img/IMG.jpg', 'raul@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0);
+(7, '1986-05-06', 'img/foto_perfil/IMG.jpg', 'antonio@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
+(8, '1997-10-15', 'img/foto_perfil/IMG.jpg', 'raul@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
