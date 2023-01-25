@@ -19,8 +19,12 @@
 
     // $conexion->eliminarUsuario($id);
 
-    $usuario = 'Claramente';
-    $conexion = new db;
-    $conexion->eliminarCredencial($usuario);
+    // $usuario = 'Claramente';
+    // $conexion = new db;
+    // $conexion->eliminarCredencial($usuario);
 
+    $id = 4;
+
+    $conexion = new db;
+    $conexion->eliminarUsuarioCredencial($id);
 ?>

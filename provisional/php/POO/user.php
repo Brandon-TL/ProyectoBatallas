@@ -49,6 +49,7 @@
 
         public function eliminarUser(){
             eliminarUsuario($this->id);
+            eliminarCredencial($this->nombre);
         }
     }
 ?>

@@ -50,8 +50,8 @@
             return $resultado;
         }
 
-        public function eliminarUsuario ($id){
-            $sql = "DELETE FROM usuario WHERE id = '$id' ";
+        public function eliminarUsuario ($idUsuario){
+            $sql = "DELETE FROM usuario WHERE id = '$idUsuario' ";
 
             $conexion = new db;
             $conexion->ejecutar($sql);
@@ -60,6 +60,25 @@
         public function eliminarCredencial($nombreUsuario){
             $sql = "DELETE FROM credencial WHERE nombreusuario = '$nombreUsuario' ";
 
+            $conexion = new db;
+            $conexion->ejecutar($sql);
+        }
+
+        public function eliminarBatalla($idBatalla){
+            $conexion = new db;
+
+            $sql = "DELETE FROM batalla_elemento WHERE id_batalla = '$idBatalla'";
+
+            $conexion->ejecutar($sql);
+
+            $sql = "DELETE FROM usuario_batalla WHERE id_batalla = '$idBatalla'";
+
+            $conexion->ejecutar($sql);
+        }
+
+        public function eliminarUsuarioCredencial($idUsuario){
+            $sql = "DELETE FROM usuario_credencial WHERE id_usuario = '$idUsuario'";
+            
             $conexion = new db;
             $conexion->ejecutar($sql);
         }
