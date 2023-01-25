@@ -37,14 +37,14 @@
         }
 
         public function registrarUsuario () {
-            $sql = "INSERT INTO `usuario`(`fechanacimiento`, `foto`, `email`, `modovis`, `idioma`, `rol`, `num_elementos_creados`, `num_batallas_creadas`, `num_batallas_votadas`, `num_batallas_ignoradas`, `num_batallas_denunciadas`, `puntos_troll`) VALUES ($this->fecha, $this->foto, $this->email, $this->tema, $this->idioma, 'usuario', 0, 0, 0, 0, 0, 0)";
+            $sql = "INSERT INTO `usuario`(`fechanacimiento`, `foto`, `email`, `modovis`, `idioma`, `rol`, `num_elementos_creados`, `num_batallas_creadas`, `num_batallas_votadas`, `num_batallas_ignoradas`, `num_batallas_denunciadas`, `puntos_troll`) VALUES ('$this->fecha', '$this->foto', '$this->email', '$this->tema', '$this->idioma', 'usuario', 0, 0, 0, 0, 0, 0)";
             
             $conexion = new db;
             $conexion->ejecutar($sql);
             
-            $sql = "INSERT INTO `credencial`(`nombreusuario`, `password`) VALUES ($this->nombre, $this->password)";
+            $sql = "INSERT INTO `credencial`(`nombreusuario`, `password`) VALUES ('$this->nombre', '$this->password')";
 
-            $this->conexion->ejecutar($sql);
+            $conexion->ejecutar($sql);
         }
     }
 ?>

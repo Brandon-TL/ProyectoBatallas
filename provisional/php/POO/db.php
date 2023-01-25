@@ -26,7 +26,6 @@
          * @param  string:sql sentencia sql
          */
         public function ejecutar ($sql) {
-            echo $sql;
             $this->sentencia = $sql;
             $this->abrirConexion();
             $this->conexion->query($this->sentencia);
