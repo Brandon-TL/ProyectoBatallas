@@ -10,14 +10,14 @@
         /**
          * Función que conecta con la base de datos
          */
-        public function abrirConexion () {
+        public function conectar () {
             $this->conexion = new PDO('mysql:host='.DB::HOST.';dbname='.DB::DBNAME, DB::USER, DB::PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         
         /**
          * Función que desconecta de la base de datos
          */
-        private function cerrarConexion () {
+        private function desconectar () {
             $this->conexion = null;
         }
             
@@ -48,6 +48,13 @@
             }
             
             return $resultado;
+        }
+
+        public function eliminarUsuario ($id){
+            $sql = "DELETE FROM usuario WHERE id = '$id' ";
+
+            $conexion = new db;
+            $conexion->ejecutar($sql);
         }
     }
 ?>

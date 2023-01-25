@@ -46,5 +46,9 @@
 
             $conexion->ejecutar($sql);
         }
+
+        public function eliminarUser(){
+            eliminarUsuario()
+        }
     }
 ?>
