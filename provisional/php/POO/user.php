@@ -48,7 +48,7 @@
         }
 
         public function eliminarUser(){
-            eliminarUsuario()
+            eliminarUsuario($this->id);
         }
     }
 ?>

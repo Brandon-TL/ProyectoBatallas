@@ -5,7 +5,7 @@
         const PASSWORD = "";
         const DBNAME = "dbbatallas";
         private $sentencia;
-        private $conexion;
+        º $conexion;
 
         /**
          * Función que conecta con la base de datos
