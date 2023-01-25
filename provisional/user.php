@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/tabs/como.css">
     <link rel="stylesheet" href="./css/tabs/perfil.css">
     <?php
-        require_once './php/logica_perfil.php';
+        require_once './php/logica_user.php';
         require_once './php/visual.php';
         
         $datos;
@@ -23,7 +23,7 @@
 <body>
     <header>
         <nav class="tabs">
-            <label for="perfil" class="tabs__label active"><?php echo $lang['perfil_tab_perfil_title'] ?></label>
+            <label for="perfil" class="tabs__label"><?php echo $lang['perfil_tab_perfil_title'] ?></label>
             <label for="batallas" class="tabs__label"><?php echo $lang['perfil_tab_batallas_title'] ?></label>
             <label for="elementos" class="tabs__label"><?php echo $lang['perfil_tab_elementos_title'] ?></label>
             <label for="logros" class="tabs__label"><?php echo $lang['perfil_tab_logros_title'] ?></label>
@@ -42,15 +42,15 @@
                 <button name="tema" value="dark" class="dark"><ion-icon name="moon-outline"></ion-icon></button>
                 <button name="tema" value="light" class="light"><ion-icon name="sunny-outline"></ion-icon></button>
             </form>
-            <button class="settings"><label for="ajustes"><ion-icon name="settings-outline"></ion-icon></label></button>
+            <button class="settings active"><label for="ajustes"><ion-icon name="settings-outline"></ion-icon></label></button>
         </div>
     </header>
-    <input type="radio" class="tabs__radio" name="slider" id="perfil" checked>
+    <input type="radio" class="tabs__radio" name="slider" id="perfil">
     <input type="radio" class="tabs__radio" name="slider" id="batallas">
     <input type="radio" class="tabs__radio" name="slider" id="elementos">
     <input type="radio" class="tabs__radio" name="slider" id="logros">
     <input type="radio" class="tabs__radio" name="slider" id="como">
-    <input type="radio" class="tabs__radio" name="slider" id="ajustes">
+    <input type="radio" class="tabs__radio" name="slider" id="ajustes" checked>
     <section>
         <div class="tab__1 tabs__content"><?php require_once ('./tabs/perfil.php') ?></div>
         <div class="tab__2 tabs__content"><?php require_once ('./tabs/batallas.php') ?></div>

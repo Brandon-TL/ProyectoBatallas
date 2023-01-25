@@ -66,6 +66,50 @@
             return false;
         }
     }
+       
+    /**
+     * Función genérica para insertar datos en tablas especificas en de la base de datos dbbatallas
+     * @param string:tabla nombre de la tabla en la que se realizará la insercción de datos
+     * @param array:campos con los nombre de los campos en los que se desean introducir datos
+     * @param array:valores valores de los campos que se desean introducir
+     * ¡CUIDADO!: los valores han de coincidir en el orden que se establece en el array de campos
+     * @param object:conexion objeto PDO con el que se establece la conexión a bdbatallas
+     * 
+     * @return true sentencia sql ejecutada de forma exitosa
+     */
+    function insertBD($tabla, $campos, $valores, $conexion) {
+        // Creo etiquetas que son nombres de campos precedidos con dos puntos.
+        $etiquetas = $campos;
+        foreach ($etiquetas as &$etiqueta) {
+            $etiqueta = ':' . $etiqueta;
+        }
+
+        // Sentencia preparada
+        $sql = "INSERT INTO $tabla (" . implode(', ', $campos) . ") VALUES(" . implode(', ', $etiquetas) . ")";
+        $stmt = $conexion->prepare($sql);
+        $stmt->execute(array_combine($etiquetas, $valores));
+        return true;
+    }
+
+    /**
+     * Función para registrar el inicio y fin de la sesiones de usuarios en la base de datos dbbatallas
+     * @param array:valores conjunto de valores a insertar en la tabla de sesiones
+     * @param array:_formato_valores [$usuario, $fechaHoraInicio, $fechaHoraFinal]
+     * 
+     * @return true:commit guardar los cambios en la base de datos
+     * @return false:rollBack en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
+     */
+    function registrarSesion($valores) {
+        $campos = array('nombreusuario', 'fechaHoraInicio', 'fechaHoraFinal');
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+        $conexion->beginTransaction();
+
+        if (insertBD('sesiones', $campos, $valores, $conexion)) {
+            $conexion->commit();
+        } else {
+            $conexion->rollBack();
+        }
+    }
 
     /**
      * Función genérica para obtener información de la base de datos dbbatallas
@@ -88,7 +132,6 @@
             $c = $campos[0];
         }
         $sql = "SELECT " . $c . " FROM " . $tabla . " WHERE " . $condicion . " = '" . $valor . "'";
-        // echo $sql."<br>";
         
         $result = $conexion->query($sql);
         $datos = $result->fetch();
@@ -397,32 +440,5 @@
                 }
             }
         }
-    }
-
-
-
-    
-    /**
-     * Función genérica para insertar datos en tablas especificas en de la base de datos dbbatallas
-     * @param string:tabla nombre de la tabla en la que se realizará la insercción de datos
-     * @param array:campos con los nombre de los campos en los que se desean introducir datos
-     * @param array:valores valores de los campos que se desean introducir
-     * ¡CUIDADO!: los valores han de coincidir en el orden que se establece en el array de campos
-     * @param object:conexion objeto PDO con el que se establece la conexión a bdbatallas
-     * 
-     * @return true sentencia sql ejecutada de forma exitosa
-     */
-    function insertBD($tabla, $campos, $valores, $conexion) {
-        // Creo etiquetas que son nombres de campos precedidos con dos puntos.
-        $etiquetas = $campos;
-        foreach ($etiquetas as &$etiqueta) {
-            $etiqueta = ':' . $etiqueta;
-        }
-
-        // Sentencia preparada
-        $sql = "INSERT INTO $tabla (" . implode(', ', $campos) . ") VALUES(" . implode(', ', $etiquetas) . ")";
-        $stmt = $conexion->prepare($sql);
-        $stmt->execute(array_combine($etiquetas, $valores));
-        return true;
     }
 ?>
