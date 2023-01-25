@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-01-2023 a las 12:23:42
+-- Tiempo de generación: 25-01-2023 a las 14:19:31
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -51,8 +51,7 @@ INSERT INTO `batalla_elemento` (`id_batalla`, `id_elemento1`, `id_elemento2`) VA
 (8, 6, 10),
 (9, 7, 6),
 (10, 9, 2),
-(11, 1, 3),
-(12, 1, 5);
+(11, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -73,6 +72,7 @@ INSERT INTO `credencial` (`nombreusuario`, `password`) VALUES
 ('admin', 'Admin1'),
 ('Antonio', 'Antonio123'),
 ('Claramente', 'Lanena1'),
+('Luiseta', 'dawdawdaw123'),
 ('MigueLombarda', 'CafeCum1'),
 ('Raul', 'Raulitups123'),
 ('sete7', 'SeteSiete1'),
@@ -147,14 +147,15 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `fechanacimiento`, `foto`, `email`, `modovis`, `idioma`, `rol`, `num_elementos_creados`, `num_batallas_creadas`, `num_batallas_votadas`, `num_batallas_ignoradas`, `num_batallas_denunciadas`, `puntos_troll`) VALUES
-(1, '1999-05-12', 'img/foto_perfil/ferrari.jpg', 'luis@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
-(2, '2001-06-25', 'img/foto_perfil/fotoNaruto.jpg', 'brandon@gmail.com', 'dark', 'en', 'usuario', 2, 1, 5, 1, 2, 0),
-(3, '1995-08-14', 'img/foto_perfil/twitter.jpg', 'elonmusk@gmail.com', 'dark', 'en', 'usuario', 0, 0, 0, 0, 0, 0),
-(4, '1990-11-29', 'img/foto_perfil/fotoCoche.jpg', 'miguel@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
-(5, '1996-08-18', 'img/foto_perfil/porch.jpg', 'clara@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
+(1, '1999-05-12', 'img/foto_perfil/ferrari.jpg', 'luis@gmail.com', 'light', 'es', 'usuario', 2, 1, 4, 0, 1, 0),
+(2, '2001-06-25', 'img/foto_perfil/fotoNaruto.jpg', 'brandon@gmail.com', 'dark', 'en', 'usuario', 2, 1, 4, 1, 1, 0),
+(3, '1995-08-14', 'img/foto_perfil/twitter.jpg', 'elonmusk@gmail.com', 'dark', 'en', 'usuario', 2, 1, 4, 0, 0, 0),
+(4, '1990-11-29', 'img/foto_perfil/fotoCoche.jpg', 'miguel@gmail.com', 'light', 'es', 'usuario', 2, 1, 3, 1, 0, 0),
+(5, '1996-08-18', 'img/foto_perfil/porch.jpg', 'clara@gmail.com', 'light', 'es', 'usuario', 2, 1, 4, 0, 0, 2),
 (6, '1999-01-01', '', 'admin@gmail.com', 'light', 'es', 'admin', 0, 0, 0, 0, 0, 0),
 (7, '1986-05-06', 'img/foto_perfil/IMG.jpg', 'antonio@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
-(8, '1997-10-15', 'img/foto_perfil/IMG.jpg', 'raul@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0);
+(8, '1997-10-15', 'img/foto_perfil/IMG.jpg', 'raul@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
+(13, '1999-12-01', 'img/foto_perfil/IMG.jpg', 'luis@gmail.com', 'dark', 'es', 'usuario', 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -184,8 +185,7 @@ INSERT INTO `usuario_batalla` (`id`, `id_usuario`, `id_batalla`, `accion`, `fech
 (10, 2, 5, 'denunciar', '2022-11-30 00:00:00'),
 (11, 4, 4, 'ignorar', '2022-11-30 00:00:00'),
 (12, 6, 4, 'eliminar', '2022-11-30 00:00:00'),
-(13, 2, 4, 'ignorar', '2023-01-24 13:39:24'),
-(14, 2, 12, 'denunciar', '2023-01-24 13:39:24');
+(13, 2, 4, 'ignorar', '2023-01-24 13:39:24');
 
 -- --------------------------------------------------------
 
@@ -263,11 +263,9 @@ CREATE TABLE `voto` (
 
 INSERT INTO `voto` (`id_usuario`, `id_batalla`, `id_elemento`, `fecha`) VALUES
 (1, 1, 1, '2022-11-30 00:00:00'),
-(1, 2, 3, '2022-11-30 00:00:00'),
 (1, 3, 5, '2022-11-30 00:00:00'),
 (1, 4, 8, '2022-11-30 00:00:00'),
 (1, 5, 9, '2022-11-30 00:00:00'),
-(2, 1, 1, '2022-11-30 00:00:00'),
 (2, 2, 3, '2022-11-30 00:00:00'),
 (2, 3, 5, '2022-11-30 00:00:00'),
 (2, 4, 8, '2022-11-30 00:00:00'),
@@ -275,17 +273,14 @@ INSERT INTO `voto` (`id_usuario`, `id_batalla`, `id_elemento`, `fecha`) VALUES
 (3, 1, 1, '2022-11-30 00:00:00'),
 (3, 2, 3, '2022-11-30 00:00:00'),
 (3, 3, 5, '2022-11-30 00:00:00'),
-(3, 4, 8, '2022-11-30 00:00:00'),
 (3, 5, 9, '2022-11-30 00:00:00'),
 (4, 1, 1, '2022-11-30 00:00:00'),
 (4, 2, 3, '2022-11-30 00:00:00'),
-(4, 3, 5, '2022-11-30 00:00:00'),
 (4, 5, 9, '2022-11-30 00:00:00'),
 (5, 1, 1, '2022-11-30 00:00:00'),
 (5, 2, 3, '2022-11-30 00:00:00'),
 (5, 3, 5, '2022-11-30 00:00:00'),
-(5, 4, 8, '2022-11-30 00:00:00'),
-(5, 5, 9, '2022-11-30 00:00:00');
+(5, 4, 8, '2022-11-30 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -369,7 +364,7 @@ ALTER TABLE `elemento`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_batalla`
