@@ -22,7 +22,7 @@
         }
             
         /**
-         * Función para ejecutar un query simple del tipo INSERT, DELETE, UPDATE !!! NO Select
+         * Función para ejecutar un query tipo INSERT, DELETE o UPDATE
          * @param  string:sql sentencia sql
          */
         public function ejecutar ($sql) {
@@ -33,12 +33,12 @@
         }
 
         /**
-         * Método que traer resultados de una consulta en un Array
+         * Función para ejecutar un query tipo SELECT
          * @param  string:sql sentencia sql
          * 
          * @return array:resultado con los valores de la BBDD que cumplen la query
          */
-        public function obtenerResultado($sql){
+        public function obtenerResultado ($sql){
             $this->sentencia = $sql;
             $this->abrirConexion();
             $resultado = array();
