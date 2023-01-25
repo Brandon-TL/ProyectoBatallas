@@ -5,10 +5,10 @@
         // Estoy en la página principal
         // NO necesito invocar a modelo alguno
         // Cargo la vista por defecto
-        $vista = file_get_contents('./mvc/vistas/generalView.php');
+        $vista = file_get_contents('./mvc/vistas/adminView.php');
         $vista = str_replace('{text_title}', 'Página principal', $vista);
         // 1.- Sustituir cabecera
-        $vista = str_replace('{header}', file_get_contents('./assets/html/header.html'), $vista);
+        $vista = str_replace('{admin_header}', file_get_contents('./assets/html/header.html'), $vista);
         data_replace($vista, './assets/dictionaries/header_noLink.php');
 
         // 2.- Sustituir body
@@ -21,7 +21,7 @@
 
     } else {
         // Si no se detecta un usuario en la sesión cargar la vista de logueo
-        $vista = file_get_contents('./mvc/vistas/login.php');
+        $vista = file_get_contents('./mvc/vistas/indexView.php');
         // Cambiar <title> de la vista login.php
         $vista = str_replace('{text_title}', 'Log to Batallas', $vista);
         // Cambiar {header} de la vista login.php
