@@ -5,20 +5,28 @@
         // ACCION CUANDO SE RETIRE EL VOTO DE IGNORAR DE UNA BATALLA
     } else if (isset($_POST['NO_DENUNCIA'])) {
         // ACCION CUANDO SE RETIRE EL VOTO DE DENUNCIA DE UNA BATALLA
-    } else if (isset($_POST['SALIR'])) {
-        if(!isset($_SESSION)) { 
-            session_start(); 
+    }else if (isset($_POST['ELIMINAR'])) {
+        $_eliminar_usuario_err = $_eliminar_password_err = $_confirmar_password_err = $_palabra = null;
+        
+        // Obtener datos relacionados con el botón eliminar
+        $_usuario = htmlspecialchars($_POST["usuario_eliminar"]);
+        $_password = htmlspecialchars($_POST["password_eliminar"]);
+        $_confirm = htmlspecialchars($_POST["confirmar_eliminar"]);
+
+        // Comprobar el idioma y establecer la palabra de seguridad al respecto
+        if ($_COOKIE['lang'] == 'es') {
+            $_palabra = 'CONFIRMAR';
+        } else if ($_COOKIE['lang'] == 'en') {
+            $_palabra = 'CONFIRM';
         }
-        // Obtener datos de la sesión y almacenarlos en un array
-        $sesion = array( $usuario = $_SESSION["usuario"],$fechainicio = $_SESSION["fInicio"] , $fechafinal = date('Y-m-d H:i:s'));
-        // Registrar la sesión en la base de datos
-        registrarSesion($sesion);
-        // Destruir sesión
-        session_destroy();
-        // Eliminar cookies de sesión
-        unset($_COOKIE["PHPSESSID"]);
-        setcookie("PHPSESSID", null, -1, '/');
-        // Redirigir a página principal
-        header("Location: index.php");
+        // Comprobar credenciales y palabra de seguridad
+        if (comprobarCredenciales($_usuario, $_password) && $_confirm == $_palabra) {
+            // Eliminar usuario y sus información de la base de datos
+            eliminarUsuarioBD($_SESSION['usuario']);
+            // Esta función incluye "cerrarSesion()"
+        }
+    } else if (isset($_POST['SALIR'])) {
+        // Ejecutar función para cerrar sesión
+        cerrarSesion();
     }
 ?>

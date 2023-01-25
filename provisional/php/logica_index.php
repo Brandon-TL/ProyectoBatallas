@@ -30,9 +30,9 @@
                 $_logueo_usuario_err = $lang['logueo_error_usuario'];
             } else if ($encontrado) {
                 if (is_null($_logueo_password_err)) {  
-                    if (!loguear($_valid_usuario, $_valid_password)) {
+                    if (!comprobarCredenciales($_valid_usuario, $_valid_password)) {
                         $_logueo_password_err = $lang['logueo_error_password'];
-                    } else if ($_valid_usuario === 'admin' && loguear($_valid_usuario, $_valid_password)) {
+                    } else if ($_valid_usuario === 'admin' && comprobarCredenciales($_valid_usuario, $_valid_password)) {
                         header("Location: admin.php");
                         exit();
                     } else {
@@ -137,7 +137,7 @@
             } else if ($return == 'email') {
                 $_registro_email_err = $lang['registro_existing_email'];
             } else {
-                if (loguear($_usuario, $_password)) {
+                if (comprobarCredenciales($_usuario, $_password)) {
                     header("Location: user.php");
                     exit();
                 } else {

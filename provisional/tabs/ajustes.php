@@ -157,18 +157,19 @@
             <div class="settings_content">
                 <h2 class="grid_title"><?php echo $lang['ajustes_eliminar_title']; ?></h2>
                 <p class="grid_text"><?php echo $lang['ajustes_eliminar_text']; ?></p>
-                    <input type="text" name="usuario" placeholder="<?php echo $lang['logueo_label_nombre'] ?>" value="<?php  if (isset($_valid_usuario)) echo $_valid_usuario ?>">
-                    <?php if (isset($_logueo_usuario_err)) echo '<span class="error">'.$_logueo_usuario_err.'</span>'; ?>
+                    <input type="text" name="usuario_eliminar" placeholder="<?php echo $lang['logueo_label_nombre'] ?>" value="<?php  if (isset($_valid_usuario)) echo $_valid_usuario ?>">
+                    <?php if (isset($_eliminar_usuario_err)) echo '<span class="error">'.$_eliminar_usuario_err.'</span>'; ?>
 
-                    <input type="password" name="password" placeholder="<?php echo $lang['logueo_label_password'] ?>">
-                    <?php if (isset($_logueo_password_err)) echo '<span class="error">'.$_logueo_password_err.'</span>'; ?>
+                    <input type="password" name="password_eliminar" placeholder="<?php echo $lang['logueo_label_password'] ?>">
+                    <?php if (isset($_eliminar_password_err)) echo '<span class="error">'.$_eliminar_password_err.'</span>'; ?>
 
                     <label class="grid_input_text_confirm" for="confirmar"><?php echo $lang['ajustes_eliminar_confirm']; ?></label>
-                    <input class="grid_input_confirm" type="text" name="password" id="confirmar" placeholder="<?php echo $lang['ajustes_eliminar_confirm_placeholder']; ?>">
+                    <input class="grid_input_confirm" type="text" name="confirmar_eliminar" id="confirmar" placeholder="<?php echo $lang['ajustes_eliminar_confirm_placeholder']; ?>">
+                    <?php if (isset($_confirmar_password_err)) echo '<span class="error">'.$_confirmar_password_err.'</span>'; ?>
 
                     <textarea class="grid_textarea" name="reason" id="reason" placeholder="<?php echo $lang['ajustes_eliminar_confirm_placeholder2']; ?>"></textarea>
 
-                    <input class="ajustes_button rid_button2" type="submit" name="CAMBIAR_AVATAR" value="<?php echo $lang['ajustes_boton_eliminar']; ?>">
+                    <input class="ajustes_button rid_button2" type="submit" name="ELIMINAR" value="<?php echo $lang['ajustes_boton_eliminar']; ?>">
             </div>
         </li>
     </ul>

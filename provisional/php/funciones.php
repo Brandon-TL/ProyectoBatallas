@@ -6,8 +6,8 @@
      * @param string:datoAValidar cadena de texto que se quiere validar
      * @param string:expresionRegular expresión regular con la que validarla
      * 
-     * @return true:valida el dato a validar coincide con la expresión regular
-     * @return false:valida el dato a validar NO coincide con la expresión regular
+     * @return bool:true el dato a validar coincide con la expresión regular
+     * @return bool:false el dato a validar NO coincide con la expresión regular
      */
     function validar($datoAValidar, $expresionRegular) {
         // Valido el campo
@@ -23,8 +23,8 @@
      * Función validar_edad valida una fecha de formulario con DateTime
      * @param string:fecha fecha que se quiere validar
      * 
-     * @return true validado
-     * @return false no validado
+     * @return bool:true validado
+     * @return bool:false no validado
      */
     function validar_edad($fecha) {
         // Cambiamos $fecha de String a DateTime
@@ -47,10 +47,10 @@
      * @param string:usuario Nombre del usuario a loguear
      * @param string:password Contraseña de usuario a loguear
      * 
-     * @return true las credenciales del usuario coniciden con la base de datos
-     * @return false las credenciales del usuario no se han encontrado o son incorrectas
+     * @return bool:true las credenciales del usuario coniciden con la base de datos
+     * @return bool:false las credenciales del usuario no se han encontrado o son incorrectas
      */
-    function loguear($usuario, $password) {
+    function comprobarCredenciales($usuario, $password) {
         // Buscar el usuario con el nombre introducido
         $stmt = selectBD(array('password'), 'credencial', 'nombreusuario', $usuario);
 
@@ -75,7 +75,7 @@
      * ¡CUIDADO!: los valores han de coincidir en el orden que se establece en el array de campos
      * @param object:conexion objeto PDO con el que se establece la conexión a bdbatallas
      * 
-     * @return true sentencia sql ejecutada de forma exitosa
+     * @return bool:true sentencia sql ejecutada de forma exitosa
      */
     function insertBD($tabla, $campos, $valores, $conexion) {
         // Creo etiquetas que son nombres de campos precedidos con dos puntos.
@@ -96,8 +96,8 @@
      * @param array:valores conjunto de valores a insertar en la tabla de sesiones
      * @param array:_formato_valores [$usuario, $fechaHoraInicio, $fechaHoraFinal]
      * 
-     * @return true:commit guardar los cambios en la base de datos
-     * @return false:rollBack en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
+     * @return bool:true guardar los cambios en la base de datos
+     * @return bool:false en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
      */
     function registrarSesion($valores) {
         $campos = array('nombreusuario', 'fechaHoraInicio', 'fechaHoraFinal');
@@ -139,12 +139,48 @@
     }
 
     /**
-     * Función par aregistrar nuevos usuarios en la base de  datos
+     * Función para cerrar sesiones iniciadas
+     * 
+     * @return header:Location redireccion a la página principal index.php
+     */
+    function cerrarSesion() {
+        if(!isset($_SESSION)) { 
+            session_start(); 
+        }
+        // Obtener datos de la sesión y almacenarlos en un array
+        $sesion = array( $usuario = $_SESSION["usuario"],$fechainicio = $_SESSION["fInicio"] , $fechafinal = date('Y-m-d H:i:s'));
+        // Registrar la sesión en la base de datos
+        registrarSesion($sesion);
+        // Destruir sesión
+        session_destroy();
+        // Eliminar cookies de sesión
+        unset($_COOKIE["PHPSESSID"]);
+        setcookie("PHPSESSID", null, -1, '/');
+        // Redirigir a página principal
+        header("Location: index.php");
+    }
+
+    /**
+     * Función para obtener datos de la tabla de usuarios
+     * @param string:user nombre del usuario del que requieren sus datos
+     * 
+     * @return object:array conjunto de datos del usuario
+     */
+    function datos_de_usuario ($user) {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+        $conexion->beginTransaction();
+    
+        $id = selectBD(array("id_usuario"), "usuario_credencial", "nombreusuario", $user)[0];
+        return selectBD(array("*"), "usuario", "id", $id);
+    }
+
+    /**
+     * Función para registrar nuevos usuarios en la base de  datos
      * @param array:usuario datos del usuario a registrar
      * @param array:_formato_usuario [$fecha, $avatar, $email, $tema, $lang, $rol, $usuario, $password]
      * 
-     * @return true:commit guardar el usuario en la base de datos
-     * @return false:rollBack en caso de no poder registrar el usuario, se revierten los cambios realizados
+     * @return bool:true guardar el usuario en la base de datos
+     * @return bool:false en caso de no poder registrar el usuario, se revierten los cambios realizados
      */
     function registrarUsuarioBD($usuario) {
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
@@ -208,17 +244,31 @@
     }
 
     /**
-     * Función para obtener datos de la tabla de usuarios
-     * @param string:user nombre del usuario del que requieren sus datos
+     * Función para eliminar usuarios en la base de  datos y todos sus datos
+     * @param string:nombre del usuario a eliminar
      * 
-     * @return object:array conjunto de datos del usuario
+     * @return bool:true guardar el usuario en la base de datos
+     * @return bool:false en caso de no poder registrar el usuario, se revierten los cambios realizados
      */
-    function datos_de_usuario ($user) {
+    function eliminarUsuarioBD($nombre) {
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
-        $conexion->beginTransaction();
-    
-        $id = selectBD(array("id_usuario"), "usuario_credencial", "nombreusuario", $user)[0];
-        return selectBD(array("*"), "usuario", "id", $id);
+        if (isset($conexion)) {
+            // Obtener id del usuario a eliminar
+            $conexion->beginTransaction();
+            $id = datos_de_usuario($nombre)[0];
+            if ($id) {
+                // Eliminar de la tabla cedencial
+                // Eliminar de la tabla sesiones
+                // Eliminar de la tabla usuario
+                // Sustituir id de la tabla usuario_batalla por id de administrador en accion="crear" con $id del usuario eliminado
+                // Eliminar de la tabla usuario_credencial
+                // Sustituir id de la tabla usuario_elemento por id de administrador en accion="crear" con $id del usuario eliminado
+                // Eliminar votos ???
+            }
+
+
+            // cerrarSesion();
+        }
     }
 
     /**
@@ -238,8 +288,8 @@
 
     /**
      * Función para obtener los datos sobre las batallas
-     * @param true:creadas solo batallas creadas por el usuario
-     * @param false:creadas solo batallas que el usuario no ha creado
+     * @param bool:true:creadas solo batallas creadas por el usuario
+     * @param bool:false:creadas solo batallas que el usuario no ha creado
      * 
      * @return array:datos de las batallas solicitadas
      */
@@ -414,9 +464,9 @@
      * @param string:id_elemento id del elemento que se desea votar
      * @param string:id_batalla id de la batalla en la que se encuentra el elemento
      * 
-     * @return true:execute_sql_query+text si se han encontrado los elementos solicitados, se ejecuta comando sql para 
+     * @return bool:true si se han encontrado los elementos solicitados, se ejecuta comando sql para 
      *                           registrar la votación en la base de datos y se indica que se ha terminado la ejecución con éxito
-     * @return false:error texto indicativo de porque no se ha registrado el voto
+     * @return bool:false texto indicativo de porque no se ha registrado el voto
      */
     function votar($id_usuario, $id_batalla, $id_elemento) {
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
