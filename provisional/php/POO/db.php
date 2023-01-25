@@ -5,7 +5,7 @@
         const PASSWORD = "";
         const DBNAME = "dbbatallas";
         private $sentencia;
-        º $conexion;
+        // º $conexion;
 
         /**
          * Función que conecta con la base de datos
@@ -27,9 +27,9 @@
          */
         public function ejecutar ($sql) {
             $this->sentencia = $sql;
-            $this->abrirConexion();
+            $this->conectar();
             $this->conexion->query($this->sentencia);
-            $this->cerrarConexion();
+            $this->desconectar();
         }
 
         /**
@@ -52,6 +52,13 @@
 
         public function eliminarUsuario ($id){
             $sql = "DELETE FROM usuario WHERE id = '$id' ";
+
+            $conexion = new db;
+            $conexion->ejecutar($sql);
+        }
+
+        public function eliminarCredencial($nombreUsuario){
+            $sql = "DELETE FROM credencial WHERE nombreusuario = '$nombreUsuario' ";
 
             $conexion = new db;
             $conexion->ejecutar($sql);
