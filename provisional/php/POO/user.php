@@ -3,20 +3,22 @@
 
     class user {
         protected $id;
-        protected $nombre;
-        protected $email;
+        protected $fecha;
         protected $foto;
+        protected $email;
         protected $tema;
         protected $idioma;
+        protected $nombre;
         protected $password;
 
-        public function __construct($cId, $cNombre, $cEmail, $cFoto, $cTema, $cIdioma, $cPassword) {
+        public function __construct($cId, $cFecha, $cFoto, $cEmail, $cTema, $cIdioma, $cNombre, $cPassword) {
             $this->id = $cId;
-            $this->nombre = $cNombre;
-            $this->email = $cEmail;
+            $this->fecha = $cFecha;
             $this->foto = $cFoto;
+            $this->email = $cEmail;
             $this->tema = $cTema;
             $this->idioma = $cIdioma;
+            $this->nombre = $cNombre;
             $this->password = $cPassword;
         }
 
@@ -32,6 +34,17 @@
             if (property_exists(__CLASS__, $var)) {
                 return $this->$var;
             }
+        }
+
+        public function registrarUsuario () {
+            $sql = "INSERT INTO `usuario`(`fechanacimiento`, `foto`, `email`, `modovis`, `idioma`, `rol`, `num_elementos_creados`, `num_batallas_creadas`, `num_batallas_votadas`, `num_batallas_ignoradas`, `num_batallas_denunciadas`, `puntos_troll`) VALUES ($this->fecha, $this->foto, $this->email, $this->tema, $this->idioma, 'usuario', 0, 0, 0, 0, 0, 0)";
+            
+            $conexion = new db;
+            $conexion->ejecutar($sql);
+            
+            $sql = "INSERT INTO `credencial`(`nombreusuario`, `password`) VALUES ($this->nombre, $this->password)";
+
+            $this->conexion->ejecutar($sql);
         }
     }
 ?>
