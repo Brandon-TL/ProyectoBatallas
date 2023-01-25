@@ -60,7 +60,7 @@
                 if ($this->conexion->ejecutar($sql)) {
                     echo "Usuario registrado";
                 } else {
-                    echo "No se ha podido  registrar el usuario";
+                    echo "No se ha podido  registrar  el usuario";
                 }
             } else {
                 echo "No se ha podido  registrar el usuario";
