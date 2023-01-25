@@ -19,11 +19,14 @@
         } else if ($_COOKIE['lang'] == 'en') {
             $_palabra = 'CONFIRM';
         }
+
         // Comprobar credenciales y palabra de seguridad
         if (comprobarCredenciales($_usuario, $_password) && $_confirm == $_palabra) {
-            // Eliminar usuario y sus información de la base de datos
-            eliminarUsuarioBD($_SESSION['usuario']);
-            // Esta función incluye "cerrarSesion()"
+            // // Eliminar usuario y sus información de la base de datos
+
+            // // testing on test.php
+            // eliminarUsuarioBD($_SESSION['usuario']);
+            // // Esta función incluye "cerrarSesion()"
         }
     } else if (isset($_POST['SALIR'])) {
         // Ejecutar función para cerrar sesión

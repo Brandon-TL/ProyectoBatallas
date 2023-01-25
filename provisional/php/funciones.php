@@ -92,6 +92,52 @@
     }
 
     /**
+     * Función genérica para eliminar tuplas de las tablas
+     * @param string:tabla nombre de la tabla en la que se desean realizar los cambios
+     * @param string:condicion con la que se filtrarán los datos a borrar
+     * @param string:valor establece que datos se borrarán
+     * 
+     * @return bool:true guardar los cambios en la base de datos
+     * @return bool:false en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
+     */
+    function deleteBD($tabla, $condicion, $valor) {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+        $conexion->beginTransaction();
+        $sql = "DELETE FROM $tabla WHERE $condicion = $valor";
+        if (!$conexion->exec($sql)) {
+            $conexion->commit();
+            return true;
+        } else {
+            $conexion->rollBack();
+            return false;
+        }
+    }
+
+    /**
+     * Función genérica para modificar datos existentes de las tablas de la base de datos
+     * @param string:tabla nombre de la tabla en la que se encuentran los datos que se desean modificar
+     * @param string:campo nombre del campo se desea modificar
+     * @param string:valor nuevo valor del campo a modificar
+     * @param string:condicion con la que se seleccionará la tupla a modificar
+     * @param string:cond_valor que establece la tupla que se modificará
+     * 
+     * @return bool:true guardar los cambios en la base de datos
+     * @return bool:false en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
+     */
+    function updateDB($tabla, $campo, $valor, $condicion, $cond_valor) {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+        $conexion->beginTransaction();
+        $sql = "UPDATE $tabla SET $campo = $valor WHERE $condicion = $cond_valor ";
+        if (!$conexion->exec($sql)) {
+            $conexion->commit();
+            return true;
+        } else {
+            $conexion->rollBack();
+            return false;
+        }
+    }
+
+    /**
      * Función para registrar el inicio y fin de la sesiones de usuarios en la base de datos dbbatallas
      * @param array:valores conjunto de valores a insertar en la tabla de sesiones
      * @param array:_formato_valores [$usuario, $fechaHoraInicio, $fechaHoraFinal]
@@ -256,14 +302,40 @@
             // Obtener id del usuario a eliminar
             $conexion->beginTransaction();
             $id = datos_de_usuario($nombre)[0];
+            $id_admin = datos_de_usuario('admin')[0];
+            $success = false;
+
             if ($id) {
-                // Eliminar de la tabla cedencial
-                // Eliminar de la tabla sesiones
-                // Eliminar de la tabla usuario
-                // Sustituir id de la tabla usuario_batalla por id de administrador en accion="crear" con $id del usuario eliminado
-                // Eliminar de la tabla usuario_credencial
-                // Sustituir id de la tabla usuario_elemento por id de administrador en accion="crear" con $id del usuario eliminado
-                // Eliminar votos ???
+                // Eliminar de la tabla credencial
+                if (deleteBD('credencial', 'nombreusuario', $nombre)) {
+                    // Eliminar de la tabla sesiones
+                    if (deleteBD('sesiones', 'nombreusuario', $nombre)) {
+                        // Eliminar de la tabla usuario
+                        if (deleteBD('usuario', 'id', $id)) {
+                            // Sustituir id de la tabla usuario_batalla por id de administrador en accion="crear" con $id del usuario eliminado
+                            if (updateDB('usuario_batalla', 'id_usuario', $id_admin, 'accion', 'crear') && false) {
+                            // se sustituira el id_usuario con id_admin todas las tuplas con accion crear!!!
+                            // necesita filtro WHERE $id_usuario = $id (seleccionar $id de la tupla y estableceerla como codicion del update)
+
+
+                                // Eliminar de la tabla usuario_credencial
+                                // if () {
+                                //     // Sustituir id de la tabla usuario_elemento por id de administrador en accion="crear" con $id del usuario eliminado
+                                //     if () {                                    
+                                //         // Eliminar votos ???
+                                //     }
+                                // }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            if ($success) {
+                $conexion->commit();
+            } else {
+                $conexion->rollBack();
             }
 
 

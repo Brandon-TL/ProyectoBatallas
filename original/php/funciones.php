@@ -1,47 +1,6 @@
 <?php
 include_once 'config.php';
 
-/**
- * Función genérica para eliminar tuplas de las tablas
- * @param string:tabla nombre de la tabla en la que se desean realizar los cambios
- * @param string:id el cual corresponde a la tupla que se desea eliminar
- * @param object:conexion objeto PDO con el que se establece la conexión a bdbatallas
- * 
- * @return true:commit guardar los cambios en la base de datos
- * @return false:rollBack en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
- */
-function deleteBD($tabla, $id, $conexion)
-{
-    $conexion->beginTransaction();
-    $sql = "DELETE FROM $tabla WHERE id = $id ";
-    if (!$conexion->exec($sql)) {
-        $conexion->commit();
-    } else {
-        $conexion->rollBack();
-    }
-}
-
-/**
- * Función genérica para modificar datos existentes de las tablas de la base de datos
- * @param string:tabla nombre de la tabla en la que se encuentran los datos que se desean modificar
- * @param string:campo nombre del campo se desea modificar
- * @param string:valor nuevo valor del campo a modificar
- * @param string:id identificador de la tupla que se va a modificar
- * @param object:conexion objeto PDO con el que se establece la conexión a bdbatallas
- * 
- * @return true:commit guardar los cambios en la base de datos
- * @return false:rollBack en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
- */
-function updateDB($tabla, $campo, $valor, $id, $conexion)
-{
-    $conexion->beginTransaction();
-    $sql = "UPDATE $tabla SET $campo = $valor WHERE id = $id ";
-    if (!$conexion->exec($sql)) {
-        $conexion->commit();
-    } else {
-        $conexion->rollBack();
-    }
-}
 
 /**
  * Función para aplicar preferencias de visualización del usuario en la página 
