@@ -48,8 +48,9 @@
         }
 
         public function eliminarUser(){
-            eliminarUsuario($this->id);
-            eliminarCredencial($this->nombre);
+            $conexion = new db;
+            $conexion->eliminarUsuario($this->id);
+            $conexion->eliminarCredencial($this->nombre);
         }
     }
 ?>

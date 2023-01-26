@@ -204,10 +204,15 @@ button:focus {
 
 section {
 	display: flex;
+    overflow: auto;
 	justify-content: center;
 	align-items: center;
 	background-color: var(--section-background-color);
 	z-index: 1;
+}
+
+section::-webkit-scrollbar {
+    display: none;
 }
 
 .tabs__content {
