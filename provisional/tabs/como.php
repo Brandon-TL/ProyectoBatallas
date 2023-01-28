@@ -1,6 +1,6 @@
 <div class="como_container">
-    <h1 class="faq-h1">Preguntas más frecuentes</h1>
     <div class="faq-container">
+        <h1 class="faq-h1">Preguntas más frecuentes</h1>
         <div class="questions">
             <div class="faq faq-one">
                 <h2 class="faq-title">¿Qué son las batallas?</h2>
@@ -13,7 +13,7 @@
             <div class="faq faq-two">
                 <h2 class="faq-title">¿Qué son los elementos?</h2>
                 <div class="faq-answer">
-                    Los elementos son objetos de un mismo entorno <em>(leguajes, series, marcas...)</em> efrentados entre sí a través de batallas.
+                    Los elementos son objetos de un mismo entorno <em>(leguajes, series, marcas...)</em> o no <em>(vinos, coches, videojuegos...)</em> efrentados entre sí a través de batallas, en las cuales los usuarios votarán por el que más les guste.
                 </div>
             </div>
             <hr class="como_hr">

@@ -27,7 +27,7 @@
             <label for="batallas" class="tabs__label"><?php echo $lang['perfil_tab_batallas_title'] ?></label>
             <label for="elementos" class="tabs__label"><?php echo $lang['perfil_tab_elementos_title'] ?></label>
             <label for="logros" class="tabs__label"><?php echo $lang['perfil_tab_logros_title'] ?></label>
-            <label for="como" class="tabs__label"><?php echo $lang['perfil_tab_como_title'] ?></label>
+            <label for="como" class="tabs__label active"><?php echo $lang['perfil_tab_como_title'] ?></label>
         </nav>
         <div class="selectors">
             <div class="dropdown" title="Select language">
@@ -42,7 +42,7 @@
                 <button name="tema" value="dark" class="dark"><ion-icon name="moon-outline"></ion-icon></button>
                 <button name="tema" value="light" class="light"><ion-icon name="sunny-outline"></ion-icon></button>
             </form>
-            <button class="settings active"><label for="ajustes"><ion-icon name="settings-outline"></ion-icon></label></button>
+            <button class="settings"><label for="ajustes"><ion-icon name="settings-outline"></ion-icon></label></button>
         </div>
     </header>
     <input type="radio" class="tabs__radio" name="slider" id="perfil">

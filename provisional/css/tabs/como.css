@@ -1,15 +1,45 @@
-.como_container {
-    margin-top: 100px;
+.faq-container {
+    width: 70%;
+    margin: auto;
 }
 
 .faq-h1 {
-    position: absolute;
+    color: white;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    height: 100px;
+    font-size: 40px;
+    overflow: hidden;
+    line-height: 100px;
+    text-align: center;
     background-color: var(--body-background);
-    width: 60vw;
-    top: 100px;
+    z-index: 2;
+    box-shadow: 0px 5px 20px 0px black;
 }
 
-.faq-container {
-    background-color: rgba(127, 255, 212, 0.13);
-    width: 60vw;
+.questions {
+    z-index: 1;
+/*     box-shadow: inset 0px -20px 20px 0px black; */
+    padding-bottom: 500px;
+}
+
+.questions .faq .faq-title {
+    color: white;
+    text-align: center;
+    top: 100px;
+    padding: 50px 40px 20px 40px;
+}
+
+.questions .faq .faq-answer {
+    color: white;
+    padding: 50px;
+    text-align: justify
+}
+
+.questions .como_hr {
+    border-color: #ffffff20;
+    width: 75%;
+    margin: auto;
 }

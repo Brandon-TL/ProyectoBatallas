@@ -14,7 +14,6 @@ body {
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
-	margin: -20px 0 50px;
 	overflow: hidden;
 }
 
@@ -203,19 +202,22 @@ button:focus {
 }
 
 section {
-	display: flex;
+	width: 100%;
+	height: 100%;
     overflow: auto;
-	justify-content: center;
-	align-items: center;
 	background-color: var(--section-background-color);
+	background-color: gray;
 	z-index: 1;
 }
+
 
 section::-webkit-scrollbar {
     display: none;
 }
 
 .tabs__content {
+	width: 100%;
+	height: 100%;
     display: none;
 }
 
