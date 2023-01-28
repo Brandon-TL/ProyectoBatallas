@@ -61,13 +61,84 @@
 		"registro_vacio_foto" => "Profile photo not inserted",
 		"registro_failed_new_login" => "Sorry, could not log in with the registered user",
 
+		// user.php
+		"user_title" => "Homepage",
+		"user_tab_perfil_title" => "Profile",
+		"user_tab_batallas_title" => "Battles",
+		"user_tab_elementos_title" => "Creator",
+		"user_tab_logros_title" => "Achivements",
+		"user_tab_como_title" => "FAQ",
+
 		// perfil.php
-		"perfil_title" => "Homepage",
-		"perfil_tab_perfil_title" => "Profile",
-		"perfil_tab_batallas_title" => "Battles",
-		"perfil_tab_elementos_title" => "Elements",
-		"perfil_tab_logros_title" => "Achivements",
-		"perfil_tab_como_title" => "How to play?",
+		"perfil_h2" => "User data",
+		"perfil_elementos_creados" => "Created elements",
+		"perfil_batallas_creadas" => "Created battles",
+		"perfil_batallas_votadas" => "Voted battles",
+		"perfil_batallas_ignoradas" => "Ignored battles",
+		"perfil_batallas_denunciadas" => "Reported battles",
+		"perfil_puntos_troll" => "Troll points",
+		
+		// perfil.php tab batallas creadas
+		"tab_bc_title" => "Created battles",
+		"tab_bc_id_batallas" => "BATTLE ID",
+		"tab_bc_descripcion" => "DESCRIPTION",
+		"tab_bc_denuncias" => "COMPLAINTS",
+		"tab_bc_fecha" => "CREATION DATE",
+		"tab_bc_empty" => "You haven't created any battle yet",
+
+		// perfil.php tab batallas ignoradas
+		"tab_bi_title" => "Ignored battles",
+		"tab_bi_button" => "STOP IGNORING",
+		"tab_bi_empty" => "You haven't ignored any battle",
+		
+		// perfil.php tab batallas denunciadas
+		"tab_bd_title" => "Reported battles",
+		"tab_bd_button" => "WITHDRAW COMPLAINT",
+		"tab_bd_empty" => "You haven't reported any battle",
+
+		// batallas.php
+
+		// creador.php
+
+		// logros.php
+
+		// como.php
+		"como_title" => "Frequently-asked questions",
+		"como_q1" => "What are battles?",
+		"como_a1" => "Battles are confrontations created by users between any two elements, which let the community know which of these elements are the favorites or the most valued thanks to our voting system.",
+		"como_q2" => "What are the elements?",
+		"como_a2" => "The elements are objects from the same or different environment <em>(languages, series, brands, wines, cars, videogames...)</em> confronted with each other through battles, in which users will vote for the one they like it more.",
+		"como_q3" => "What happens if I report a battle?",
+		"como_a3" => "By reporting a battle, you will be implying some of the following points:<br><br><ul><li>That the elements has content that may be offensive to other users <em>(Example: homophobia, racism , etc.)</em>.</li></ul><br>Once you have reported a battle the user will automatically receive a <em>troll</em> point in their personal account.",
+		"como_q4" => "What are troll points?",
+		"como_a4" => "Troll points are negative points that users get for the complaints received by the battles they have created, these points are cumulative and also count as a vote, so you can only vote for one item or report the battle it self.<br><br>When 80% of the total votes of a battle are complaints, it will be deleted for all users and its creator will get a troll point.<br><br>Users with 10 accumulated troll points will be banned from the system and will not be you can register again.",
+		"como_q5" => "Can I recover my account if I have been banned?",
+		//
+		"como_a5" => "Todos los baneos estan sujetos a revisión, por lo que si tu cuenta ha sido baneada de forma injusta deberás esperar a que los administradores 
+		comprueben tu caso.<br>",
+		"como_q6" => "¿Qué son los logros?",
+		"como_a6" => "Los logros son un sistema de recompensas por la interacción con las batallas, tanto propias como de otros usuarios.<br><br>
+		Logros por crear batallas:<br><br>
+		<ul>
+			<li><strong>Comprometido</strong>: Has creado 10 batallas para la comunidad.</li>
+			<li><strong>Vicioso</strong>: Has creado 100 batallas para la comunidad.</li>
+			<li><strong>Adicto</strong>: Has creado 1000 batallas para la comunidad.</li>
+		</ul><br>
+		Logros por votar batallas:<br><br>
+		<ul>
+			<li><strong>Votante</strong>: Has votado en 10 batallas de otros usuarios.</li>
+			<li><strong>Sindicalista</strong>: Has votado en 100 batallas de otros usuario.</li>
+			<li><strong>Activista</strong>: Has votado en 1000 batallas de otros usuario.</li>
+		</ul><br>
+		Logros por denunciar batallas:<br><br>
+		<ul>
+			<li><strong>Vigilante</strong>: Has denunciado 10 batallas.</li>
+			<li><strong>Moderador</strong>: Has denunciado 100 batallas.</li>
+			<li><strong>Policía</strong>: Has denunciado 1000 batallas.</li>
+		</ul><br>",
+		"como_q7" => "Has denunciado varias batallas, pero tus logros no avanzan.",
+		"como_a7" => "Para que las denuncias contabilicen en los logros, las batallas en cuestion deberán ser eliminadas (80% de los votos totales son denuncias).<br>
+		De esta manera se evita que los usuarios denuncien batallas al azar para obtener los logros más rápido.",
 
 		// ajustes.php
 		"ajustes_boton_confirmar" => "CONFIRM",
@@ -106,134 +177,7 @@
 		"ajustes_eliminar_confirm_placeholder" => "Enter the security word *",
 		"ajustes_eliminar_confirm_placeholder2" => "We want to improve and to do so you can let us know the reason why you want to delete your account",
 
-		// HASTA AQUI ESTA FUNCIONANDO « /provisional »
-		
-		"elementNameErr" => "Empty name field",
-		"elementNameErr2" => "Invalid element name",
-		
-		// -- PERFIL TAB AYUDA --
-		"perfilTitle" => "Battles",
-		"perfilClose" => "Log out",
-		"ayudaContent" => '<h1 class="faq-h1">Frequently asked questions</h1>
-							<div class="faq-container">
-								<div class="questions">
-									<div class="faq faq-one">
-										<h2 class="faq-title">What are the battles?</h2>
-										<div class="faq-answer">
-										Battles are user-created matchups between any two elements, which let the community know which of those elements
-										items are the favorites or the most valued thanks to the voting system.
-										</div>
-									</div>
-									<div class="hr"></div>
-									<div class="faq faq-two">
-										<h2 class="faq-title">What are the elements?</h2>
-										<div class="faq-answer">
-										Elements are objects of the same environment <em>(languages, series, brands...)</em> against each other through battles.
-										</div>
-									</div>
-									<div class="hr"></div>
-									<div class="faq faq-three">
-										<h2 class="faq-title">What happens if I report a battle?</h2>
-										<div class="faq-answer">
-												By reporting a battle, you will be implying some of the following points:<br><br>
-											<ul>
-												<li>That the elements have no relation to each other <em>(Example: Fire vs. Audi)</em>.</li>
-												<li>That the elements contain content that may be offensive to other users <em>(Example: homophobia, racism, hatred towards some
-												set of people, etc.)</em>.</li>
-											</ul><br>
-											Once you have reported a battle the user will automatically receive a point of <em>troll</em> in your personal account.
-										</div>
-									</div>
-									<div class="hr"></div>
-									<div class="faq faq-four">
-										<h2 class="faq-title">What are troll points?</h2>
-										<div class="faq-answer">
-											The points of<em>troll</em> are negative points that users get for each complaint of the battles they have created, these points are
-											cumulative and also count as a vote, so you can only vote for one item or report the battle for it. When 80% of the votes
-											totals of a battle are complaints, this will be removed for all users and its creator will get a point of <em>troll</em>.<br><br>
-											The users with 10 points<em>troll</em> accumulated will be banned from the system and you will not be able to register again with the same credentials.
-										</div>
-									</div>
-									<div class="hr"></div>
-									<div class="faq faq-five">
-										<h2 class="faq-title">Can I recover my account if it has been banned?</h2>
-										<div class="faq-answer">
-										All bans are subject to review, so if your account has been unfairly banned you must wait for the administrators to
-										check your case.<br>
-										</div>
-									</div>
-									<div class="hr"></div>
-									<div class="faq faq-six">
-										<h2 class="faq-title">What are achievements?</h2>
-										<div class="faq-answer">
-										Achievements are a system of rewards for interaction with battles, both your own and those of other users.<br><br>
-										Achievements for creating battles:<br><br>
-											<ul>
-												<li><strong>Engaged</strong>: You have created 10 battles for the community.</li>
-												<li><strong>Vicious</strong>: You have created 100 battles for the community.</li>
-												<li><strong>Addicted</strong>: You have created 1000 battles for the community.</li>
-											</ul><br>
-											Achievements for voting battles:<br><br>
-											<ul>
-												<li><strong>Voter</strong>: You have voted in 10 battles of other users.</li>
-												<li><strong>Syndicalist</strong>: You have voted in 100 battles of other users.</li>
-												<li><strong>Activist</strong>: You have voted in 1000 battles of other users.</li>
-											</ul><br>
-											Achievements for reporting battles:<br><br>
-											<ul>
-												<li><strong>Vigilant</strong>: You have reported 10 battles.</li>
-												<li><strong>Moderador</strong>: You have reported 100 battles.</li>
-												<li><strong>Policía</strong>: You have reported 1000 battles.</li>
-											</ul><br>
-										</div>
-									</div>
-									<div class="hr"></div>
-									<div class="faq faq-three">
-										<h2 class="faq-title">You have reported several battles, but your achievements are not progressing.</h2>
-										<div class="faq-answer">
-											In order for complaints to count towards achievements, the battles in question must be removed (80% of the total votes are complaints).<br>
-											This prevents users from reporting random battles to get the achievements faster.
-										</div>
-									</div>
-								</div>
-							</div>',
+		// errores ajustes.php
 
-		// -- LOGROS --
-
-		"achievementTittle" => "Your achievements",
-
-		//ELEMENTOS CREADOS
-		"achievementCrEl" => "The achievement is unlocked after 10 created elements, you have: ",
-		"CrEl" => "Elements created:",
-		"CrEl1" => ". Noob",
-		"CrEl2" => ". Magnate",
-		"CrEl3" => ". God of War",
-
-		//BATALLAS CREADAS
-		"achievementCrBt" => "The achievement is unlocked after 10 battles created, you have: ",
-		"CrBt" => "Battles created: ",
-		"CrBt1" => ". Engaged",
-		"CrBt2" => ". Vicious",
-		"CrBt3" => ". Addicted",
-
-		//BATALLAS VOTADAS
-		"achievementVtBt" => "The achievement is unlocked after 10 voted battles, you have: ",
-		"VtBt" => "Voted battles: ",
-		"VtBt1" => ". Voter",
-		"VtBt2" => ". Syndicalist",
-		"VtBt3" => ". Activist",
-
-		//BATALLAS IGNORADAS
-		"achievementIgBt" => "The achievement is unlocked after 10 skipped battles, you have: ",
-		"IgBt" => "Ignored Battles: ",
-		"IgBt1" => ". Ignorant",
-		"IgBt2" => ". Dunker",
-		"IgBt3" => ". Why do you create an account? PENDING",
-
-		//BATALLAS DENUNCIADAS
-		"achievementRpBt" => "The achievement is unlocked after 10 reported battles, you have: ",
-		"RpBt" => "Reported battles: ",
-		"RpBt1" => ". Vigilant",
-		"RpBt2" => ". Moderator",
 	);
 ?>

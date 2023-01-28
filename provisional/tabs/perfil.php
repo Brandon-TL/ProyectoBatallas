@@ -18,7 +18,7 @@
         $edad = $interval->y;
     ?>
     <aside class="perfil_aside">
-        <h2>Datos de usuario</h2>
+        <h2><?php echo $lang['perfil_h2']; ?></h2>
         <div class="foto_perfil" alt="foto de perfil"
             style="background: url(<?php echo $datos['foto']; ?>);
                     background-position: center;
@@ -30,27 +30,27 @@
         <hr class="perfil_stats_hr">
         <table class="perfil_stats">
             <tr>
-                <td>Elementos creados:</td>
+                <td><?php echo $lang['perfil_elementos_creados']; ?>:</td>
                 <td><?php echo $datos['num_elementos_creados']; ?></td>
             </tr>
             <tr>
-                <td>Batallas creadas:</td>
+                <td><?php echo $lang['perfil_batallas_creadas']; ?>:</td>
                 <td><?php echo $datos['num_batallas_creadas']; ?></td>
             </tr>
             <tr>
-                <td>Batallas votadas:</td>
+                <td><?php echo $lang['perfil_batallas_votadas']; ?>:</td>
                 <td><?php echo $datos['num_batallas_votadas']; ?></td>
             </tr>
             <tr>
-                <td>Batallas ignoradas:</td>
+                <td><?php echo $lang['perfil_batallas_ignoradas']; ?>:</td>
                 <td><?php echo $datos['num_batallas_ignoradas']; ?></td>
             </tr>
             <tr>
-                <td>Batallas denunciadas:</td>
+                <td><?php echo $lang['perfil_batallas_denunciadas']; ?>:</td>
                 <td><?php echo $datos['num_batallas_denunciadas']; ?></td>
             </tr>
             <tr>
-                <td>Puntos Trol:</td>
+                <td><?php echo $lang['perfil_puntos_troll']; ?>:</td>
                 <td><?php echo $datos['puntos_troll']; ?></td>
             </tr>
         </table>
@@ -60,17 +60,17 @@
             <div class="perfil_main_tabs">
                 <div class="pmt pmt_creadas">
                     <input type="radio" name="css-pmt" id="pmt-1" class="pmt-switch" checked>
-                    <label for="pmt-1" class="pmt-label">Batallas creadas</label>
+                    <label for="pmt-1" class="pmt-label"><?php echo $lang['tab_bc_title']; ?></label>
                     <div class="pmt-content">
                         <table class="pmt_table">
                             <?php
                                 $batallas = obtenerBatallas(true);
                                 if ($batallas) {
                                     echo "<tr>
-                                            <th>ID BATALLA</th>
-                                            <th>DESCRIPCIÓN</th>
-                                            <th>DENUNCIAS</th>
-                                            <th>FECHA DE CREACIÓN</th>
+                                            <th>".$lang['tab_bc_id_batallas']."</th>
+                                            <th>".$lang['tab_bc_descripcion']."</th>
+                                            <th>".$lang['tab_bc_denuncias']."</th>
+                                            <th>".$lang['tab_bc_fecha']."</th>
                                         </tr>";
                                     foreach ($batallas as $batalla) {
                                         $info = info_batalla_creada($batalla['id_batalla']);
@@ -82,7 +82,7 @@
                                         "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td>Aún no has creado ninguna batalla</td></tr>";
+                                    echo "<tr><td>".$lang['tab_bc_empty']."</td></tr>";
                                 }
                             ?>
                         </table>
@@ -90,7 +90,7 @@
                 </div>
                 <div class="pmt pmt_ignoradas">
                     <input type="radio" name="css-pmt" id="pmt-2" class="pmt-switch">
-                    <label for="pmt-2" class="pmt-label">Batallas ignoradas</label>
+                    <label for="pmt-2" class="pmt-label"><?php echo $lang['tab_bi_title']; ?></label>
                     <div class="pmt-content">
                         <table class="pmt_table">
                             <?php
@@ -102,12 +102,12 @@
                                             "<td class='pmt_table_content'>" . info_batalla($batalla['id_batalla']) . "</td>" .
                                             "<td>" . $batalla['fecha'] . "</td>" .
                                             "<td>".
-                                                "<input type='submit' name='NO_IGNORAR' value='DEJAR DE IGNORAR' class='pmt_submit'>" .
+                                                "<input type='submit' name='NO_IGNORAR' value='".$lang['tab_bi_button']."' class='pmt_submit'>" .
                                             "</td>" .
                                         "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td>No has ignorado ninguna batalla</td></tr>";
+                                    echo "<tr><td>".$lang['tab_bi_empty']."</td></tr>";
                                 }
                             ?>
                         </table>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="pmt pmt_denunciadas">
                     <input type="radio" name="css-pmt" id="pmt-3" class="pmt-switch">
-                    <label for="pmt-3" class="pmt-label">Batallas denunciadas</label>
+                    <label for="pmt-3" class="pmt-label"><?php echo $lang['tab_bd_title']; ?></label>
                     <div class="pmt-content">
                         <table class="pmt_table">
                             <?php
@@ -127,12 +127,12 @@
                                             "<td class='pmt_table_content'>" . info_batalla($batalla['id_batalla']) . "</td>" .
                                             "<td>" . $batalla['fecha'] . "</td>" .
                                             "<td>".
-                                                "<input type='submit' name='NO_DENUNCIA' value='RETIRAR DENUNCIA' class='pmt_submit'>" .
+                                                "<input type='submit' name='NO_DENUNCIA' value='".$lang['tab_bd_button']."' class='pmt_submit'>" .
                                             "</td>" .
                                         "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td>No has denunciado ninguna batalla</td></tr>";
+                                    echo "<tr><td>".$lang['tab_bd_empty']."</td></tr>";
                                 }
                             ?>
                         </table>

@@ -18,16 +18,16 @@
             // $datos = datosUsuario($_SESSION['usuario']);
         }
     ?>
-    <title><?php echo $lang['perfil_title']; ?></title>
+    <title><?php echo $lang['user_title']; ?></title>
 </head>
 <body>
     <header>
         <nav class="tabs">
-            <label for="perfil" class="tabs__label"><?php echo $lang['perfil_tab_perfil_title'] ?></label>
-            <label for="batallas" class="tabs__label"><?php echo $lang['perfil_tab_batallas_title'] ?></label>
-            <label for="elementos" class="tabs__label"><?php echo $lang['perfil_tab_elementos_title'] ?></label>
-            <label for="logros" class="tabs__label"><?php echo $lang['perfil_tab_logros_title'] ?></label>
-            <label for="como" class="tabs__label active"><?php echo $lang['perfil_tab_como_title'] ?></label>
+            <label for="perfil" class="tabs__label"><?php echo $lang['user_tab_perfil_title'] ?></label>
+            <label for="batallas" class="tabs__label"><?php echo $lang['user_tab_batallas_title'] ?></label>
+            <label for="elementos" class="tabs__label"><?php echo $lang['user_tab_elementos_title'] ?></label>
+            <label for="logros" class="tabs__label"><?php echo $lang['user_tab_logros_title'] ?></label>
+            <label for="como" class="tabs__label active"><?php echo $lang['user_tab_como_title'] ?></label>
         </nav>
         <div class="selectors">
             <div class="dropdown" title="Select language">
@@ -54,7 +54,7 @@
     <section>
         <div class="tab__1 tabs__content"><?php require_once ('./tabs/perfil.php') ?></div>
         <div class="tab__2 tabs__content"><?php require_once ('./tabs/batallas.php') ?></div>
-        <div class="tab__3 tabs__content"><?php require_once ('./tabs/elementos.php') ?></div>
+        <div class="tab__3 tabs__content"><?php require_once ('./tabs/creador.php') ?></div>
         <div class="tab__4 tabs__content"><?php require_once ('./tabs/logros.php') ?></div>
         <div class="tab__5 tabs__content"><?php require_once ('./tabs/como.php') ?></div>
         <div class="tab__6 tabs__content"><?php require_once ('./tabs/ajustes.php') ?></div>

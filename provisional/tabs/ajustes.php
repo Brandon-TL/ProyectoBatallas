@@ -1,4 +1,4 @@
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" class="settings_form">
     <ul class="settings_accordion">
         <!-- DROPDOWN CAMBIAR FOTO DE PERFIL-->
         <li class="settings_dropdown">

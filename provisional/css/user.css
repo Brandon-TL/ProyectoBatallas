@@ -88,13 +88,13 @@ header {
 
 .dropdown > ul {
 	background-color: var(--dropdown-background-color);
-	margin-top: 10px;
 	transform: translateY(-200px);
 	opacity: 0;
     transition: all .4s ease-in-out;
 }
 
 .dropdown > button:focus + ul {
+	margin-top: 10px;
 	transform: translateY(0);
 	opacity: 1;
 }
@@ -204,9 +204,9 @@ button:focus {
 section {
 	width: 100%;
 	height: 100%;
+	margin: 80px 0;
     overflow: auto;
 	background-color: var(--section-background-color);
-	background-color: gray;
 	z-index: 1;
 }
 

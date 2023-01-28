@@ -1,11 +1,10 @@
 .faq-container {
-    width: 70%;
+    width: 50%;
     margin: auto;
 }
 
 .faq-h1 {
     color: white;
-    position: -webkit-sticky;
     position: sticky;
     top: 0px;
     width: 100%;
@@ -16,13 +15,12 @@
     text-align: center;
     background-color: var(--body-background);
     z-index: 2;
-    box-shadow: 0px 5px 20px 0px black;
+    box-shadow: 0px 50px 40px -40px #00000080;
 }
 
 .questions {
     z-index: 1;
-/*     box-shadow: inset 0px -20px 20px 0px black; */
-    padding-bottom: 500px;
+    padding-bottom: 100px;
 }
 
 .questions .faq .faq-title {
@@ -35,7 +33,11 @@
 .questions .faq .faq-answer {
     color: white;
     padding: 50px;
-    text-align: justify
+    text-align: justify;
+}
+
+.questions .faq .faq-answer ul {
+    margin-left: 50px;
 }
 
 .questions .como_hr {
