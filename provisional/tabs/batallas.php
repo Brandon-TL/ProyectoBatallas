@@ -5,7 +5,7 @@
     }
 
     .batalla .card__creator {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
     .cards {
@@ -26,8 +26,6 @@
         background-repeat: no-repeat;
         width: 100%;
         height: 235px;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
     }
 
     .card__info-hover {
@@ -46,8 +44,6 @@
         width: 100%;
         position: absolute;
         height: 235px;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
         top: 0; 
     }
 
@@ -63,14 +59,11 @@
     }
     .card:hover {
         box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);
-        transform: scale(1.10, 1.10);
     }
 
     .card__info {
         z-index: 2;
         background-color: #fff;
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
         padding: 16px 24px 24px 24px;
     }
 
@@ -141,7 +134,7 @@
         $votos_elemento2 = selectBD(array('votos_elemento2'), 'batalla_elemento', 'id_batalla', $batalla['id_batalla'])[0];
 
         echo '<div class="batalla">
-                <div class="card__creator">Batalla creada por<a href="#link_a_perfil" class="card__author" title="author">'.$creador.'</a></div>
+                <div class="card__creator">'.$lang['batallas_text_creador'].' <a href="#link_a_perfil" class="card__author" title="author">'.$creador.'</a></div>
                 <section class="cards">
                     <article class="card card--'.$n.'">
                     <div class="card__img"></div>
@@ -149,9 +142,9 @@
                         <div class="card__img--hover"></div>
                     </a>
                     <div class="card__info">
-                        <span class="card__category">'.$votos_elemento1.'</span>
+                        <span class="card__category">'.$votos_elemento1.' '.$lang['batallas_text_votos'].'</span>
                         <h3 class="card__title">'.$elemento1[0].'</h3>
-                        <span class="card__by">de <a href="#link_a_perfil" class="card__author" title="author">'. $nombre_creador1.'</a></span>
+                        <span class="card__by">'.$lang['batallas_text_creador_elemento'].' <a href="#link_a_perfil" class="card__author" title="author">'. $nombre_creador1.'</a></span>
                     </div>
                 </article>';
         echo '<style>
@@ -166,9 +159,9 @@
                         <div class="card__img--hover"></div>
                     </a>
                     <div class="card__info">
-                    <span class="card__category">'.$votos_elemento2.'</span>
+                    <span class="card__category">'.$votos_elemento2.' '.$lang['batallas_text_votos'].'</span>
                         <h3 class="card__title">'.$elemento2[0].'</h3>
-                        <span class="card__by">de <a href="#link_a_perfil" class="card__author" title="author">'. $nombre_creador2.'</a></span>
+                        <span class="card__by">'.$lang['batallas_text_creador_elemento'].' <a href="#link_a_perfil" class="card__author" title="author">'. $nombre_creador2.'</a></span>
                     </div>
                 </article>
             </section>

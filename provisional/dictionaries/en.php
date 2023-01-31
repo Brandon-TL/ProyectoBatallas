@@ -97,6 +97,9 @@
 		"tab_bd_empty" => "You haven't reported any battle",
 
 		// batallas.php
+		"batallas_text_creador" => "Battle created by",
+		"batallas_text_votos" => "upvotes",
+		"batallas_text_creador_elemento" => "by",
 
 		// creador.php
 

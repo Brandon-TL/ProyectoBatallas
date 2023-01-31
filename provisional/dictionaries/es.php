@@ -97,6 +97,10 @@
 		"tab_bd_empty" => "No has denunciado ninguna batalla",
 
 		// batallas.php
+		"batallas_text_creador" => "Batalla creada por",
+		"batallas_text_votos" => "votos",
+		"batallas_text_creador_elemento" => "de",
+		"batallas_text_creador" => "Batalla creada por",
 
 		// creador.php
 
