@@ -24,7 +24,7 @@
                     background-position: center;
                     background-size: cover;
                     background-repeat: no-repeat;"></div>
-        <p class="perfil_datos"><?php echo $_SESSION['usuario'] ?><br>
+        <p class="perfil_datos"><?php echo $_SESSION['usuario'];    ?><br>
         <?php echo $datos['fechanacimiento'] . " (". $edad .")"; ?><br>
         <?php echo $datos['email']; ?></p>
         <hr class="perfil_stats_hr">
