@@ -1,5 +1,6 @@
 <style>
     .batalla {
+        /* position: absolute; */
         text-align: center;
         padding: 50px 0;
     }

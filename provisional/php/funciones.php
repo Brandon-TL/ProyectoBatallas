@@ -361,7 +361,7 @@
     /**
      * Función para obtener los datos sobre las batallas
      * @param bool:true:creadas solo batallas creadas por el usuario
-     * @param bool:false:creadas solo batallas que el usuario no ha creado
+     * @param bool:false:creadas solo batallas que el usuario no ha creado ni votado
      * 
      * @return array:datos de las batallas solicitadas
      */
@@ -386,7 +386,7 @@
         // Para cada uno de los id's de batallas creadas por el usuario logeado
         if ($batallasDeUsuario) {
             for ($i = 0; $i < count($batallasDeUsuario); $i++) {
-                // Comparar con el id de cada batalla obtenida en el resultado del fetch() $tupla[0]
+                // Comparar con el id de cada batalla obtenida en el resultado del fetch() = $tupla[0]
                 while ($tupla = $resultBatalla->fetch()) {
                     if ($creadas) {
                         // Si el id de la batalla creada por el usuario coincide con de el la batalla obtenida en el fetch()
@@ -396,15 +396,32 @@
                         }
                         // Si los id's no coinciden, continuar...
                     } else {
+                        // Obtener todas las batallas votadas por el usuario que ha iniciado sesión
+                        $batallasVotadas = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
+
                         // Si el id de la batalla creada por el usuario es distinto al de la batalla obtenida en el fetch()
                         if ($batallasDeUsuario[$i] != $tupla[0]) {
-                            // Se añade la información de la batalla al array $datos
-                            $datos[count($datos)] = $tupla;
+                            // Si se deteca que ha votado alguna batalla compara los id's
+                            if ($batallasVotadas) {
+                                for ($j = 0; $j < count($batallasVotadas); $j++) {
+                                    //Para cada batalla votada compara con la batalla obtenida en el fetch()
+                                    if ($batallasVotadas[$j] != $tupla[0]) {
+                                        // Se añade la información de la batalla al array $datos
+                                        $datos[count($datos)] = $tupla;
+                                    }
+                                }
+                            } else {
+                                // Si no tiene batallas votadas añadir la batalla directamente a $datos
+                                // Se añade la información de la batalla al array $datos
+                                $datos[count($datos)] = $tupla;
+                            }
                         }
                         // Si los id's coinciden, continuar...
                     }
                 }
             }
+        } else {
+            // NO has creado ninguna batalla, crea al menos un para poder votar
         }
 
         // Devolver todas las batallas que no han sido creadas por el usuario logeado
