@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/user.css">
-    <link rel="stylesheet" href="./css/tabs/ajustes.css">
-    <link rel="stylesheet" href="./css/tabs/como.css">
     <link rel="stylesheet" href="./css/tabs/perfil.css">
+    <link rel="stylesheet" href="./css/tabs/creador.css">
+    <link rel="stylesheet" href="./css/tabs/como.css">
+    <link rel="stylesheet" href="./css/tabs/ajustes.css">
     <?php
         require_once './php/logica_user.php';
         require_once './php/visual.php';
@@ -24,10 +25,10 @@
     <header>
         <nav class="tabs">
             <label for="perfil" class="tabs__label"><?php echo $lang['user_tab_perfil_title'] ?></label>
-            <label for="batallas" class="tabs__label"><?php echo $lang['user_tab_batallas_title'] ?></label>
-            <label for="elementos" class="tabs__label"><?php echo $lang['user_tab_elementos_title'] ?></label>
+            <label for="batallas" class="tabs__label active"><?php echo $lang['user_tab_batallas_title'] ?></label>
+            <label for="creador" class="tabs__label"><?php echo $lang['user_tab_creador_title'] ?></label>
             <label for="logros" class="tabs__label"><?php echo $lang['user_tab_logros_title'] ?></label>
-            <label for="como" class="tabs__label active"><?php echo $lang['user_tab_como_title'] ?></label>
+            <label for="como" class="tabs__label"><?php echo $lang['user_tab_como_title'] ?></label>
         </nav>
         <div class="selectors">
             <div class="dropdown" title="Select language">
@@ -46,10 +47,10 @@
         </div>
     </header>
     <input type="radio" class="tabs__radio" name="slider" id="perfil">
-    <input type="radio" class="tabs__radio" name="slider" id="batallas">
-    <input type="radio" class="tabs__radio" name="slider" id="elementos">
+    <input type="radio" class="tabs__radio" name="slider" id="batallas" checked>
+    <input type="radio" class="tabs__radio" name="slider" id="creador">
     <input type="radio" class="tabs__radio" name="slider" id="logros">
-    <input type="radio" class="tabs__radio" name="slider" id="como" checked>
+    <input type="radio" class="tabs__radio" name="slider" id="como">
     <input type="radio" class="tabs__radio" name="slider" id="ajustes">
     <section>
         <div class="tab__1 tabs__content"><?php require_once ('./tabs/perfil.php') ?></div>

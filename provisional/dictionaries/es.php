@@ -65,7 +65,7 @@
 		"user_title" => "Página principal",
 		"user_tab_perfil_title" => "Perfil",
 		"user_tab_batallas_title" => "Batallas",
-		"user_tab_elementos_title" => "Creador",
+		"user_tab_creador_title" => "Creador",
 		"user_tab_logros_title" => "Logros",
 		"user_tab_como_title" => "FAQ",
 
