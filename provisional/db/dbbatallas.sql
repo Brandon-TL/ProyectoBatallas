@@ -1,11 +1,10 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
+-- phpMyAdmin SQL Dump-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-01-2023 a las 14:19:31
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.12
+-- Tiempo de generación: 01-02-2023 a las 19:56:59
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -23,7 +22,6 @@ SET time_zone = "+00:00";
 
 CREATE DATABASE IF NOT EXISTS `dbbatallas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `dbbatallas`;
-
 -- --------------------------------------------------------
 
 --
@@ -33,25 +31,21 @@ USE `dbbatallas`;
 CREATE TABLE `batalla_elemento` (
   `id_batalla` int(11) NOT NULL,
   `id_elemento1` int(11) NOT NULL,
-  `id_elemento2` int(11) NOT NULL
+  `id_elemento2` int(11) NOT NULL,
+  `votos_elemento1` int(11) NOT NULL,
+  `votos_elemento2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `batalla_elemento`
 --
 
-INSERT INTO `batalla_elemento` (`id_batalla`, `id_elemento1`, `id_elemento2`) VALUES
-(1, 1, 2),
-(2, 3, 4),
-(3, 5, 6),
-(4, 7, 8),
-(5, 9, 10),
-(6, 1, 6),
-(7, 1, 4),
-(8, 6, 10),
-(9, 7, 6),
-(10, 9, 2),
-(11, 1, 3);
+INSERT INTO `batalla_elemento` (`id_batalla`, `id_elemento1`, `id_elemento2`, `votos_elemento1`, `votos_elemento2`) VALUES
+(1, 1, 2, 0, 0),
+(2, 3, 4, 1, 0),
+(3, 5, 6, 0, 0),
+(4, 7, 8, 0, 0),
+(5, 9, 10, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -70,11 +64,8 @@ CREATE TABLE `credencial` (
 
 INSERT INTO `credencial` (`nombreusuario`, `password`) VALUES
 ('admin', 'Admin1'),
-('Antonio', 'Antonio123'),
 ('Claramente', 'Lanena1'),
-('Luiseta', 'dawdawdaw123'),
 ('MigueLombarda', 'CafeCum1'),
-('Raul', 'Raulitups123'),
 ('sete7', 'SeteSiete1'),
 ('TimeLeaper', 'LeaperTime1'),
 ('Twitter_Enjoyer', 'MgTwitter1');
@@ -97,28 +88,16 @@ CREATE TABLE `elemento` (
 --
 
 INSERT INTO `elemento` (`id`, `nombre`, `foto`, `bloqueado`) VALUES
-(1, 'fuego', 'tabs/IMG/elementos/fuego.jpg', 0),
-(2, 'agua', 'tabs/IMG/elementos/agua.jpg', 0),
-(3, 'naruto', 'tabs/IMG/elementos/narutoElemento.jpg', 0),
-(4, 'sasuke', 'tabs/IMG/elementos/sasukeElemento.jpg', 0),
-(5, 'audi', 'tabs/IMG/elementos/audiElemento.jpg', 0),
-(6, 'mercedes', 'tabs/IMG/elementos/mercedesElemento.jpg', 0),
-(7, 'youtube', 'tabs/IMG/elementos/youtubeElemento.jpg', 0),
-(8, 'twitch', 'tabs/IMG/elementos/twitchElemento.jpg', 0),
-(9, 'mario', 'tabs/IMG/elementos/marioElemento.jpg', 0),
-(10, 'sonic', 'tabs/IMG/elementos/sonicElemento.jpg', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sesiones`
---
-
-CREATE TABLE `sesiones` (
-  `nombreusuario` varchar(50) NOT NULL,
-  `fechaHoraInicio` datetime NOT NULL,
-  `fechaHoraFinal` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='TRIAL';
+(1, 'fuego', 'fuego.jpg', 0),
+(2, 'agua', 'agua.jpg', 0),
+(3, 'naruto', 'narutoElemento.jpg', 0),
+(4, 'sasuke', 'sasukeElemento.jpg', 0),
+(5, 'audi', 'audiElemento.jpg', 0),
+(6, 'mercedes', 'mercedesElemento.jpg', 0),
+(7, 'youtube', 'youtubeElemento.jpg', 0),
+(8, 'twitch', 'twitchElemento.jpg', 0),
+(9, 'mario', 'marioElemento.jpg', 0),
+(10, 'sonic', 'sonicElemento.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -147,15 +126,12 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `fechanacimiento`, `foto`, `email`, `modovis`, `idioma`, `rol`, `num_elementos_creados`, `num_batallas_creadas`, `num_batallas_votadas`, `num_batallas_ignoradas`, `num_batallas_denunciadas`, `puntos_troll`) VALUES
-(1, '1999-05-12', 'img/foto_perfil/ferrari.jpg', 'luis@gmail.com', 'light', 'es', 'usuario', 2, 1, 4, 0, 1, 0),
-(2, '2001-06-25', 'img/foto_perfil/fotoNaruto.jpg', 'brandon@gmail.com', 'dark', 'en', 'usuario', 2, 1, 4, 1, 1, 0),
-(3, '1995-08-14', 'img/foto_perfil/twitter.jpg', 'elonmusk@gmail.com', 'dark', 'en', 'usuario', 2, 1, 4, 0, 0, 0),
-(4, '1990-11-29', 'img/foto_perfil/fotoCoche.jpg', 'miguel@gmail.com', 'light', 'es', 'usuario', 2, 1, 3, 1, 0, 0),
-(5, '1996-08-18', 'img/foto_perfil/porch.jpg', 'clara@gmail.com', 'light', 'es', 'usuario', 2, 1, 4, 0, 0, 2),
-(6, '1999-01-01', '', 'admin@gmail.com', 'light', 'es', 'admin', 0, 0, 0, 0, 0, 0),
-(7, '1986-05-06', 'img/foto_perfil/IMG.jpg', 'antonio@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
-(8, '1997-10-15', 'img/foto_perfil/IMG.jpg', 'raul@gmail.com', 'light', 'es', 'usuario', 0, 0, 0, 0, 0, 0),
-(13, '1999-12-01', 'img/foto_perfil/IMG.jpg', 'luis@gmail.com', 'dark', 'es', 'usuario', 0, 0, 0, 0, 0, 0);
+(1, '1999-05-12', 'ferrari.jpg', 'luis@gmail.com', 'light', 'es', 'usuario', 2, 1, 0, 0, 1, 0),
+(2, '2001-06-25', 'fotoNaruto.jpg', 'brandon@gmail.com', 'dark', 'en', 'usuario', 2, 1, 2, 0, 1, 0),
+(3, '1995-08-14', 'twitter.jpg', 'elonmusk@gmail.com', 'dark', 'en', 'usuario', 2, 1, 0, 0, 0, 0),
+(4, '1990-11-29', 'fotoCoche.jpg', 'miguel@gmail.com', 'light', 'es', 'usuario', 2, 1, 0, 1, 0, 0),
+(5, '1996-08-18', 'porch.jpg', 'clara@gmail.com', 'light', 'es', 'usuario', 2, 1, 0, 0, 0, 0),
+(6, '1999-01-01', '', 'admin@gmail.com', 'dark', 'es', 'admin', 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -184,8 +160,7 @@ INSERT INTO `usuario_batalla` (`id`, `id_usuario`, `id_batalla`, `accion`, `fech
 (9, 1, 5, 'denunciar', '2022-11-30 00:00:00'),
 (10, 2, 5, 'denunciar', '2022-11-30 00:00:00'),
 (11, 4, 4, 'ignorar', '2022-11-30 00:00:00'),
-(12, 6, 4, 'eliminar', '2022-11-30 00:00:00'),
-(13, 2, 4, 'ignorar', '2023-01-24 13:39:24');
+(12, 6, 4, 'eliminar', '2022-11-30 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -210,9 +185,7 @@ INSERT INTO `usuario_credencial` (`id`, `id_usuario`, `nombreusuario`, `accion`,
 (9, 2, 'TimeLeaper', 'registrar', '2022-11-29 00:00:00'),
 (10, 3, 'Twitter_Enjoyer', 'registrar', '2022-11-29 00:00:00'),
 (11, 4, 'MigueLombarda', 'registrar', '2022-11-29 00:00:00'),
-(12, 5, 'Claramente', 'registrar', '2022-11-29 00:00:00'),
-(13, 7, 'Antonio', 'registrar', '2023-01-18 00:00:00'),
-(14, 8, 'Raul', 'registrar', '2023-01-18 00:00:00');
+(12, 5, 'Claramente', 'registrar', '2022-11-29 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -262,25 +235,8 @@ CREATE TABLE `voto` (
 --
 
 INSERT INTO `voto` (`id_usuario`, `id_batalla`, `id_elemento`, `fecha`) VALUES
-(1, 1, 1, '2022-11-30 00:00:00'),
-(1, 3, 5, '2022-11-30 00:00:00'),
-(1, 4, 8, '2022-11-30 00:00:00'),
-(1, 5, 9, '2022-11-30 00:00:00'),
-(2, 2, 3, '2022-11-30 00:00:00'),
-(2, 3, 5, '2022-11-30 00:00:00'),
-(2, 4, 8, '2022-11-30 00:00:00'),
-(2, 5, 9, '2022-11-30 00:00:00'),
-(3, 1, 1, '2022-11-30 00:00:00'),
-(3, 2, 3, '2022-11-30 00:00:00'),
-(3, 3, 5, '2022-11-30 00:00:00'),
-(3, 5, 9, '2022-11-30 00:00:00'),
-(4, 1, 1, '2022-11-30 00:00:00'),
-(4, 2, 3, '2022-11-30 00:00:00'),
-(4, 5, 9, '2022-11-30 00:00:00'),
-(5, 1, 1, '2022-11-30 00:00:00'),
-(5, 2, 3, '2022-11-30 00:00:00'),
-(5, 3, 5, '2022-11-30 00:00:00'),
-(5, 4, 8, '2022-11-30 00:00:00');
+(2, 2, 3, '2023-02-01 19:34:20'),
+(2, 5, 9, '2023-02-01 19:34:20');
 
 --
 -- Índices para tablas volcadas
@@ -364,7 +320,20 @@ ALTER TABLE `elemento`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario_batalla`
+--
+ALTER TABLE `usuario_batalla`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario_credencial`
+--
+ALTER TABLE `usuario_credencial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_batalla`
