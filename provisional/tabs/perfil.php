@@ -20,7 +20,7 @@
     <aside class="perfil_aside">
         <h2><?php echo $lang['perfil_h2']; ?></h2>
         <div class="foto_perfil" alt="foto de perfil"
-            style="background: url(<?php echo $datos['foto']; ?>);
+            style="background: url(./img/foto_perfil/<?php echo $datos['foto']; ?>);
                     background-position: center;
                     background-size: cover;
                     background-repeat: no-repeat;"></div>

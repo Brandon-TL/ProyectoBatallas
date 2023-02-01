@@ -382,6 +382,9 @@
         $sql = "SELECT * FROM `batalla_elemento`;";
         $resultBatalla = $conexion->query($sql);
 
+        // Obtener todas las batallas votadas por el usuario que ha iniciado sesión
+        $batallasVotadas = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
+
         $datos = array();
         // Para cada uno de los id's de batallas creadas por el usuario logeado
         if ($batallasDeUsuario) {
@@ -396,9 +399,6 @@
                         }
                         // Si los id's no coinciden, continuar...
                     } else {
-                        // Obtener todas las batallas votadas por el usuario que ha iniciado sesión
-                        $batallasVotadas = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
-
                         // Si el id de la batalla creada por el usuario es distinto al de la batalla obtenida en el fetch()
                         if ($batallasDeUsuario[$i] != $tupla[0]) {
                             // Si se deteca que ha votado alguna batalla compara los id's
@@ -421,7 +421,9 @@
                 }
             }
         } else {
-            // NO has creado ninguna batalla, crea al menos un para poder votar
+            // Si se detecta que no ha creado ninguna batalla, devuelve false y le dice al usuario que necesita crear
+            // al menos una batalla para votar en las de otros
+            $datos = false;
         }
 
         // Devolver todas las batallas que no han sido creadas por el usuario logeado

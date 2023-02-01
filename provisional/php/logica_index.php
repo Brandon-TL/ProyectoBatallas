@@ -54,7 +54,12 @@
         $v4 = htmlspecialchars($_POST["email"]);
         $v5 = htmlspecialchars($_POST["fecha"]);
         $avatar = $_FILES['avatar']['name'];
+        $nombre = $_FILES['avatar']['name'];
+        $size = $_FILES['avatar']['size'];
+        $tipo = $_FILES['avatar']['type'];
+        $rutaTemporal = $_FILES['avatar']['tmp_name'];
 
+        // Validación nuevo nombre
         if (empty(trim($v1))) {
             $_registro_usuario_err = $lang['registro_vacio_usuario'];
         } else {
@@ -65,7 +70,8 @@
             }
         }
 
-        if (empty(($v2))) {
+        // Validación nueva contraseña
+        if (empty(trim($v2))) {
             $_registro_password_err = $lang['registro_vacio_password'];
         } else {
             if (!validar($v2, VALID_PASSWORD)) {
@@ -84,6 +90,7 @@
             }
         }
 
+        // Validación nuevo email
         if (empty(trim($v4))) {
             $_registro_email_err = $lang['registro_vacio_email'];
         } else {
@@ -94,6 +101,7 @@
             }
         }
 
+        // Validación nueva fecha
         if (empty(trim($v5))) {
             $_registro_fecha_err = $lang['registro_vacio_fecha'];
         } else {
@@ -108,18 +116,14 @@
             }
         }
 
-        $nombre = $_FILES['avatar']['name'];
-        $size = $_FILES['avatar']['size'];
-        $tipo = $_FILES['avatar']['type'];
-        $rutaTemporal = $_FILES['avatar']['tmp_name'];
-
+        // Validación nueva foto de perfil
         if (isset($nombre) && $nombre != "") {
             if ($tipo == "image/jpg" || $tipo == "image/jpeg" || $tipo == "image/png") {
-                move_uploaded_file($rutaTemporal, "./img/".$nombre);
-                if ($size > SIZE_MB) {
-                    $_registro_avatar_err = $lang['registro_error_max'];
+                if ($size <= SIZE_MB) {
+                    move_uploaded_file($rutaTemporal, $nombre);
+                    $_avatar = $nombre;
                 } else {
-                    $_avatar = "img/".$nombre;
+                    $_registro_avatar_err = $lang['registro_error_max'];
                 }
             } else {
                 $_registro_avatar_err = $lang['registro_error_extension'];
@@ -127,16 +131,21 @@
         } else {
             $_registro_avatar_err = $lang['registro_vacio_foto'];
         }
-
+        
+        // Creación del array con datos del usuario
         $USER = array($_fecha, $_avatar, $_email, $_COOKIE['tema'], $_COOKIE['lang'], 'usuario', $_usuario, $_password);
 
+        // Registro de nuevo usuario (simpre que ninguno de los campos este vacío)
         if (!is_null($_usuario) && !is_null($_password) && !is_null($_email) && !is_null($_fecha) && !is_null($_avatar)) {
             $return = registrarUsuarioBD($USER);
             if ($return == 'usuario') {
+                // Nombre de usuario ya en uso
                 $_registro_usuario_err = $lang['registro_existing_usuario'];
             } else if ($return == 'email') {
+                // Email de usuario ya en uso
                 $_registro_email_err = $lang['registro_existing_email'];
             } else {
+                // Si se registra correctamente, loguea al nuevo usuario
                 if (comprobarCredenciales($_usuario, $_password)) {
                     header("Location: user.php");
                     exit();
