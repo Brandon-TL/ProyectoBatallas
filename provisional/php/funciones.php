@@ -183,6 +183,35 @@
         $datos = $result->fetch();
         return $datos;
     }
+    
+    /**
+     * Función genérica para obtener información de la base de datos dbbatallas con la funcionalidad AND
+     * @param array:campos nombre de los campos a seleccionar en una tabla especifica
+     * @param string:tabla nombre de la tabla a la que pertenecen los datos que se solicitan
+     * @param string:condición nombre de campo con el cual se filtrará la selección
+     * @param string:valor valor de la condición para el filtrado de información
+     * @param string:condición2 nombre de segundo campo con el cual se filtrará la selección
+     * @param string:valor2 valor de la segunda condición para el filtrado de información
+     * 
+     * @return array:datos conjunto de datos obtenidos de del select a la base de datos
+     */
+    function selectBDand($campos, $tabla, $condicion, $valor, $condicion2, $valor2) {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+        $c = "";
+        if (count($campos) > 1) {
+            foreach ($campos as $campo) {
+                $c .= "'" . $campos . "',";
+            }
+            $c = substr($c, 0, -1);
+        } else {
+            $c = $campos[0];
+        }
+        $sql = "SELECT " . $c . " FROM " . $tabla . " WHERE " . $condicion . " = '" . $valor . "' AND " . $condicion2 . " = '" . $valor2 . "'";
+        echo $sql;
+        $result = $conexion->query($sql);
+        $datos = $result->fetch();
+        return $datos;
+    }
 
     /**
      * Función para cerrar sesiones iniciadas
@@ -370,59 +399,45 @@
 
         // Obetener el id del usuario que ha iniciado sesión
         $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
-        // var_dump($id_usuario);
         // Como solo es un array de una posición se puede guardar en una variable string, para un uso más fácil
         // $id_usuario = $id_usuario[0];
 
         // Obtener todas las batallas creadas por el usuario que ha iniciado sesión
-        $batallasDeUsuario = selectBD(array('id_batalla'), 'usuario_batalla', 'id_usuario', $id_usuario);
-        // var_dump($batallasDeUsuario);
+        $batallasDeUsuario = selectBDand(array('id_batalla'), 'usuario_batalla', 'id_usuario', $id_usuario, 'accion', 'crear');
+        
+        // Obtener todas las batallas votadas por el usuario que ha iniciado sesión
+        $batallasVotadas = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
 
         // Obtener todas las batallas existentes y filtrar a un array solo las que no ha creado el usuario en cuestión
         $sql = "SELECT * FROM `batalla_elemento`;";
         $resultBatalla = $conexion->query($sql);
 
-        // Obtener todas las batallas votadas por el usuario que ha iniciado sesión
-        $batallasVotadas = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
-
         $datos = array();
-        // Para cada uno de los id's de batallas creadas por el usuario logeado
+
+        // Si el usuario ha creado al menos una batalla
         if ($batallasDeUsuario) {
-            for ($i = 0; $i < count($batallasDeUsuario); $i++) {
-                // Comparar con el id de cada batalla obtenida en el resultado del fetch() = $tupla[0]
-                while ($tupla = $resultBatalla->fetch()) {
-                    if ($creadas) {
-                        // Si el id de la batalla creada por el usuario coincide con de el la batalla obtenida en el fetch()
-                        if ($batallasDeUsuario[$i] == $tupla[0]) {
-                            // Se añade la información de la batalla al array $datos
+            // Para TODAS las batallas existentes
+            while ($tupla = $resultBatalla->fetch()) {
+                // Comprobar si se solicitan las batallas creadas o no por el usuario
+                if ($creadas) {
+                    for ($abc = 0; $abc < count($batallasDeUsuario); $abc++) {
+                        if ($batallasDeUsuario[$abc] == $tupla[0]) {
                             $datos[count($datos)] = $tupla;
                         }
-                        // Si los id's no coinciden, continuar...
-                    } else {
-                        // Si el id de la batalla creada por el usuario es distinto al de la batalla obtenida en el fetch()
-                        if ($batallasDeUsuario[$i] != $tupla[0]) {
-                            // Si se deteca que ha votado alguna batalla compara los id's
-                            if ($batallasVotadas) {
-                                for ($j = 0; $j < count($batallasVotadas); $j++) {
-                                    //Para cada batalla votada compara con la batalla obtenida en el fetch()
-                                    if ($batallasVotadas[$j] != $tupla[0]) {
-                                        // Se añade la información de la batalla al array $datos
-                                        $datos[count($datos)] = $tupla;
-                                    }
-                                }
-                            } else {
-                                // Si no tiene batallas votadas añadir la batalla directamente a $datos
-                                // Se añade la información de la batalla al array $datos
+                    }
+                } else {
+                    if ($batallasDeUsuario[$abc] != $tupla[0]) {
+                        for ($xyz = 0; $xyz < count($batallasVotadas); $xyz++) {
+                            if ($batallasVotadas[$xyz] != $tupla[0]) {
                                 $datos[count($datos)] = $tupla;
                             }
                         }
-                        // Si los id's coinciden, continuar...
-                    }
+                }
                 }
             }
         } else {
-            // Si se detecta que no ha creado ninguna batalla, devuelve false y le dice al usuario que necesita crear
-            // al menos una batalla para votar en las de otros
+            // Si se detecta que no ha creado ninguna batalla
+            //  Se informa al usuario que necesita crear al menos una batalla para votar en las de otros
             $datos = false;
         }
 
