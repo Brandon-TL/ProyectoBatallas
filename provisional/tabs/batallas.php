@@ -139,7 +139,7 @@
                     <section class="cards">
                         <article class="card card--'.$n.'">
                         <div class="card__img"></div>
-                        <a href="#" class="card_link">
+                        <a href="user.php?batalla='.$batalla['id_batalla'].'&voto='.$id_elemento1.'" class="card_link">
                             <div class="card__img--hover"></div>
                         </a>
                         <div class="card__info">
@@ -156,7 +156,7 @@
             $n++;
             echo '<article class="card card--'.$n.'">
                         <div class="card__img"></div>
-                        <a href="#" class="card_link">
+                        <a href="user.php?batalla='.$batalla['id_batalla'].'&voto='.$id_elemento2.'" class="card_link">
                             <div class="card__img--hover"></div>
                         </a>
                         <div class="card__info">
