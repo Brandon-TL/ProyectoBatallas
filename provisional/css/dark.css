@@ -54,6 +54,20 @@
     --section-background-color: transparent;
 
     /* PERFIL TAB */
+    --perfil-color: #fff;
+    --perfil-hr-border-color: rgb(255 255 255 / 10%);
+    --perfil-pmt-label-background-color: #0987db;
+    --perfil-pmt-label-border-right-color: #222;
+    --perfil-pmt-label-color: #fff;
+    --perfil-pmt-content-box-shadow: inset 1px 1px 0px 0px rgb(255 255 255 / 10%);
+    --perfil-pmt-content-color: #fff;
+    --perfil-checked-pmt-label-background-color: #fff;
+    --perfil-checked-pmt-label-color: #000;
+    --perfil-pmt-table-tr-border-color: rgba(255, 255, 255, 0.1);
+    --perfil-pmt-tr-hover-background-color: rgba(0, 0, 0, 0.4);
+    --perfil-pmt-submit-color: #fff;
+    --perfil-pmt-submit-border-color: #0987db;
+    --perfil-pmt-submit-background-color: #0987db;
 
     /* BATTLES TAB */
 

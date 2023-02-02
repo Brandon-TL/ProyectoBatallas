@@ -1,5 +1,5 @@
 .perfil_container {
-    color: #fff;
+    color: var(--perfil-color);
     display: flex;
     height: 70vh;
     width: 90vw;
@@ -27,7 +27,7 @@
 .perfil_aside .perfil_stats_hr {
     width: 70%;
     margin: 20px auto;
-    border-color: var(--settings-h2-border-color);
+    border-color: var(--perfil-hr-border-color);
 }
 
 .perfil_aside table {
@@ -75,9 +75,9 @@
     line-height: 3em;
     height: 3em;
     padding: 0 15px;
-    background: #0987db;
-    border-right: 1px solid #000;
-    color: #fff;
+    background: var(--perfil-pmt-label-background-color);
+    border-right: 1px solid var(--perfil-pmt-label-border-right-color);
+    color: var(--perfil-pmt-label-color);
     cursor: pointer;
     transition: all 0.25s;
 }
@@ -88,14 +88,14 @@
     position: absolute;
     padding: 30px;
     left: 0;
-    box-shadow: inset 1px 1px 0px 0px var(--settings-h2-border-color);
-    color: #fff;
+    box-shadow: var(--perfil-pmt-content-box-shadow);
+    color: var(--perfil-pmt-content-color);
     display: none;
 }
 
 .pmt-switch:checked + .pmt-label {
-    background: #fff;
-    color: #000;
+    background: var(--perfil-checked-pmt-label-background-color);
+    color: var(--perfil-checked-pmt-label-color);
     z-index: 1;
 }
 
@@ -115,11 +115,11 @@
 }
 
 .pmt_table tr {
-    border: solid 1px rgba(255, 255, 255, 0.1);
+    border: solid 1px var(--perfil-pmt-table-tr-border-color);
 }
 
 .pmt_tr:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--perfil-pmt-tr-hover-background-color);
 }
 
 .pmt_table_content {
@@ -128,7 +128,7 @@
 
 .pmt_submit {
     cursor: pointer;
-	color: var(--settings-submit-color);
+	color: var(--perfil-pmt-submit-color);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
@@ -138,8 +138,8 @@
 }
 
 .pmt_submit {
-	border: 1px solid var(--settings-submit-border-color);
-	background-color: var(--settings-submit-background-color);
+	border: 1px solid var(--perfil-pmt-submit-border-color);
+	background-color: var(--perfil-pmt-submit-background-color);
 }
 
 .pmt_submit:active {
