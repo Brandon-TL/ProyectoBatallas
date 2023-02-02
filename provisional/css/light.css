@@ -62,8 +62,9 @@
     /* ACHIVEMENTS TAB */
 
     /* FAQ TAB */
-    --faq-h1-background: 0px 50px 40px -40px #000000e0;
-    --faq-h1-box-shadow: 0px 50px 40px -40px #000000e0;
+    --faq-h1-color: #000;
+    --faq-h1-background: #f6f5f7;
+    --faq-h1-box-shadow: 0px 50px 40px -40px #00000020;
     --faq-title-color: #000;
     --faq-answer-color: #000;
     --faq-hr-border-color: #00000020;
