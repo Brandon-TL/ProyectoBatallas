@@ -13,6 +13,7 @@
     }
 
     .flip-card {
+        cursor: pointer;
         background-color: transparent;
         width: 200px;
         height: 200px;
@@ -35,7 +36,7 @@
     }
 
     .flip-card-front, .flip-card-back {
-        border-radius: 50px;
+        border-radius: 15px;
         position: absolute;
         width: 100%;
         height: 100%;
@@ -44,8 +45,7 @@
     }
 
     .flip-card-front:hover {
-        cursor: pointer;
-        background-color: var(--card-hover-hover-background-color);
+        box-shadow: var(--logros-card-hover-box-shadow);
     }
 
     .flip-card-front img {
@@ -63,7 +63,7 @@
 
     .flip-card-back {
         color: var(--logros-card-back-color);
-        background-color: var(--logros-total-background-color);
+        box-shadow: var(--logros-card-back-box-shadow);
         text-align: center;
         transform: rotateY(180deg);
     }
@@ -79,10 +79,13 @@
 
     .logros_obtenidos {
         color: var(--logros-total-color);
+        background-color: var(--logros-total-background-color);
         position: absolute;
         top: 10%;
         left: -30%;
         font-size: 30px;
+        border-radius: 15px;
+        padding: 5px 20px;
     }
 </style>
 <?php

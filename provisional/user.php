@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/user.css">
-    <link rel="stylesheet" href="./css/tabs/perfil.css">
-    <link rel="stylesheet" href="./css/tabs/creador.css">
-    <link rel="stylesheet" href="./css/tabs/como.css">
-    <link rel="stylesheet" href="./css/tabs/ajustes.css">
     <?php
         require_once './php/logica_user.php';
         require_once './php/visual.php';
@@ -19,6 +14,11 @@
             // $datos = datosUsuario($_SESSION['usuario']);
         }
     ?>
+    <link rel="stylesheet" href="./css/user.css">
+    <link rel="stylesheet" href="./css/tabs/perfil.css">
+    <link rel="stylesheet" href="./css/tabs/creador.css">
+    <link rel="stylesheet" href="./css/tabs/como.css">
+    <link rel="stylesheet" href="./css/tabs/ajustes.css">
     <title><?php echo $lang['user_title']; ?></title>
 </head>
 <body>
