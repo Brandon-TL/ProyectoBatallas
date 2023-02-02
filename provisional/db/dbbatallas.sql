@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-02-2023 a las 19:26:53
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 02-02-2023 a las 23:42:23
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,8 +45,8 @@ CREATE TABLE `batalla_elemento` (
 INSERT INTO `batalla_elemento` (`id_batalla`, `id_elemento1`, `id_elemento2`, `votos_elemento1`, `votos_elemento2`) VALUES
 (1, 1, 2, 0, 0),
 (2, 3, 4, 1, 0),
-(3, 5, 6, 0, 0),
-(4, 7, 8, 0, 0),
+(3, 5, 6, 0, 1),
+(4, 7, 8, 0, 1),
 (5, 9, 10, 1, 0);
 
 -- --------------------------------------------------------
@@ -127,7 +127,10 @@ INSERT INTO `sesiones` (`nombreusuario`, `fechaHoraInicio`, `fechaHoraFinal`) VA
 ('TimeLeaper', '2023-02-02 16:52:47', '2023-02-02 16:54:24'),
 ('TimeLeaper', '2023-02-02 16:54:47', '2023-02-02 16:54:56'),
 ('TimeLeaper', '2023-02-02 16:56:12', '2023-02-02 16:56:21'),
-('TimeLeaper', '2023-02-02 16:57:10', '2023-02-02 16:57:16');
+('TimeLeaper', '2023-02-02 16:57:10', '2023-02-02 16:57:16'),
+('TimeLeaper', '2023-02-02 19:53:48', '2023-02-02 20:20:16'),
+('TimeLeaper', '2023-02-02 20:20:28', '2023-02-02 23:26:50'),
+('sete7', '2023-02-02 23:26:56', '2023-02-02 23:40:15');
 
 -- --------------------------------------------------------
 
@@ -157,7 +160,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `fechanacimiento`, `foto`, `email`, `modovis`, `idioma`, `rol`, `num_elementos_creados`, `num_batallas_creadas`, `num_batallas_votadas`, `num_batallas_ignoradas`, `num_batallas_denunciadas`, `puntos_troll`) VALUES
 (1, '1999-05-12', 'ferrari.jpg', 'luis@gmail.com', 'light', 'es', 'usuario', 2, 1, 0, 0, 1, 0),
-(2, '2001-06-25', 'fotoNaruto.jpg', 'brandon@gmail.com', 'dark', 'en', 'usuario', 2, 1, 2, 0, 1, 0),
+(2, '2001-06-25', 'fotoNaruto.jpg', 'brandon@gmail.com', 'dark', 'en', 'usuario', 2, 1, 4, 0, 1, 0),
 (3, '1995-08-14', 'twitter.jpg', 'elonmusk@gmail.com', 'dark', 'en', 'usuario', 2, 1, 0, 0, 0, 0),
 (4, '1990-11-29', 'fotoCoche.jpg', 'miguel@gmail.com', 'light', 'es', 'usuario', 2, 1, 0, 1, 0, 0),
 (5, '1996-08-18', 'porch.jpg', 'clara@gmail.com', 'light', 'es', 'usuario', 2, 1, 0, 0, 0, 0),
@@ -265,6 +268,8 @@ CREATE TABLE `voto` (
 
 INSERT INTO `voto` (`id_usuario`, `id_batalla`, `id_elemento`, `fecha`) VALUES
 (2, 2, 3, '2023-02-01 19:34:20'),
+(2, 3, 6, '2023-02-02 23:02:14'),
+(2, 4, 8, '2023-02-02 23:02:18'),
 (2, 5, 9, '2023-02-01 19:34:20');
 
 --
