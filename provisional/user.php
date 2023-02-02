@@ -26,9 +26,9 @@
     <header>
         <nav class="tabs">
             <label for="perfil" class="tabs__label"><?php echo $lang['user_tab_perfil_title'] ?></label>
-            <label for="batallas" class="tabs__label"><?php echo $lang['user_tab_batallas_title'] ?></label>
+            <label for="batallas" class="tabs__label active"><?php echo $lang['user_tab_batallas_title'] ?></label>
             <label for="creador" class="tabs__label"><?php echo $lang['user_tab_creador_title'] ?></label>
-            <label for="logros" class="tabs__label active"><?php echo $lang['user_tab_logros_title'] ?></label>
+            <label for="logros" class="tabs__label"><?php echo $lang['user_tab_logros_title'] ?></label>
             <label for="como" class="tabs__label"><?php echo $lang['user_tab_como_title'] ?></label>
         </nav>
         <div class="selectors">
@@ -48,9 +48,9 @@
         </div>
     </header>
     <input type="radio" class="tabs__radio" name="slider" id="perfil">
-    <input type="radio" class="tabs__radio" name="slider" id="batallas">
+    <input type="radio" class="tabs__radio" name="slider" id="batallas" checked>
     <input type="radio" class="tabs__radio" name="slider" id="creador">
-    <input type="radio" class="tabs__radio" name="slider" id="logros" checked>
+    <input type="radio" class="tabs__radio" name="slider" id="logros">
     <input type="radio" class="tabs__radio" name="slider" id="como">
     <input type="radio" class="tabs__radio" name="slider" id="ajustes">
     <section>

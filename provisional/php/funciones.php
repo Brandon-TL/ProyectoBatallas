@@ -79,8 +79,7 @@
      * @return _COOKIE[tema] preferencia de tema
      * @return _COOKIE[lang] preferencia de lenguaje
      */
-    function cargarPreferencias($usuario)
-    {
+    function cargarPreferencias($usuario) {
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
         // Si la conexión se establece
         if (isset($conexion)) {
@@ -171,29 +170,19 @@
     }
 
     /**
-     * Función para registrar el inicio y fin de la sesiones de usuarios en la base de datos dbbatallas y las preferencias de tema e idioma del usuario
+     * Función para registrar el inicio y fin de la sesiones de usuarios en la base de datos dbbatallas
      * @param array:sesion conjunto de valores a insertar en la tabla de sesiones [$usuario, $fechaHoraInicio, $fechaHoraFinal]
-     * @param string:modovis de la sesion con la información del tema actual
-     * @param string:tema de la sesion con la información del idioma actual
      * 
      * @return bool:true:commit guardar los cambios en la base de datos
      * @return bool:false:rollBack en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
      */
-    function registrarSesion($sesion, $modovis, $idioma) {
+    function registrarSesion($sesion) {
         $campos = array('nombreusuario', 'fechaHoraInicio', 'fechaHoraFinal');
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
         $conexion->beginTransaction();
-        $id = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $sesion[0])[0];
+        
         if (insertBD('sesiones', $campos, $sesion, $conexion)) {
-            if (updateDB('usuario', 'modovis', $modovis, 'id', $id)) {
-                if (updateDB('usuario', 'idioma', $idioma, 'id', $id)) {
-                    $conexion->commit();
-                } else {
-                    $conexion->rollBack();
-                }
-            } else {
-                $conexion->rollBack();
-            }
+            $conexion->commit();
         } else {
             $conexion->rollBack();
         }
@@ -268,18 +257,12 @@
                             $fechainicio = $_SESSION["fInicio"],
                             $fechafinal = date('Y-m-d H:i:s'));
         // Registrar la sesión en la base de datos
-        $modovis = $_COOKIE['tema'];
-        $idioma = $_COOKIE['lang'];
-        registrarSesion($sesion, $modovis, $idioma);
+        registrarSesion($sesion);
         // Destruir sesión
         session_destroy();
         // Eliminar cookies de sesión
         unset($_COOKIE["PHPSESSID"]);
-        unset($_COOKIE["tema"]);
-        unset($_COOKIE["lang"]);
         setcookie("PHPSESSID", null, -1, '/');
-        setcookie("tema", null, -1, '/');
-        setcookie("lang", null, -1, '/');
         // Redirigir a página principal
         header("Location: index.php");
     }
@@ -449,14 +432,20 @@
         // Obetener el id del usuario que ha iniciado sesión
         $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
         // Como solo es un array de una posición se puede guardar en una variable string, para un uso más fácil
-        // $id_usuario = $id_usuario[0];
+        // echo $id_usuario.'<br>';
 
         // Obtener todas las batallas creadas por el usuario que ha iniciado sesión
         $batallasDeUsuario = selectBDand(array('id_batalla'), 'usuario_batalla', 'id_usuario', $id_usuario, 'accion', 'crear');
         
         // Obtener todas las batallas votadas por el usuario que ha iniciado sesión
-        $batallasVotadas = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
-        // var_dump($batallasVotadas);
+        $query = $conexion->prepare("SELECT `id_batalla` FROM `voto` WHERE `id_usuario` = '2';");
+        $query->execute();
+        $batallasVotadas = $query->fetchAll();
+
+        $ids_votadas = array();
+        foreach ($batallasVotadas as $batalla) {
+            array_push($ids_votadas, $batalla['id_batalla']);
+        }
 
         // Obtener todas las batallas existentes y filtrar a un array solo las que no ha creado el usuario en cuestión
         $sql = "SELECT * FROM `batalla_elemento`;";
@@ -478,14 +467,12 @@
                 }
             } else {
                 // Comprueba si el usuario ha votado alguna batalla
-                if ($batallasVotadas) {
+                if ($ids_votadas) {
                     // Para TODAS y cada una de las batallas existentes
                     while ($tupla = $resultBatalla->fetch()) {
-                        if (!in_array($tupla['id_batalla'], $batallasDeUsuario)) {
-                            if (!in_array($tupla['id_batalla'], $batallasVotadas)) {
-                                // En caso afirmativo, añade la informacion del fetch() en la siguiente posición del array de resultados
-                                $datos[count($datos)] = $tupla;
-                            }
+                        if (!in_array($tupla['id_batalla'], $batallasDeUsuario) && !in_array($tupla['id_batalla'], $ids_votadas)) {
+                            // En caso afirmativo, añade la informacion del fetch() en la siguiente posición del array de resultados
+                            $datos[count($datos)] = $tupla;
                         }
                     }
                 } else {
