@@ -114,7 +114,7 @@
     $batallas = obtenerBatallas(false);
     $n = 0;
 
-    if ($batalla) {
+    if ($batallas) {
         foreach ($batallas as $batalla) {
             $n++;
             $elemento1 = datosElemento($batalla['id_elemento1']);

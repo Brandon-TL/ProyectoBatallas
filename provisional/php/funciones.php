@@ -477,10 +477,21 @@
                     }
                 }
             } else {
-                // Para TODAS y cada una de las batallas existentes
-                while ($tupla = $resultBatalla->fetch()) {
+                // Comprueba si el usuario ha votado alguna batalla
+                if ($batallasVotadas) {
+                    // Para TODAS y cada una de las batallas existentes
+                    while ($tupla = $resultBatalla->fetch()) {
+                        if (!in_array($tupla['id_batalla'], $batallasDeUsuario)) {
+                            if (!in_array($tupla['id_batalla'], $batallasVotadas)) {
+                                // En caso afirmativo, añade la informacion del fetch() en la siguiente posición del array de resultados
+                                $datos[count($datos)] = $tupla;
+                            }
+                        }
+                    }
+                } else {
+                    // Si no tiene votos, salta la comparación por voto
+                    while ($tupla = $resultBatalla->fetch()) {
                     if (!in_array($tupla['id_batalla'], $batallasDeUsuario)) {
-                        if (!in_array($tupla['id_batalla'], $batallasVotadas)) {
                             // En caso afirmativo, añade la informacion del fetch() en la siguiente posición del array de resultados
                             $datos[count($datos)] = $tupla;
                         }
