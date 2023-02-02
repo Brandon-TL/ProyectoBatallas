@@ -1,11 +1,14 @@
 <?php
     require_once 'funciones.php';
 
-    if (isset($_POST['NO_IGNORAR'])) {
+    if (isset($_GET['batalla']) && isset($_GET['voto']) && !is_null($_GET['batalla']) && !is_null($_GET['voto']) &&is_numeric(trim($_GET['batalla'])) && is_numeric(trim($_GET['voto']))) {
+        // Ejecutamos la votación
+        votar($_GET['id'], $_GET['batalla'], $_GET['voto']);
+    }else if (isset($_POST['NO_IGNORAR'])) {
         // ACCION CUANDO SE RETIRE EL VOTO DE IGNORAR DE UNA BATALLA
     } else if (isset($_POST['NO_DENUNCIA'])) {
         // ACCION CUANDO SE RETIRE EL VOTO DE DENUNCIA DE UNA BATALLA
-    }else if (isset($_POST['ELIMINAR'])) {
+    } else if (isset($_POST['ELIMINAR'])) {
         $_eliminar_usuario_err = $_eliminar_password_err = $_confirmar_password_err = $_palabra = null;
         
         // Obtener datos relacionados con el botón eliminar

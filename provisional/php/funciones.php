@@ -604,73 +604,53 @@
         );
         return $info;
     }
-    
-    /**
-     * Función para crear etiquetas especificas y mostrar batallas por pantalla y facilitando dar estilos css y clases
-     * @param array:datos 
-     * @return string:html de la información de todas las batallas con clases especificas para cada elemento y batalla
-     *                      incluye php para la funcionalidad de votos
-     */
-    function formatoBatallas($datos) {
-        $html = '';
-        $id_votante = datosUsuario($_SESSION['usuario'])[0];
-        foreach ($datos as $tupla) {
-            $id_elemento1 = $tupla[1];
-            $id_elemento2 = $tupla[2];
-            $E1 = datosElemento($tupla[1]);
-            $E2 = datosElemento($tupla[2]);
-
-            $id_usuario = selectBD(array('id_usuario'), 'usuario_batalla', 'id_batalla', $tupla[0]);
-            // $nombre_creador = selectBD(array('nombreusuario'), 'usuario_credencial', 'id_usuario', $id_usuario[0]);
-
-            $id_batalla = selectBD(array('id_batalla'), 'batalla_elemento', 'id_elemento1', $tupla[1])[0];
-            // echo $id_elemento1.' vs '.$id_elemento2.' en batalla '.$id_batalla;
-
-            
-            $html .= "<div>Batalla ($tupla[0]): $E1[0] vs $E2[0]<br>
-                        $E1[1]<br>$E2[1]<br>
-                        <button><span>VOTAR $E1[0]</span></button>
-                        <button><span>VOTAR $E2[0]</span></button>
-                        </div><br>";
-        }
-        /**
-         *  onclick='votar($id_usuario, $id_batalla, $id_elemento1)';
-         *  onclick='votar($id_usuario, $id_batalla, $id_elemento2)';
-         */
-
-        return $html;
-    }
 
     /**
      * Funcion para la votación de elementos
-     * @param string:id_elemento id del elemento que se desea votar
      * @param string:id_batalla id de la batalla en la que se encuentra el elemento
+     * @param string:id_elemento id del elemento que se desea votar
      * 
      * @return bool:true si se han encontrado los elementos solicitados, se ejecuta comando sql para 
-     *                           registrar la votación en la base de datos y se indica que se ha terminado la ejecución con éxito
-     * @return bool:false texto indicativo de porque no se ha registrado el voto
+     *                      registrar la votación en la base de datos y se indica que se ha terminado la ejecución con éxito
+     * @return bool:false indicativo de porque no se ha registrado el voto
      */
     function votar($id_usuario, $id_batalla, $id_elemento) {
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
         if (isset($conexion)) {
-            // Sentencia para comprobar si el usuario ya ha votado en esa batalla
-            $id_batalla = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
-            $nombre_elemento = datosElemento($id_elemento);
-            if ($id_batalla) {
-                // El usuario ya ha votado en esta batalla
-                return 'Ya se has votado en esta batalla';
-            } else {
-                // Si el usuario no ha votado en la batalla indicada se registra el voto
-                $insert = insertBD('voto', array('id_usuario', 'id_batalla', 'id_elemento', 'fecha'), array($id_usuario, $id_batalla, $id_elemento, date('Y-m-d H:i:s')), $conexion);
-                if ($insert) {
-                    // Si se ha registrado el voto con éxito, se guardan el voto en la base de datos
-                    return 'Has votado por ' . $nombre_elemento;
-                    $conexion->commit();
-                } else {
-                    // Si ha ocurrido algun error 
-                    $conexion->rollBack();
+            // Comprobar si el usuario ya ha votado en la batalla con id $id_batalla
+            if (!selectBDand(array('*'), 'voto', 'id_usuario', $id_usuario, 'id_batalla', $id_batalla)) {
+                // Si no ha votado actualizar e insertar datos en las tablas respectivas
+                // Actualizar votos del elemento en la tabla batalla_elemento
+                
+                // Comprobar a que elemento añadir el voto
+                if (selectBD(array('id_elemento1'), 'batalla_elemento', 'id_batalla', $id_batalla)[0] == $id_elemento) {
+                    // Calcular nueva cantidad de votos al elemento votado
+                    $nueva_cantidad = intval(selectBD(array('votos_elemento1'), 'batalla_elemento', 'id_batalla', $id_batalla)[0]) + 1;
+                    // Actualizar votos al elemento votado
+                    $sumado = updateDB('batalla_elemento', 'votos_elemento1', $nueva_cantidad, 'id_batalla', $id_batalla);
+                } else if (selectBD(array('id_elemento2'), 'batalla_elemento', 'id_batalla', $id_batalla)[0] == $id_elemento) {
+                    // Calcular nueva cantidad de votos al elemento votado
+                    $nueva_cantidad = intval(selectBD(array('votos_elemento2'), 'batalla_elemento', 'id_batalla', $id_batalla)[0]) + 1;
+                    // Actualizar votos al elemento votado
+                    $sumado = updateDB('batalla_elemento', 'votos_elemento2', $nueva_cantidad, 'id_batalla', $id_batalla);
                 }
+
+                // Actualizar tabla usuario
+                if (selectBD(array('num_batallas_votadas'), 'usuario', 'id', $id_usuario)[0]) {
+                    // Calcular nueva cantidad de batallas votadas
+                    $nueva_cantidad = intval(selectBD(array('num_batallas_votadas'), 'usuario', 'id', $id_usuario)[0]) + 1;
+                    // Actualizar votos al elemento votado
+                    $sumado = updateDB('usuario', 'num_batallas_votadas', $nueva_cantidad, 'id', $id_usuario);
+                }
+
+                $campos = array('id_usuario', 'id_batalla', 'id_elemento', 'fecha');
+                $valores = array($id_usuario, $id_batalla, $id_elemento, date('Y-m-d H:i:s'));
+                // Actualizar tabla voto
+                insertBD('voto', $campos, $valores, $conexion);
             }
+            // Si ya ha votado en esa batalla no hacer nada
+            header("Location: user.php");
+            exit(); 
         }
     }
 ?>

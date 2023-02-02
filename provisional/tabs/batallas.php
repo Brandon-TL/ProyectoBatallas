@@ -112,6 +112,7 @@
 <?php
 
     $batallas = obtenerBatallas(false);
+    $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
     $n = 0;
 
     if ($batallas) {
@@ -139,7 +140,7 @@
                     <section class="cards">
                         <article class="card card--'.$n.'">
                         <div class="card__img"></div>
-                        <a href="user.php?batalla='.$batalla['id_batalla'].'&voto='.$id_elemento1.'" class="card_link">
+                        <a href="user.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto='.$id_elemento1.'" class="card_link">
                             <div class="card__img--hover"></div>
                         </a>
                         <div class="card__info">
@@ -156,7 +157,7 @@
             $n++;
             echo '<article class="card card--'.$n.'">
                         <div class="card__img"></div>
-                        <a href="user.php?batalla='.$batalla['id_batalla'].'&voto='.$id_elemento2.'" class="card_link">
+                        <a href="user.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto='.$id_elemento2.'" class="card_link">
                             <div class="card__img--hover"></div>
                         </a>
                         <div class="card__info">
