@@ -1,10 +1,11 @@
--- phpMyAdmin SQL Dump-- version 5.2.0
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-02-2023 a las 19:56:59
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 02-02-2023 a las 17:00:53
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -22,6 +23,7 @@ SET time_zone = "+00:00";
 
 CREATE DATABASE IF NOT EXISTS `dbbatallas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `dbbatallas`;
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +112,22 @@ CREATE TABLE `sesiones` (
   `fechaHoraInicio` datetime NOT NULL,
   `fechaHoraFinal` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='TRIAL';
+
+--
+-- Volcado de datos para la tabla `sesiones`
+--
+
+INSERT INTO `sesiones` (`nombreusuario`, `fechaHoraInicio`, `fechaHoraFinal`) VALUES
+('TimeLeaper', '2023-01-28 17:00:43', '2023-02-02 11:28:14'),
+('TimeLeaper', '2023-02-02 11:28:36', '2023-02-02 11:52:01'),
+('TimeLeaper', '2023-02-02 11:52:09', '2023-02-02 15:41:05'),
+('TimeLeaper', '2023-02-02 15:41:11', '2023-02-02 16:37:09'),
+('TimeLeaper', '2023-02-02 16:37:30', '2023-02-02 16:37:41'),
+('TimeLeaper', '2023-02-02 16:45:58', '2023-02-02 16:52:35'),
+('TimeLeaper', '2023-02-02 16:52:47', '2023-02-02 16:54:24'),
+('TimeLeaper', '2023-02-02 16:54:47', '2023-02-02 16:54:56'),
+('TimeLeaper', '2023-02-02 16:56:12', '2023-02-02 16:56:21'),
+('TimeLeaper', '2023-02-02 16:57:10', '2023-02-02 16:57:16');
 
 -- --------------------------------------------------------
 
@@ -333,18 +351,6 @@ ALTER TABLE `elemento`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de la tabla `usuario_batalla`
---
-ALTER TABLE `usuario_batalla`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT de la tabla `usuario_credencial`
---
-ALTER TABLE `usuario_credencial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_batalla`
