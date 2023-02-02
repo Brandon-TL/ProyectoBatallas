@@ -30,14 +30,15 @@
                 $_logueo_usuario_err = $lang['logueo_error_usuario'];
             } else if ($encontrado) {
                 if (is_null($_logueo_password_err)) {  
-                    if (!comprobarCredenciales($_valid_usuario, $_valid_password)) {
-                        $_logueo_password_err = $lang['logueo_error_password'];
-                    } else if ($_valid_usuario === 'admin' && comprobarCredenciales($_valid_usuario, $_valid_password)) {
+                    if ($_valid_usuario === 'admin' && comprobarCredenciales($_valid_usuario, $_valid_password)) {
                         header("Location: admin.php");
                         exit();
-                    } else {
+                    } else if (comprobarCredenciales($_valid_usuario, $_valid_password)) {
+                        $_SESSION['usuario'] = $_valid_usuario;
                         header("Location: user.php");
                         exit();
+                    } else {
+                        $_logueo_password_err = $lang['logueo_error_password'];
                     }
                 }
             }

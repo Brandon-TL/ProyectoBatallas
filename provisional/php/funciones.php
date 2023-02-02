@@ -55,6 +55,11 @@
         $stmt = selectBD(array('password'), 'credencial', 'nombreusuario', $usuario);
 
         if (isset($stmt['password']) && $stmt['password'] === $password) {
+            $id = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $usuario);
+            $preferencias = selectBD(array('modovis, idioma'), 'usuario', 'id', $id);
+            $_COOKIE['lang'] = $preferencias['idioma'];
+            $_COOKIE['tema'] = $preferencias['modovis'];
+
             session_start();
             // Creamos sesión con el nombre del usuario
             $_SESSION["usuario"] = $usuario;
@@ -64,6 +69,34 @@
             return true;
         } else {
             return false;
+        }
+    }
+        
+    /**
+     * Función para aplicar preferencias de visualización del usuario en la página 
+     * @param string:usuario nombre del usuario del cual se obtienen sus preferencias
+     * 
+     * @return _COOKIE[tema] preferencia de tema
+     * @return _COOKIE[lang] preferencia de lenguaje
+     */
+    function cargarPreferencias($usuario)
+    {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+        // Si la conexión se establece
+        if (isset($conexion)) {
+            // Obtenemos id del usuario logeado de la tabla de usuario_credencial
+            $sql = "SELECT `id_usuario` FROM `usuario_credencial` WHERE `nombreusuario` = '{$usuario}'";
+            $result = $conexion->query($sql);
+            $id = $result->fetch();
+
+            // Obtener preferencias con el id del usuario de la tabla usuario
+            $sql = "SELECT `modovis`,`idioma` FROM `usuario` WHERE `id` = '{$id[0]}'";
+            $result = $conexion->query($sql);
+            $preferencias = $result->fetch();
+
+            // Establecer el tema e idioma según las preferencias del usuario
+            $_COOKIE['tema'] = $preferencias[0];
+            $_COOKIE['lang'] = $preferencias[1];
         }
     }
        
@@ -127,8 +160,8 @@
     function updateDB($tabla, $campo, $valor, $condicion, $cond_valor) {
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
         $conexion->beginTransaction();
-        $sql = "UPDATE $tabla SET $campo = $valor WHERE $condicion = $cond_valor ";
-        if (!$conexion->exec($sql)) {
+        $sql = "UPDATE $tabla SET $campo = '$valor' WHERE $condicion = '$cond_valor' ";
+        if ($conexion->exec($sql)) {
             $conexion->commit();
             return true;
         } else {
@@ -138,20 +171,29 @@
     }
 
     /**
-     * Función para registrar el inicio y fin de la sesiones de usuarios en la base de datos dbbatallas
-     * @param array:valores conjunto de valores a insertar en la tabla de sesiones
-     * @param array:_formato_valores [$usuario, $fechaHoraInicio, $fechaHoraFinal]
+     * Función para registrar el inicio y fin de la sesiones de usuarios en la base de datos dbbatallas y las preferencias de tema e idioma del usuario
+     * @param array:sesion conjunto de valores a insertar en la tabla de sesiones [$usuario, $fechaHoraInicio, $fechaHoraFinal]
+     * @param string:modovis de la sesion con la información del tema actual
+     * @param string:tema de la sesion con la información del idioma actual
      * 
-     * @return bool:true guardar los cambios en la base de datos
-     * @return bool:false en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
+     * @return bool:true:commit guardar los cambios en la base de datos
+     * @return bool:false:rollBack en caso de no poder ejecutar la sentencia, se revierten los cambios realizados
      */
-    function registrarSesion($valores) {
+    function registrarSesion($sesion, $modovis, $idioma) {
         $campos = array('nombreusuario', 'fechaHoraInicio', 'fechaHoraFinal');
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
         $conexion->beginTransaction();
-
-        if (insertBD('sesiones', $campos, $valores, $conexion)) {
-            $conexion->commit();
+        $id = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $sesion[0])[0];
+        if (insertBD('sesiones', $campos, $sesion, $conexion)) {
+            if (updateDB('usuario', 'modovis', $modovis, 'id', $id)) {
+                if (updateDB('usuario', 'idioma', $idioma, 'id', $id)) {
+                    $conexion->commit();
+                } else {
+                    $conexion->rollBack();
+                }
+            } else {
+                $conexion->rollBack();
+            }
         } else {
             $conexion->rollBack();
         }
@@ -222,14 +264,22 @@
             session_start(); 
         }
         // Obtener datos de la sesión y almacenarlos en un array
-        $sesion = array( $usuario = $_SESSION["usuario"],$fechainicio = $_SESSION["fInicio"] , $fechafinal = date('Y-m-d H:i:s'));
+        $sesion = array( $usuario = $_SESSION["usuario"],
+                            $fechainicio = $_SESSION["fInicio"],
+                            $fechafinal = date('Y-m-d H:i:s'));
         // Registrar la sesión en la base de datos
-        registrarSesion($sesion);
+        $modovis = $_COOKIE['tema'];
+        $idioma = $_COOKIE['lang'];
+        registrarSesion($sesion, $modovis, $idioma);
         // Destruir sesión
         session_destroy();
         // Eliminar cookies de sesión
         unset($_COOKIE["PHPSESSID"]);
+        unset($_COOKIE["tema"]);
+        unset($_COOKIE["lang"]);
         setcookie("PHPSESSID", null, -1, '/');
+        setcookie("tema", null, -1, '/');
+        setcookie("lang", null, -1, '/');
         // Redirigir a página principal
         header("Location: index.php");
     }

@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php
         require_once './php/logica_user.php';
-        require_once './php/visual.php';
-        
-        $datos;
         session_start();
         if (isset($_SESSION["usuario"])) {
-            // $datos = datosUsuario($_SESSION['usuario']);
+            cargarPreferencias($_SESSION["usuario"]);
+        } else {
+            header("Location: index.php");
+            exit();
         }
+        require_once './php/visual.php';
     ?>
     <link rel="stylesheet" href="./css/user.css">
     <link rel="stylesheet" href="./css/tabs/perfil.css">
