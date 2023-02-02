@@ -333,7 +333,6 @@ ALTER TABLE `usuario_batalla`
 --
 ALTER TABLE `usuario_credencial`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
- `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_batalla`

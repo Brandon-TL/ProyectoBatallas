@@ -116,32 +116,11 @@
 		"como_q4" => "What are troll points?",
 		"como_a4" => "Troll points are negative points that users get for the complaints received by the battles they have created, these points are cumulative and also count as a vote, so you can only vote for one item or report the battle it self.<br><br>When 80% of the total votes of a battle are complaints, it will be deleted for all users and its creator will get a troll point.<br><br>Users with 10 accumulated troll points will be banned from the system and will not be you can register again.",
 		"como_q5" => "Can I recover my account if I have been banned?",
-		//
-		"como_a5" => "Todos los baneos estan sujetos a revisión, por lo que si tu cuenta ha sido baneada de forma injusta deberás esperar a que los administradores 
-		comprueben tu caso.<br>",
-		"como_q6" => "¿Qué son los logros?",
-		"como_a6" => "Los logros son un sistema de recompensas por la interacción con las batallas, tanto propias como de otros usuarios.<br><br>
-		Logros por crear batallas:<br><br>
-		<ul>
-			<li><strong>Comprometido</strong>: Has creado 10 batallas para la comunidad.</li>
-			<li><strong>Vicioso</strong>: Has creado 100 batallas para la comunidad.</li>
-			<li><strong>Adicto</strong>: Has creado 1000 batallas para la comunidad.</li>
-		</ul><br>
-		Logros por votar batallas:<br><br>
-		<ul>
-			<li><strong>Votante</strong>: Has votado en 10 batallas de otros usuarios.</li>
-			<li><strong>Sindicalista</strong>: Has votado en 100 batallas de otros usuario.</li>
-			<li><strong>Activista</strong>: Has votado en 1000 batallas de otros usuario.</li>
-		</ul><br>
-		Logros por denunciar batallas:<br><br>
-		<ul>
-			<li><strong>Vigilante</strong>: Has denunciado 10 batallas.</li>
-			<li><strong>Moderador</strong>: Has denunciado 100 batallas.</li>
-			<li><strong>Policía</strong>: Has denunciado 1000 batallas.</li>
-		</ul><br>",
-		"como_q7" => "Has denunciado varias batallas, pero tus logros no avanzan.",
-		"como_a7" => "Para que las denuncias contabilicen en los logros, las batallas en cuestion deberán ser eliminadas (80% de los votos totales son denuncias).<br>
-		De esta manera se evita que los usuarios denuncien batallas al azar para obtener los logros más rápido.",
+		"como_a5" => "All bans are subject to review, so if you believe that your account has been unfairly banned, you should wait for the administrators to verify your case.<br><br>In the fateful event that your ban is considered as \"fair\", not only your information will be removed from our system, but you will also be permanently banned.<br><br>But don't worry, there is always that small chance that your ban is considered \"unfair\".<br>",
+		"como_q6" => "What are achivementes?",
+		"como_a6" => "Achievements are a reward system for interacting with battles, both your own and those of other users.<br><br>Achievements for creating battles:<br><br><ul><li><strong>Committed</strong>: You have created 10 battles for the community.</li><li><strong>Vicious</strong>: You have created 100 battles for the community.</li><li><strong>Addicted</strong>: You have created 1000 battles for the community.</li></ul><br>Achievements for voting battles:<br><br><ul><li><strong>Voter</strong>: You have voted in 10 battles of other users.</li><li><strong>Trade Union Member</strong>: You have voted in 100 battles of other users.</li><li><strong>Activist</strong>: You have voted in 1000 battles of other users.</li></ul><br>Achievements for reporting battles:<br><br><ul><li><strong>Watchman</strong>: You have denounced 10 battles.</li><li><strong>Moderator</strong>: You have reported 100 battles.</li><li><strong>Police officer</strong>: You have reported 1000 battles.</li></ul><br>",
+		"como_q7" => "You have reported several battles, but your achievements are not progressing?",
+		"como_a7" => "For reports to count towards achievements, the battles in question must be removed (80% of the total votes are reports).<br><br>This prevents users from reporting random battles to get achievements faster.",
 
 		// ajustes.php
 		"ajustes_boton_confirmar" => "CONFIRM",

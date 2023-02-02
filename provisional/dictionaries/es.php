@@ -100,7 +100,6 @@
 		"batallas_text_creador" => "Batalla creada por",
 		"batallas_text_votos" => "votos",
 		"batallas_text_creador_elemento" => "de",
-		"batallas_text_creador" => "Batalla creada por",
 
 		// creador.php
 
@@ -117,32 +116,11 @@
 		"como_q4" => "¿Qué son los puntos troll?",
 		"como_a4" => "Los puntos de troll son puntos negativos que obtienen los usuarios por las denuncias que reciben las batallas que han creado, estos puntos son acumulativos y tambien cuentan como voto, por lo que solo se podrá votar un elemento o denunciar la batalla del mismo.<br><br>Cuando el 80% de los votos totales de una batalla son denuncias, esta será eliminada para todos los usuarios y su creador obtendrá un punto de troll.<br><br>Los usuario con 10 puntos troll acumulados seran baneados del sistema y no se podrá registrar de nuevo.",
 		"como_q5" => "¿Puedo recuperar mi cuenta si he sido baneado/a?",
-
-		"como_a5" => "Todos los baneos estan sujetos a revisión, por lo que si tu cuenta ha sido baneada de forma injusta deberás esperar a que los administradores 
-		comprueben tu caso.<br>",
+		"como_a5" => "Todas los baneos están sujetos a revisión, por lo que si crees que tu cuenta ha sido injustamente baneada, deberás esperar a que los administradores verifiquen tu caso.<br><br>En el fatídico caso de que tu baneo se considere como \"justo\", no solo su información se eliminará de nuestro sistema, sino que también serás baneado permanentemente.<br><br>Pero no te preocupes, siempre existe esa pequeña posibilidad de que tu baneo sea considerado \"insjusto\".<br>",
 		"como_q6" => "¿Qué son los logros?",
-		"como_a6" => "Los logros son un sistema de recompensas por la interacción con las batallas, tanto propias como de otros usuarios.<br><br>
-		Logros por crear batallas:<br><br>
-		<ul>
-			<li><strong>Comprometido</strong>: Has creado 10 batallas para la comunidad.</li>
-			<li><strong>Vicioso</strong>: Has creado 100 batallas para la comunidad.</li>
-			<li><strong>Adicto</strong>: Has creado 1000 batallas para la comunidad.</li>
-		</ul><br>
-		Logros por votar batallas:<br><br>
-		<ul>
-			<li><strong>Votante</strong>: Has votado en 10 batallas de otros usuarios.</li>
-			<li><strong>Sindicalista</strong>: Has votado en 100 batallas de otros usuario.</li>
-			<li><strong>Activista</strong>: Has votado en 1000 batallas de otros usuario.</li>
-		</ul><br>
-		Logros por denunciar batallas:<br><br>
-		<ul>
-			<li><strong>Vigilante</strong>: Has denunciado 10 batallas.</li>
-			<li><strong>Moderador</strong>: Has denunciado 100 batallas.</li>
-			<li><strong>Policía</strong>: Has denunciado 1000 batallas.</li>
-		</ul><br>",
-		"como_q7" => "Has denunciado varias batallas, pero tus logros no avanzan.",
-		"como_a7" => "Para que las denuncias contabilicen en los logros, las batallas en cuestion deberán ser eliminadas (80% de los votos totales son denuncias).<br>
-		De esta manera se evita que los usuarios denuncien batallas al azar para obtener los logros más rápido.",
+		"como_a6" => "Los logros son un sistema de recompensas por la interacción con las batallas, tanto propias como de otros usuarios.<br><br>Logros por crear batallas:<br><br><ul><li><strong>Comprometido</strong>: Has creado 10 batallas para la comunidad.</li><li><strong>Vicioso</strong>: Has creado 100 batallas para la comunidad.</li><li><strong>Adicto</strong>: Has creado 1000 batallas para la comunidad.</li></ul><br>Logros por votar batallas:<br><br><ul><li><strong>Votante</strong>: Has votado en 10 batallas de otros usuarios.</li><li><strong>Sindicalista</strong>: Has votado en 100 batallas de otros usuario.</li><li><strong>Activista</strong>: Has votado en 1000 batallas de otros usuario.</li></ul><br>Logros por denunciar batallas:<br><br><ul><li><strong>Vigilante</strong>: Has denunciado 10 batallas.</li><li><strong>Moderador</strong>: Has denunciado 100 batallas.</li><li><strong>Policía</strong>: Has denunciado 1000 batallas.</li></ul><br>",
+		"como_q7" => "¿Has denunciado varias batallas, pero tus logros no avanzan?",
+		"como_a7" => "Para que las denuncias contabilicen en los logros, las batallas en cuestion deberán ser eliminadas (80% de los votos totales son denuncias).<br><br>De esta manera se evita que los usuarios denuncien batallas al azar para obtener los logros más rápido.",
 
 		// ajustes.php
 		"ajustes_boton_confirmar" => "CONFIRMAR CAMBIO",
