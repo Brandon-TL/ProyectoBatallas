@@ -8,7 +8,7 @@
         require_once './php/logica_user.php';
         session_start();
         if (isset($_SESSION["usuario"])) {
-            cargarPreferencias($_SESSION["usuario"]);
+            // cargarPreferencias($_SESSION["usuario"]);
         } else {
             header("Location: index.php");
             exit();
