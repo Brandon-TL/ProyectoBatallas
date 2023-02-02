@@ -86,6 +86,7 @@
         font-size: 30px;
         border-radius: 15px;
         padding: 5px 20px;
+        pointer-events: none;
     }
 </style>
 <?php
