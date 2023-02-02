@@ -470,10 +470,15 @@
                 if ($ids_votadas) {
                     // Para TODAS y cada una de las batallas existentes
                     while ($tupla = $resultBatalla->fetch()) {
+                        // Si ha votado la batalla $tupla no añadirla $datos
                         if (!in_array($tupla['id_batalla'], $batallasDeUsuario) && !in_array($tupla['id_batalla'], $ids_votadas)) {
                             // En caso afirmativo, añade la informacion del fetch() en la siguiente posición del array de resultados
                             $datos[count($datos)] = $tupla;
                         }
+                    }
+                    // Indicar si el usuario ya ha votado todas las batallas tras la comparación
+                    if (empty($datos)) {
+                        return 'votos';
                     }
                 } else {
                     // Si no tiene votos, salta la comparación por voto

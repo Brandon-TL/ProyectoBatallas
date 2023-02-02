@@ -17,8 +17,10 @@
     ?>
     <link rel="stylesheet" href="./css/user.css">
     <link rel="stylesheet" href="./css/tabs/perfil.css">
+    <link rel="stylesheet" href="./css/tabs/batallas.css">
     <link rel="stylesheet" href="./css/tabs/creador.css">
-    <link rel="stylesheet" href="./css/tabs/como.css">
+    <link rel="stylesheet" href="./css/tabs/logros.css">
+    <link rel="stylesheet" href="./css/tabs/faq.css">
     <link rel="stylesheet" href="./css/tabs/ajustes.css">
     <title><?php echo $lang['user_title']; ?></title>
 </head>

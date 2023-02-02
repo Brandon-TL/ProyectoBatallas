@@ -70,6 +70,15 @@
     --perfil-pmt-submit-background-color: #0987db;
 
     /* BATTLES TAB */
+    --batallas-card-creator-color: #fff;
+    --batallas-card-color: #fff;
+    --batallas-card-background-color: #222;
+    --batallas-card-box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.5);
+    --batallas-card-info-background-color: rgba(0, 0, 0, 0.1);
+    --batallas-card-category-background-color: rgba(255, 255, 255, 0.3);
+    --batallas-card-author-color: rgb(0, 255, 255);
+    --batallas-error-batallas-background-color: rgb(0, 255, 255);
+    --batallas-error-batallas-color: #fff;
 
     /* CREATOR TAB */
 
