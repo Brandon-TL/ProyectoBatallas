@@ -25,10 +25,10 @@
     <header>
         <nav class="tabs">
             <label for="perfil" class="tabs__label"><?php echo $lang['user_tab_perfil_title'] ?></label>
-            <label for="batallas" class="tabs__label active"><?php echo $lang['user_tab_batallas_title'] ?></label>
+            <label for="batallas" class="tabs__label"><?php echo $lang['user_tab_batallas_title'] ?></label>
             <label for="creador" class="tabs__label"><?php echo $lang['user_tab_creador_title'] ?></label>
             <label for="logros" class="tabs__label"><?php echo $lang['user_tab_logros_title'] ?></label>
-            <label for="como" class="tabs__label"><?php echo $lang['user_tab_como_title'] ?></label>
+            <label for="como" class="tabs__label active"><?php echo $lang['user_tab_como_title'] ?></label>
         </nav>
         <div class="selectors">
             <div class="dropdown" title="Select language">
@@ -47,17 +47,17 @@
         </div>
     </header>
     <input type="radio" class="tabs__radio" name="slider" id="perfil">
-    <input type="radio" class="tabs__radio" name="slider" id="batallas" checked>
+    <input type="radio" class="tabs__radio" name="slider" id="batallas">
     <input type="radio" class="tabs__radio" name="slider" id="creador">
     <input type="radio" class="tabs__radio" name="slider" id="logros">
-    <input type="radio" class="tabs__radio" name="slider" id="como">
+    <input type="radio" class="tabs__radio" name="slider" id="como" checked>
     <input type="radio" class="tabs__radio" name="slider" id="ajustes">
     <section>
         <div class="tab__1 tabs__content"><?php require_once ('./tabs/perfil.php') ?></div>
         <div class="tab__2 tabs__content"><?php require_once ('./tabs/batallas.php') ?></div>
         <div class="tab__3 tabs__content"><?php require_once ('./tabs/creador.php') ?></div>
         <div class="tab__4 tabs__content"><?php require_once ('./tabs/logros.php') ?></div>
-        <div class="tab__5 tabs__content"><?php require_once ('./tabs/como.php') ?></div>
+        <div class="tab__5 tabs__content"><?php require_once ('./tabs/faq.php') ?></div>
         <div class="tab__6 tabs__content"><?php require_once ('./tabs/ajustes.php') ?></div>
     </section>
     <footer>

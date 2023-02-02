@@ -53,6 +53,21 @@
     /* SECTION */
     --section-background-color: transparent;
 
+    /* PERFIL TAB */
+
+    /* BATTLES TAB */
+
+    /* CREATOR TAB */
+
+    /* ACHIVEMENTS TAB */
+
+    /* FAQ TAB */
+    --faq-h1-background: 0px 50px 40px -40px #000000e0;
+    --faq-h1-box-shadow: 0px 50px 40px -40px #000000e0;
+    --faq-title-color: #000;
+    --faq-answer-color: #000;
+    --faq-hr-border-color: #00000020;
+
     /* SETTINGS TAB */
     --settings-dropdown-color: #000;
     --settings-h2-border-color: rgb(255 255 255 / 10%);

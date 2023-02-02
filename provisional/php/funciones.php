@@ -406,7 +406,7 @@
         
         // Obtener todas las batallas votadas por el usuario que ha iniciado sesión
         $batallasVotadas = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
-        var_dump($batallasVotadas);
+        // var_dump($batallasVotadas);
 
         // Obtener todas las batallas existentes y filtrar a un array solo las que no ha creado el usuario en cuestión
         $sql = "SELECT * FROM `batalla_elemento`;";
@@ -445,6 +445,29 @@
 
         // Devolver todas las batallas que no han sido creadas por el usuario logeado
         return $datos;
+    }
+
+    /**
+     * Función para obtener todos los datos sobre logros de un usuario
+     * @param string|int:id_usuario del usuario solicitado
+     * 
+     * @return array:logros de usuario indicado
+     */
+    function obtenerLogros($id_usuario) {
+        $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
+
+        // Obetener el id del usuario que ha iniciado sesión
+        $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
+        // Como solo es un array de una posición se puede guardar en una variable string, para un uso más fácil
+        $id_usuario = $id_usuario[0];
+
+        $logros = array(
+            "num_elementos_creados" => 0,
+            "num_batallas_creadas" => 0,
+            "num_batallas_votadas" => 0,
+            "num_batallas_ignoradas" => 0,
+            "num_batallas_denunciadas" => 0
+        );
     }
     
     /**
