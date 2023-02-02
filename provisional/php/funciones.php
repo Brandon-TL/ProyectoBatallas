@@ -178,7 +178,7 @@
             $c = $campos[0];
         }
         $sql = "SELECT " . $c . " FROM " . $tabla . " WHERE " . $condicion . " = '" . $valor . "'";
-        
+        // echo $sql.'<br>';
         $result = $conexion->query($sql);
         $datos = $result->fetch();
         return $datos;
@@ -207,7 +207,6 @@
             $c = $campos[0];
         }
         $sql = "SELECT " . $c . " FROM " . $tabla . " WHERE " . $condicion . " = '" . $valor . "' AND " . $condicion2 . " = '" . $valor2 . "'";
-        echo $sql;
         $result = $conexion->query($sql);
         $datos = $result->fetch();
         return $datos;
@@ -407,6 +406,7 @@
         
         // Obtener todas las batallas votadas por el usuario que ha iniciado sesión
         $batallasVotadas = selectBD(array('id_batalla'), 'voto', 'id_usuario', $id_usuario);
+        var_dump($batallasVotadas);
 
         // Obtener todas las batallas existentes y filtrar a un array solo las que no ha creado el usuario en cuestión
         $sql = "SELECT * FROM `batalla_elemento`;";
@@ -416,23 +416,25 @@
 
         // Si el usuario ha creado al menos una batalla
         if ($batallasDeUsuario) {
-            // Para TODAS las batallas existentes
-            while ($tupla = $resultBatalla->fetch()) {
-                // Comprobar si se solicitan las batallas creadas o no por el usuario
-                if ($creadas) {
-                    for ($abc = 0; $abc < count($batallasDeUsuario); $abc++) {
-                        if ($batallasDeUsuario[$abc] == $tupla[0]) {
+            // Filtra la batallas solicitadas
+            if ($creadas) {
+                // Para TODAS y cada una de las batallas existentes
+                while ($tupla = $resultBatalla->fetch()) {
+                    // Comprueba si el id se encuentra en el array de id's de batallas creadas por el usuario
+                    if (in_array($tupla['id_batalla'], $batallasDeUsuario)) {
+                        // En caso afirmativo, añade la informacion del fetch() en la siguiente posición del array de resultados
+                        $datos[count($datos)] = $tupla;
+                    }
+                }
+            } else {
+                // Para TODAS y cada una de las batallas existentes
+                while ($tupla = $resultBatalla->fetch()) {
+                    if (!in_array($tupla['id_batalla'], $batallasDeUsuario)) {
+                        if (!in_array($tupla['id_batalla'], $batallasVotadas)) {
+                            // En caso afirmativo, añade la informacion del fetch() en la siguiente posición del array de resultados
                             $datos[count($datos)] = $tupla;
                         }
                     }
-                } else {
-                    if ($batallasDeUsuario[$abc] != $tupla[0]) {
-                        for ($xyz = 0; $xyz < count($batallasVotadas); $xyz++) {
-                            if ($batallasVotadas[$xyz] != $tupla[0]) {
-                                $datos[count($datos)] = $tupla;
-                            }
-                        }
-                }
                 }
             }
         } else {
