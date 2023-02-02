@@ -73,11 +73,11 @@
     --batallas-card-creator-color: #fff;
     --batallas-card-color: #fff;
     --batallas-card-background-color: #222;
-    --batallas-card-box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.5);
-    --batallas-card-info-background-color: rgba(0, 0, 0, 0.1);
-    --batallas-card-category-background-color: rgba(255, 255, 255, 0.3);
-    --batallas-card-author-color: rgb(0, 255, 255);
-    --batallas-error-batallas-background-color: rgb(0, 255, 255);
+    --batallas-card-box-shadow: inset 0px 0px 35px -15px rgba(255, 255, 255, 0.4);
+    --batallas-card-info-background-color: transparent;
+    --batallas-card-category-color: rgba(255, 255, 255, 0.3);
+    --batallas-card-author-color: #0987db;
+    --batallas-error-batallas-background-color: #0987db;
     --batallas-error-batallas-color: #fff;
 
     /* CREATOR TAB */

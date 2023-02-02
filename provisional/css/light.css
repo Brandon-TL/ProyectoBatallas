@@ -70,14 +70,14 @@
     --perfil-pmt-submit-background-color: #FF4B2B;
 
     /* BATTLES TAB */
-    --batallas-card-creator-color: #fff;
-    --batallas-card-color: #fff;
-    --batallas-card-background-color: #222;
-    --batallas-card-box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.5);
-    --batallas-card-info-background-color: rgba(0, 0, 0, 0.1);
-    --batallas-card-category-background-color: rgba(255, 255, 255, 0.3);
-    --batallas-card-author-color: rgb(0, 255, 255);
-    --batallas-error-batallas-background-color: rgb(0, 255, 255);
+    --batallas-card-creator-color: #000;
+    --batallas-card-color: #000;
+    --batallas-card-background-color: #f6f5f7;
+    --batallas-card-box-shadow: inset 0px 0px 35px -15px rgba(0, 0, 0, 0.4);
+    --batallas-card-info-background-color: transparent;
+    --batallas-card-category-color: #00000040;
+    --batallas-card-author-color: #FF4B2B;
+    --batallas-error-batallas-background-color: #FF4B2B;
     --batallas-error-batallas-color: #fff;
 
     /* CREATOR TAB */

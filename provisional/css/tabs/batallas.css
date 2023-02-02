@@ -89,7 +89,7 @@
     font-size: 13px;
     letter-spacing: 2px;
     font-weight: 500;
-    color: var(--batallas-card-category-background-color);
+    color: var(--batallas-card-category-color);
 }
 
 .card__title {
