@@ -104,8 +104,28 @@
 		// creador.php
 
 		// logros.php
+		"logros_total" => "Total",
+		"logros_not_found" => "You have not this achievement yet, keep participating with more battles to find out.",
+		"logros_comprometido_title" => "Committed",
+		"logros_comprometido_desc" => "You have created 10 battles for the community.",
+		"logros_vicioso_title" => "Vicious",
+		"logros_vicioso_desc" => "You have created 100 battles for the community.",
+		"logros_adicto_title" => "Addicted",
+		"logros_adicto_desc" => "You have created 1000 battles for the community.",
+		"logros_votante_title" => "Voter",
+		"logros_votante_desc" => "You have voted in 10 battles of other users.",
+		"logros_sindicalista_title" => "Trade Union Member",
+		"logros_sindicalista_desc" => "You have voted in 100 battles of other users.",
+		"logros_activista_title" => "Activist",
+		"logros_activista_desc" => "You have voted in 1000 battles of other users.",
+		"logros_vigilante_title" => "Watchman",
+		"logros_vigilante_desc" => "You have denounced 10 battles.",
+		"logros_moderador_title" => "Moderator",
+		"logros_moderador_desc" => "You have denounced 100 battles.",
+		"logros_policia_title" => "Police officer",
+		"logros_policia_desc" => "You have denounced 1000 battles.",
 
-		// como.php
+		// faq.php
 		"como_title" => "Frequently-asked questions",
 		"como_q1" => "What are battles?",
 		"como_a1" => "Battles are confrontations created by users between any two elements, which let the community know which of these elements are the favorites or the most valued thanks to our voting system.",
@@ -120,7 +140,7 @@
 		"como_q6" => "What are achivementes?",
 		"como_a6" => "Achievements are a reward system for interacting with battles, both your own and those of other users.<br><br>Achievements for creating battles:<br><br><ul><li><strong>Committed</strong>: You have created 10 battles for the community.</li><li><strong>Vicious</strong>: You have created 100 battles for the community.</li><li><strong>Addicted</strong>: You have created 1000 battles for the community.</li></ul><br>Achievements for voting battles:<br><br><ul><li><strong>Voter</strong>: You have voted in 10 battles of other users.</li><li><strong>Trade Union Member</strong>: You have voted in 100 battles of other users.</li><li><strong>Activist</strong>: You have voted in 1000 battles of other users.</li></ul><br>Achievements for reporting battles:<br><br><ul><li><strong>Watchman</strong>: You have denounced 10 battles.</li><li><strong>Moderator</strong>: You have reported 100 battles.</li><li><strong>Police officer</strong>: You have reported 1000 battles.</li></ul><br>",
 		"como_q7" => "You have reported several battles, but your achievements are not progressing?",
-		"como_a7" => "For reports to count towards achievements, the battles in question must be removed (80% of the total votes are reports).<br><br>This prevents users from reporting random battles to get achievements faster.",
+		"como_a7" => "For reports to count towards achievements, the battles in question must be removed (50% of the total votes are reports).<br><br>This prevents users from reporting random battles to get achievements faster.",
 
 		// ajustes.php
 		"ajustes_boton_confirmar" => "CONFIRM",

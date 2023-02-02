@@ -104,8 +104,28 @@
 		// creador.php
 
 		// logros.php
+		"logros_total" => "Total",
+		"logros_not_found" => "Aún no tienes este logro, sigue participando con más batallas para descubrirlo.",
+		"logros_comprometido_title" => "Comprometido",
+		"logros_comprometido_desc" => "Has creado 10 batallas para la comunidad.",
+		"logros_vicioso_title" => "Vicioso",
+		"logros_vicioso_desc" => "Has creado 100 batallas para la comunidad.",
+		"logros_adicto_title" => "Adicto",
+		"logros_adicto_desc" => "Has creado 1000 batallas para la comunidad.",
+		"logros_votante_title" => "Votante",
+		"logros_votante_desc" => "Has votado en 10 batallas de otros usuarios.",
+		"logros_sindicalista_title" => "Sindicalista",
+		"logros_sindicalista_desc" => "Has votado en 100 batallas de otros usuarios.",
+		"logros_activista_title" => "Activista",
+		"logros_activista_desc" => "Has votado en 1000 batallas de otros usuarios.",
+		"logros_vigilante_title" => "Vigilante",
+		"logros_vigilante_desc" => "Has denunciado 10 batallas.",
+		"logros_moderador_title" => "Moderador",
+		"logros_moderador_desc" => "Has denunciado 100 batallas.",
+		"logros_policia_title" => "Policía",
+		"logros_policia_desc" => "Has denunciado 1000 batallas.",
 
-		// como.php
+		// faq.php
 		"como_title" => "Preguntas frequentes",
 		"como_q1" => "¿Qué son las batallas?",
 		"como_a1" => "Las batallas son enfrentamientos creados por los usuarios entre dos elementos 	cualesquiera, las cuales dan a saber a la comunidad cual de dichos elementos son los favoritos o los más valorados gracias a nuestro sistema de votación.",
@@ -120,7 +140,7 @@
 		"como_q6" => "¿Qué son los logros?",
 		"como_a6" => "Los logros son un sistema de recompensas por la interacción con las batallas, tanto propias como de otros usuarios.<br><br>Logros por crear batallas:<br><br><ul><li><strong>Comprometido</strong>: Has creado 10 batallas para la comunidad.</li><li><strong>Vicioso</strong>: Has creado 100 batallas para la comunidad.</li><li><strong>Adicto</strong>: Has creado 1000 batallas para la comunidad.</li></ul><br>Logros por votar batallas:<br><br><ul><li><strong>Votante</strong>: Has votado en 10 batallas de otros usuarios.</li><li><strong>Sindicalista</strong>: Has votado en 100 batallas de otros usuario.</li><li><strong>Activista</strong>: Has votado en 1000 batallas de otros usuario.</li></ul><br>Logros por denunciar batallas:<br><br><ul><li><strong>Vigilante</strong>: Has denunciado 10 batallas.</li><li><strong>Moderador</strong>: Has denunciado 100 batallas.</li><li><strong>Policía</strong>: Has denunciado 1000 batallas.</li></ul><br>",
 		"como_q7" => "¿Has denunciado varias batallas, pero tus logros no avanzan?",
-		"como_a7" => "Para que las denuncias contabilicen en los logros, las batallas en cuestion deberán ser eliminadas (80% de los votos totales son denuncias).<br><br>De esta manera se evita que los usuarios denuncien batallas al azar para obtener los logros más rápido.",
+		"como_a7" => "Para que las denuncias contabilicen en los logros, las batallas en cuestion deberán ser eliminadas (50% de los votos totales son denuncias).<br><br>De esta manera se evita que los usuarios denuncien batallas al azar para obtener los logros más rápido.",
 
 		// ajustes.php
 		"ajustes_boton_confirmar" => "CONFIRMAR CAMBIO",

@@ -457,16 +457,19 @@
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
 
         // Obetener el id del usuario que ha iniciado sesión
-        $id_usuario = selectBD(array('id_usuario'), 'usuario_credencial', 'nombreusuario', $_SESSION['usuario'])[0];
         // Como solo es un array de una posición se puede guardar en una variable string, para un uso más fácil
-        $id_usuario = $id_usuario[0];
+        $l1 = selectBD(array('num_elementos_creados'), 'usuario', 'id', $id_usuario)[0];
+        $l2 = selectBD(array('num_batallas_creadas'), 'usuario', 'id', $id_usuario)[0];
+        $l3 = selectBD(array('num_batallas_votadas'), 'usuario', 'id', $id_usuario)[0];
+        $l4 = selectBD(array('num_batallas_ignoradas'), 'usuario', 'id', $id_usuario)[0];
+        $l5 = selectBD(array('num_batallas_denunciadas'), 'usuario', 'id', $id_usuario)[0];
 
-        $logros = array(
-            "num_elementos_creados" => 0,
-            "num_batallas_creadas" => 0,
-            "num_batallas_votadas" => 0,
-            "num_batallas_ignoradas" => 0,
-            "num_batallas_denunciadas" => 0
+        return $logros = array(
+            "num_elementos_creados" => $l1,
+            "num_batallas_creadas" => $l2,
+            "num_batallas_votadas" => $l3,
+            "num_batallas_ignoradas" => $l4,
+            "num_batallas_denunciadas" => $l5
         );
     }
     

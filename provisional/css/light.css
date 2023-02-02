@@ -74,6 +74,12 @@
     /* CREATOR TAB */
 
     /* ACHIVEMENTS TAB */
+    --logros-color: #000;
+    --logros-card-back-color: #000;
+    --logros-card-hover-background-color: rgb(0, 0, 0, 0.1);
+    --logros-ion-icon-color: #000;
+    --logros-total-color: #000;
+    --logros-total-background-color: rgb(0, 0, 0, 0.1);
 
     /* FAQ TAB */
     --faq-h1-color: #000;
