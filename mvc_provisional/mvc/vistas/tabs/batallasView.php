@@ -40,7 +40,7 @@
                     </article>';
             echo '<style>
                     .card--'.$n.' .card__img, .card--'.$n.' .card__img--hover {
-                        background-image: url("./img/elementos/'.$elemento1[1].'");
+                        background-image: url("../../assets/img/elementos/'.$elemento1[1].'");
                     }
                 </style>';
             $n++;
@@ -59,7 +59,7 @@
             </div>';
             echo '<style>
                     .card--'.$n.' .card__img, .card--'.$n.' .card__img--hover {
-                        background-image: url("./img/elementos/'.$elemento2[1].'");
+                        background-image: url("../../assets/img/elementos/'.$elemento2[1].'");
                     }
                 </style>';
         }
