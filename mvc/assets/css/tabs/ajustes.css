@@ -1,0 +1,125 @@
+.settings_form {
+    margin-top: 7vh;
+}
+
+.settings_accordion {
+    margin: 0 auto;
+    width: 60vw;
+}
+
+.settings_accordion .settings_dropdown {
+    list-style: none;
+    color: var(--settings-dropdown-color);
+    width: 100%;
+}
+
+.settings_hr {
+    border-color: var(--settings-h2-border-color);
+}
+
+.settings_accordion .settings_dropdown .settings_label .icon {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.settings_accordion .settings_dropdown .settings_label {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.settings_accordion .settings_dropdown .settings_label .settings_option {
+    margin: 0 auto 0 0;
+}
+
+.settings_accordion .settings_dropdown .settings_label .arrow {
+    height: 20px;
+    width: 20px;
+    padding: 15px;
+    transition: .5s ease;
+}
+
+.settings_accordion .settings_dropdown .settings_label:hover {
+    background-color: var(--settings-hover-background-color);
+}
+
+.settings_accordion .settings_radio {
+    display: none;
+}
+
+.settings_accordion .settings_content {
+    display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: repeat(6, 1fr);
+	grid-gap: 5px;
+    color: var(--settings-content-color);
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+.settings_accordion .settings_content .grid_title {grid-column: 1 / 5;grid-row: 1;}
+.settings_accordion .settings_content .grid_text {grid-column: 1 / 5;grid-row: 2;}
+.settings_accordion .settings_content .grid_input_name {grid-column: 1;grid-row: 3;}
+.settings_accordion .settings_content .grid_input_password {grid-column: 2;grid-row: 3;}
+.settings_accordion .settings_content .grid_input_avatar {grid-column: 1 / 3;grid-row: 4;}
+.settings_accordion .settings_content .grid_button1 {grid-column: 3;grid-row: 4;}
+.settings_accordion .settings_content .grid_input_new {grid-column: 1;grid-row: 4;}
+.settings_accordion .settings_content .grid_input_remake {grid-column: 2;grid-row: 4;}
+.settings_accordion .settings_content .grid_input_text_confirm {
+    grid-column: 1 / 3;
+    grid-row: 4;
+    font-size: 15px;
+}
+.settings_accordion .settings_content .grid_input_confirm {grid-column: 3;grid-row: 4;}
+.settings_accordion .settings_content .grid_button2 {grid-column: 3;grid-row: 5;}
+.settings_accordion .settings_content .grid_textarea {
+    grid-column: 1 / 3;
+    grid-row: 5;
+    resize: none;
+    padding: 5px;
+}
+
+.settings_accordion .settings_radio:checked + .settings_label + .settings_content {
+    max-height: 400px;
+    padding: 10px 10px 20px;
+}
+
+.settings_accordion .settings_radio:checked + .settings_label {
+    background-color: var(--settings-selected-label-background);
+}
+
+.settings_accordion .settings_radio:checked + .settings_label .arrow {
+    transform: rotate(90deg);
+}
+
+input {
+	background-color: var(--settings-input-background-color);
+	border: none;
+	padding: 12px 15px;
+	width: 100%;
+}
+
+.ajustes_button {
+    cursor: pointer;
+	color: var(--settings-submit-color);
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: all 80ms ease-in;
+}
+
+.ajustes_button {
+	border: 1px solid var(--settings-submit-border-color);
+	background-color: var(--settings-submit-background-color);
+}
+
+.ajustes_button:active {
+	transform: scale(0.95);
+}
