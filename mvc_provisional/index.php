@@ -1,3 +1,3 @@
 <?php
-    require './mvc/controladores/IndexController.php';
+    require './mvc/controladores/FrontController.php';
 ?>

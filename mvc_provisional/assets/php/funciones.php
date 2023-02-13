@@ -264,7 +264,7 @@
         unset($_COOKIE["PHPSESSID"]);
         setcookie("PHPSESSID", null, -1, '/');
         // Redirigir a página principal
-        // header("Location: ../../mvc/controladores/IndexController.php");
+        header("Location: ../index.php");
     }
 
     /**
