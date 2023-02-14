@@ -98,6 +98,8 @@
 
 		// batallasView.php
 		"batallas_text_creador" => "Batalla creada por",
+		"batallas_text_denunciar" => "Batalla creada por",
+		"batallas_text_ignorar" => "IGNORE",
 		"batallas_text_votos" => "votos",
 		"batallas_text_creador_elemento" => "de",
 

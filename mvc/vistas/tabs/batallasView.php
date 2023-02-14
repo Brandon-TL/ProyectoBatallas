@@ -27,8 +27,8 @@
             echo '<div class="batalla">
                     <div class="card__creator">'.$lang['batallas_text_creador'].' <span class="card__author" title="author">'.$creador.'</span></div>
                     <div class="botones_batalla">
-                        <span class="denuncia"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=denunciar">DENUNCIAR</a></span>
-                        <span class="ignora"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=ignorar">IGNORAR</a></span>
+                        <span class="denuncia"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=denunciar">'.$lang['batallas_text_denunciar'].'</a></span>
+                        <span class="ignora"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=ignorar">'.$lang['batallas_text_ignorar'].'</a></span>
                     </div>
                     <section class="cards">
                         <article class="card card--'.$n.'">
