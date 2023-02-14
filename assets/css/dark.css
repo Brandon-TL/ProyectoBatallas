@@ -71,6 +71,11 @@
 
     /* BATTLES TAB */
     --batallas-card-creator-color: #fff;
+    --batallas-botones-background-color: rgba(255, 255, 255, 0.1);
+    --batallas-box-shadow: 0 5px 5px rgb(0 0 0 / 60%), 0 10px 10px rgb(0 0 0 / 10%);
+    --batallas-botones-hover-background-color: #0987db;
+    --batallas-botones-a-color: #fff;
+    --batallas-botones-a-hover-color: #fff;
     --batallas-card-color: #fff;
     --batallas-card-background-color: #222;
     --batallas-card-box-shadow: inset 0px 0px 35px -15px rgba(255, 255, 255, 0.4);

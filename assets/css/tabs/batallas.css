@@ -26,6 +26,43 @@
     margin-bottom: 20px;
 }
 
+.botones_batalla {
+    display: flex;
+    width: min-content;
+    margin: 0 auto 20px;
+    justify-content: space-between;
+}
+
+.denuncia, .ignora {
+    display: inline-block;
+    width: 200px;
+    line-height: 40px;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: var(--batallas-box-shadow);
+    background-color: var(--batallas-botones-background-color);
+}
+
+.ignora {
+    margin-left: 50px;
+}
+
+.denuncia:hover, .ignora:hover {
+    background-color: var(--batallas-botones-hover-background-color);
+}
+
+.denuncia a, .ignora a {
+    color: var(--batallas-botones-a-color);
+    display: block;
+    width: 100%;
+    margin: auto;
+    text-decoration: none;
+}
+
+.denuncia:hover a, .ignora:hover a {
+    color: var(--batallas-botones-a-hover-color);
+}
+
 .cards {
     width: 100%;
     display: flex;
@@ -35,7 +72,6 @@
     max-width: 820px;
     max-height: 400px;
     margin: auto;
-    padding-bottom: 10px;
 }
 
 .card__img {
@@ -115,28 +151,6 @@
 
 .card:hover .card__info-hover {
     opacity: 1;
-}
-
-.denuncia {
-    width: 200px;
-    line-height: 40px;
-    border-radius: 40px;
-    margin: auto;
-    overflow: hidden;
-    color: white;
-    background: rgba(255, 0, 0, 0.1);
-}
-
-.denuncia:hover {
-    background: rgba(255, 0, 0, 0.4);
-}
-
-.denuncia a {
-    color: white;
-    display: block;
-    width: 100%;
-    margin: auto;
-    text-decoration: none;
 }
 
 .error_batallas {

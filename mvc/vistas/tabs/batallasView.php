@@ -26,6 +26,10 @@
 
             echo '<div class="batalla">
                     <div class="card__creator">'.$lang['batallas_text_creador'].' <a href="#link_a_perfil" class="card__author" title="author">'.$creador.'</a></div>
+                    <div class="botones_batalla">
+                        <span class="denuncia"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=denunciar">DENUNCIAR</a></span>
+                        <span class="ignora"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=ignorar">IGNORAR</a></span>
+                    </div>
                     <section class="cards">
                         <article class="card card--'.$n.'">
                         <div class="card__img"></div>
@@ -56,8 +60,6 @@
                         </div>
                     </article>
                     </section>
-                <div class="denuncia"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=denunciar">DENUNCIAR</a></div>
-                <div class="denuncia"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=ignorar">IGNORAR</a></div>
             </div>';
             echo '<style>
                     .card--'.$n.' .card__img, .card--'.$n.' .card__img--hover {
