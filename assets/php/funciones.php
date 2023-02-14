@@ -442,9 +442,33 @@
         $query->execute();
         $batallasVotadas = $query->fetchAll();
 
-        $ids_votadas = array();
+        // Obtener todas las batallas denunciadas por el usuario que ha iniciado sesión
+        $query = $conexion->prepare("SELECT * FROM `usuario_batalla` WHERE `id_usuario` = $id_usuario AND `accion` = 'denunciar';");
+        $query->execute();
+        $batallasDenunciadas = $query->fetchAll();
+        
+        // Obtener todas las batallas ignoradas por el usuario que ha iniciado sesión
+        $query = $conexion->prepare("SELECT * FROM `usuario_batalla` WHERE `id_usuario` = $id_usuario AND `accion` = 'ignorar';");
+        $query->execute();
+        $batallasIgnoradas = $query->fetchAll();
+
+        $ids_denunciadas = $ids_ignoradas = $ids_votadas = array();
         foreach ($batallasVotadas as $batalla) {
             array_push($ids_votadas, $batalla['id_batalla']);
+        }
+
+        if ($batallasDenunciadas) {
+            $ids_denunciadas = array();
+            foreach ($batallasDenunciadas as $batalla) {
+                array_push($ids_denunciadas, $batalla['id_batalla']);
+            }
+        }
+
+        if ($batallasIgnoradas) {
+            $ids_ignoradas = array();
+            foreach ($batallasIgnoradas as $batalla) {
+                array_push($ids_ignoradas, $batalla['id_batalla']);
+            }
         }
 
         // Obtener todas las batallas existentes y filtrar a un array solo las que no ha creado el usuario en cuestión
@@ -467,11 +491,12 @@
                 }
             } else {
                 // Comprueba si el usuario ha votado alguna batalla
-                if ($ids_votadas) {
+                if ($ids_votadas || $ids_denunciadas || $ids_ignoradas) {
                     // Para TODAS y cada una de las batallas existentes
                     while ($tupla = $resultBatalla->fetch()) {
-                        // Si ha votado la batalla $tupla no añadirla $datos
-                        if (!in_array($tupla['id_batalla'], $batallasDeUsuario) && !in_array($tupla['id_batalla'], $ids_votadas)) {
+                        // Si ha creado, votado, denunciado o ignorado la batalla $tupla no añadirla $datos
+                        if (!in_array($tupla['id_batalla'], $batallasDeUsuario) && !in_array($tupla['id_batalla'], $ids_votadas) && 
+                                !in_array($tupla['id_batalla'], $ids_denunciadas) && !in_array($tupla['id_batalla'], $ids_ignoradas)) {
                             // En caso afirmativo, añade la informacion del fetch() en la siguiente posición del array de resultados
                             $datos[count($datos)] = $tupla;
                         }
@@ -689,20 +714,28 @@
                         // Calcular nueva cantidad de batallas votadas
                         $nueva_cantidad = intval(selectBD(array('num_batallas_denunciadas'), 'usuario', 'id', $id_usuario)[0]) + 1;
                         // Actualizar votos al elemento votado
-                        updateDB('usuario', 'num_batallas_votadas', $nueva_cantidad, 'id', $id_usuario);
+                        updateDB('usuario', 'num_batallas_denunciadas', $nueva_cantidad, 'id', $id_usuario);
                     }
     
                     // Actualizar tabla usuario_batalla
+                    $campos = array('id_usuario', 'id_batalla', 'accion', 'fecha');
+                    $valores = array($id_usuario, $id_batalla, 'denunciar', date('Y-m-d H:i:s'));
+                    // Actualizar tabla voto
+                    insertBD('usuario_batalla', $campos, $valores, $conexion);
                 } else if ($accion == 'ignorar') {
                     // Actualizar número de batallas ignoradas de la tabla de usuario
                     if (selectBD(array('num_batallas_ignoradas'), 'usuario', 'id', $id_usuario)[0]) {
                         // Calcular nueva cantidad de batallas votadas
                         $nueva_cantidad = intval(selectBD(array('num_batallas_ignoradas'), 'usuario', 'id', $id_usuario)[0]) + 1;
                         // Actualizar votos al elemento votado
-                        updateDB('usuario', 'num_batallas_votadas', $nueva_cantidad, 'id', $id_usuario);
+                        updateDB('usuario', 'num_batallas_ignoradas', $nueva_cantidad, 'id', $id_usuario);
                     }
-    
+
                     // Actualizar tabla usuario_batalla
+                    $campos = array('id_usuario', 'id_batalla', 'accion', 'fecha');
+                    $valores = array($id_usuario, $id_batalla, 'ignorar', date('Y-m-d H:i:s'));
+                    // Actualizar tabla voto
+                    insertBD('usuario_batalla', $campos, $valores, $conexion);
                 }
             }
 

@@ -7,7 +7,7 @@
 		"lang_es" => "Español",
 		"footer_text" => "Creado por",
 		
-		// index.php
+		// IndexView.php
 		"index_title" => "Acceso a Batallas.com",
 		"index_h2" => "Batallas.com",
 		
@@ -61,7 +61,7 @@
 		"registro_vacio_foto" => "Campo de foto de perfil vacío",
 		"registro_failed_new_login" => "Lo sentimos, no se ha podido iniciar sesión con el usuario registrado",
 
-		// user.php
+		// UserView.php
 		"user_title" => "Página principal",
 		"user_tab_perfil_title" => "Perfil",
 		"user_tab_batallas_title" => "Batallas",
@@ -69,7 +69,7 @@
 		"user_tab_logros_title" => "Logros",
 		"user_tab_como_title" => "FAQ",
 
-		// perfil.php
+		// perfilView.php
 		"perfil_h2" => "Datos de usuario",
 		"perfil_elementos_creados" => "Elementos creados",
 		"perfil_batallas_creadas" => "Batallas creadas",
@@ -78,7 +78,7 @@
 		"perfil_batallas_denunciadas" => "Batallas denunciadas",
 		"perfil_puntos_troll" => "Puntos troll",
 		
-		// perfil.php tab batallas creadas
+		// perfilView.php tab batallas creadas
 		"tab_bc_title" => "Batallas creadas",
 		"tab_bc_id_batallas" => "ID BATALLA",
 		"tab_bc_descripcion" => "DESCRIPCIÓN",
@@ -86,24 +86,24 @@
 		"tab_bc_fecha" => "FECHA DE CREACIÓN",
 		"tab_bc_empty" => "Aún no has creado ninguna batalla",
 
-		// perfil.php tab batallas ignoradas
+		// perfilView.php tab batallas ignoradas
 		"tab_bi_title" => "Batallas ignoradas",
 		"tab_bi_button" => "DEJAR DE IGNORAR",
 		"tab_bi_empty" => "No has ignorado ninguna batalla",
 		
-		// perfil.php tab batallas denunciadas
+		// perfilView.php tab batallas denunciadas
 		"tab_bd_title" => "Batallas denunciadas",
 		"tab_bd_button" => "RETIRAR DENUNCIA",
 		"tab_bd_empty" => "No has denunciado ninguna batalla",
 
-		// batallas.php
+		// batallasView.php
 		"batallas_text_creador" => "Batalla creada por",
 		"batallas_text_votos" => "votos",
 		"batallas_text_creador_elemento" => "de",
 
-		// creador.php
+		// creadorView.php
 
-		// logros.php
+		// logrosView.php
 		"logros_total" => "Total",
 		"logros_not_found" => "Aún no tienes este logro, sigue participando con más batallas para descubrirlo.",
 		"logros_comprometido_title" => "Comprometido",
@@ -125,7 +125,7 @@
 		"logros_policia_title" => "Policía",
 		"logros_policia_desc" => "Has denunciado 1000 batallas.",
 
-		// faq.php
+		// faqView.php
 		"como_title" => "Preguntas frequentes",
 		"como_q1" => "¿Qué son las batallas?",
 		"como_a1" => "Las batallas son enfrentamientos creados por los usuarios entre dos elementos 	cualesquiera, las cuales dan a saber a la comunidad cual de dichos elementos son los favoritos o los más valorados gracias a nuestro sistema de votación.",
@@ -142,7 +142,7 @@
 		"como_q7" => "¿Has denunciado varias batallas, pero tus logros no avanzan?",
 		"como_a7" => "Para que las denuncias contabilicen en los logros, las batallas en cuestion deberán ser eliminadas (50% de los votos totales son denuncias).<br><br>De esta manera se evita que los usuarios denuncien batallas al azar para obtener los logros más rápido.",
 
-		// ajustes.php
+		// ajustesView.php
 		"ajustes_boton_confirmar" => "CONFIRMAR CAMBIO",
 		"ajustes_boton_salir" => "CERRAR SESIÓN",
 		"ajustes_boton_eliminar" => "ELIMINAR CUENTA",
@@ -179,7 +179,7 @@
 		"ajustes_eliminar_confirm_placeholder" => "Escriba la palabra de seguridad *",
 		"ajustes_eliminar_confirm_placeholder2" => "Queremos mejorar y para ello puedes indicarnos el motivo por el que quieres eliminar tu cuenta",
 
-		// errores ajustes.php
+		// errores ajustesView.php
 
 	);
 ?>

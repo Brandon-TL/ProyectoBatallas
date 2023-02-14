@@ -7,7 +7,7 @@
 		"lang_es" => "Spanish",
 		"footer_text" => "Created by",
 		
-		// index.php
+		// IndexView.php
 		"index_title" => "Access to Batallas.com",
 		"index_h2" => "Batallas.com",
 		
@@ -61,7 +61,7 @@
 		"registro_vacio_foto" => "Profile photo not inserted",
 		"registro_failed_new_login" => "Sorry, could not log in with the registered user",
 
-		// user.php
+		// UserView.php
 		"user_title" => "Homepage",
 		"user_tab_perfil_title" => "Profile",
 		"user_tab_batallas_title" => "Battles",
@@ -69,7 +69,7 @@
 		"user_tab_logros_title" => "Achivements",
 		"user_tab_como_title" => "FAQ",
 
-		// perfil.php
+		// perfilView.php
 		"perfil_h2" => "User data",
 		"perfil_elementos_creados" => "Created elements",
 		"perfil_batallas_creadas" => "Created battles",
@@ -78,7 +78,7 @@
 		"perfil_batallas_denunciadas" => "Reported battles",
 		"perfil_puntos_troll" => "Troll points",
 		
-		// perfil.php tab batallas creadas
+		// perfilView.php tab batallas creadas
 		"tab_bc_title" => "Created battles",
 		"tab_bc_id_batallas" => "BATTLE ID",
 		"tab_bc_descripcion" => "DESCRIPTION",
@@ -86,24 +86,24 @@
 		"tab_bc_fecha" => "CREATION DATE",
 		"tab_bc_empty" => "You haven't created any battle yet",
 
-		// perfil.php tab batallas ignoradas
+		// perfilView.php tab batallas ignoradas
 		"tab_bi_title" => "Ignored battles",
 		"tab_bi_button" => "STOP IGNORING",
 		"tab_bi_empty" => "You haven't ignored any battle",
 		
-		// perfil.php tab batallas denunciadas
+		// perfilView.php tab batallas denunciadas
 		"tab_bd_title" => "Reported battles",
 		"tab_bd_button" => "WITHDRAW COMPLAINT",
 		"tab_bd_empty" => "You haven't reported any battle",
 
-		// batallas.php
+		// batallasView.php
 		"batallas_text_creador" => "Battle created by",
 		"batallas_text_votos" => "upvotes",
 		"batallas_text_creador_elemento" => "by",
 
-		// creador.php
+		// creadorView.php
 
-		// logros.php
+		// logrosView.php
 		"logros_total" => "Total",
 		"logros_not_found" => "You have not this achievement yet, keep participating with more battles to find out.",
 		"logros_comprometido_title" => "Committed",
@@ -125,7 +125,7 @@
 		"logros_policia_title" => "Police officer",
 		"logros_policia_desc" => "You have denounced 1000 battles.",
 
-		// faq.php
+		// faqView.php
 		"como_title" => "Frequently-asked questions",
 		"como_q1" => "What are battles?",
 		"como_a1" => "Battles are confrontations created by users between any two elements, which let the community know which of these elements are the favorites or the most valued thanks to our voting system.",
@@ -142,7 +142,7 @@
 		"como_q7" => "You have reported several battles, but your achievements are not progressing?",
 		"como_a7" => "For reports to count towards achievements, the battles in question must be removed (50% of the total votes are reports).<br><br>This prevents users from reporting random battles to get achievements faster.",
 
-		// ajustes.php
+		// ajustesView.php
 		"ajustes_boton_confirmar" => "CONFIRM",
 		"ajustes_boton_salir" => "LOG OUT",
 		"ajustes_boton_eliminar" => "DELETE ACCOUNT",
@@ -179,7 +179,7 @@
 		"ajustes_eliminar_confirm_placeholder" => "Enter the security word *",
 		"ajustes_eliminar_confirm_placeholder2" => "We want to improve and to do so you can let us know the reason why you want to delete your account",
 
-		// errores ajustes.php
+		// errores ajustesView.php
 
 	);
 ?>
