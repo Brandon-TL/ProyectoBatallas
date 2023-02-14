@@ -10,7 +10,7 @@
         if (isset($_SESSION["usuario"])) {
             // cargarPreferencias($_SESSION["usuario"]);
         } else {
-            header("Location: ./mvc/controladores/IndexController.php");
+            header("Location: ../../index.php");
             exit();
         }
         require_once '../../assets/php/visual.php';

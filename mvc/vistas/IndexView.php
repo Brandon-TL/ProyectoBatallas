@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="../../assets/css/index.css">
     <?php
         require_once '../../assets/php/visual.php';
-        session_start();
-        if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] != 'admin') {
-            header("Location: user.php");
-            exit();
-        }
     ?>
     <title><?php echo $lang['index_title'] ?></title>
 </head>
