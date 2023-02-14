@@ -25,7 +25,7 @@
             $votos_elemento2 = selectBD(array('votos_elemento2'), 'batalla_elemento', 'id_batalla', $batalla['id_batalla'])[0];
 
             echo '<div class="batalla">
-                    <div class="card__creator">'.$lang['batallas_text_creador'].' <a href="#link_a_perfil" class="card__author" title="author">'.$creador.'</a></div>
+                    <div class="card__creator">'.$lang['batallas_text_creador'].' <span class="card__author" title="author">'.$creador.'</span></div>
                     <div class="botones_batalla">
                         <span class="denuncia"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=denunciar">DENUNCIAR</a></span>
                         <span class="ignora"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=ignorar">IGNORAR</a></span>
@@ -39,7 +39,7 @@
                         <div class="card__info">
                             <span class="card__category">'.$votos_elemento1.' '.$lang['batallas_text_votos'].'</span>
                             <h3 class="card__title">'.$elemento1[0].'</h3>
-                            <span class="card__by">'.$lang['batallas_text_creador_elemento'].' <a href="#link_a_perfil" class="card__author" title="author">'. $nombre_creador1.'</a></span>
+                            <span class="card__by">'.$lang['batallas_text_creador_elemento'].' <span class="card__author" title="author">'. $nombre_creador1.'</span></span>
                         </div>
                     </article>';
             echo '<style>
@@ -56,7 +56,7 @@
                         <div class="card__info">
                         <span class="card__category">'.$votos_elemento2.' '.$lang['batallas_text_votos'].'</span>
                             <h3 class="card__title">'.$elemento2[0].'</h3>
-                            <span class="card__by">'.$lang['batallas_text_creador_elemento'].' <a href="#link_a_perfil" class="card__author" title="author">'. $nombre_creador2.'</a></span>
+                            <span class="card__by">'.$lang['batallas_text_creador_elemento'].' <span class="card__author" title="author">'. $nombre_creador2.'</span></span>
                         </div>
                     </article>
                     </section>

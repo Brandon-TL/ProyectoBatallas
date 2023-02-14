@@ -438,7 +438,7 @@
         $batallasDeUsuario = selectBDand(array('id_batalla'), 'usuario_batalla', 'id_usuario', $id_usuario, 'accion', 'crear');
         
         // Obtener todas las batallas votadas por el usuario que ha iniciado sesión
-        $query = $conexion->prepare("SELECT `id_batalla` FROM `voto` WHERE `id_usuario` = '2';");
+        $query = $conexion->prepare("SELECT `id_batalla` FROM `voto` WHERE `id_usuario` = $id_usuario;");
         $query->execute();
         $batallasVotadas = $query->fetchAll();
 
@@ -632,12 +632,12 @@
                     // Calcular nueva cantidad de votos al elemento votado
                     $nueva_cantidad = intval(selectBD(array('votos_elemento1'), 'batalla_elemento', 'id_batalla', $id_batalla)[0]) + 1;
                     // Actualizar votos al elemento votado
-                    $sumado = updateDB('batalla_elemento', 'votos_elemento1', $nueva_cantidad, 'id_batalla', $id_batalla);
+                    updateDB('batalla_elemento', 'votos_elemento1', $nueva_cantidad, 'id_batalla', $id_batalla);
                 } else if (selectBD(array('id_elemento2'), 'batalla_elemento', 'id_batalla', $id_batalla)[0] == $id_elemento) {
                     // Calcular nueva cantidad de votos al elemento votado
                     $nueva_cantidad = intval(selectBD(array('votos_elemento2'), 'batalla_elemento', 'id_batalla', $id_batalla)[0]) + 1;
                     // Actualizar votos al elemento votado
-                    $sumado = updateDB('batalla_elemento', 'votos_elemento2', $nueva_cantidad, 'id_batalla', $id_batalla);
+                    updateDB('batalla_elemento', 'votos_elemento2', $nueva_cantidad, 'id_batalla', $id_batalla);
                 }
 
                 // Actualizar tabla usuario
@@ -645,7 +645,7 @@
                     // Calcular nueva cantidad de batallas votadas
                     $nueva_cantidad = intval(selectBD(array('num_batallas_votadas'), 'usuario', 'id', $id_usuario)[0]) + 1;
                     // Actualizar votos al elemento votado
-                    $sumado = updateDB('usuario', 'num_batallas_votadas', $nueva_cantidad, 'id', $id_usuario);
+                    updateDB('usuario', 'num_batallas_votadas', $nueva_cantidad, 'id', $id_usuario);
                 }
 
                 $campos = array('id_usuario', 'id_batalla', 'id_elemento', 'fecha');
@@ -661,51 +661,53 @@
 
     
     /**
-     * Funcion para la votación de elementos
+     * Funcion para ignorar o denunciar batallas
      * @param string:id_batalla id de la batalla en la que se encuentra el elemento
-     * @param string:id_elemento id del elemento que se desea votar
+     * @param string:accion que desea realizar el usuario
      * 
-     * @return bool:true si se han encontrado los elementos solicitados, se ejecuta comando sql para 
-     *                      registrar la denuncia en la base de datos y se indica que se ha terminado la ejecución con éxito
-     * @return bool:false indicativo de porque no se ha registrado la denuncia
+     * @return bool:true acción sobre batalla registrada con éxito
+     * @return bool:false registro de acción sobre batalla fallido
      */
-    function denunciar_ignorar ($id_usuario, $id_batalla, $id_elemento) {
+    function denunciar_ignorar ($id_usuario, $id_batalla, $accion) {
         $conexion = new PDO(DSN, USER, PASSWORD, OPTIONS);
         if (isset($conexion)) {
-            // Comprobar si el usuario ya ha votado en la batalla con id $id_batalla
-            if (!selectBDand(array('*'), 'voto', 'id_usuario', $id_usuario, 'id_batalla', $id_batalla) &&
-                !selectBDand(array('*'), 'usuario_batalla', 'id_usuario', $id_usuario, 'id_batalla', $id_batalla)) {
-                // Si no ha votado actualizar e insertar datos en las tablas respectivas
-                // Actualizar votos del elemento en la tabla batalla_elemento
-                
-                // Comprobar a que elemento añadir el voto
-                if (selectBD(array('id_elemento1'), 'batalla_elemento', 'id_batalla', $id_batalla)[0] == $id_elemento) {
-                    // Calcular nueva cantidad de votos al elemento votado
-                    $nueva_cantidad = intval(selectBD(array('votos_elemento1'), 'batalla_elemento', 'id_batalla', $id_batalla)[0]) + 1;
-                    // Actualizar votos al elemento votado
-                    $sumado = updateDB('batalla_elemento', 'votos_elemento1', $nueva_cantidad, 'id_batalla', $id_batalla);
-                } else if (selectBD(array('id_elemento2'), 'batalla_elemento', 'id_batalla', $id_batalla)[0] == $id_elemento) {
-                    // Calcular nueva cantidad de votos al elemento votado
-                    $nueva_cantidad = intval(selectBD(array('votos_elemento2'), 'batalla_elemento', 'id_batalla', $id_batalla)[0]) + 1;
-                    // Actualizar votos al elemento votado
-                    $sumado = updateDB('batalla_elemento', 'votos_elemento2', $nueva_cantidad, 'id_batalla', $id_batalla);
+            // Comprobar si el usuario ya ha denunciado la batalla
+            $query = $conexion->prepare("SELECT * FROM `usuario_batalla` WHERE `id_usuario` = $id_usuario AND `id_batalla` = $id_batalla AND `accion` = 'denunciar';");
+            $query->execute();
+            $denunciada = $query->fetchAll();
+            
+            // Comprobar si el usuario ya ha ignorado la batalla
+            $query = $conexion->prepare("SELECT * FROM `usuario_batalla` WHERE `id_usuario` = $id_usuario AND `id_batalla` = $id_batalla AND `accion` = 'ignorar';");
+            $query->execute();
+            $ignorada = $query->fetchAll();
+            // Comprobar que el usuario no haya votado, denunciado o ignorado la batalla con anterioridad
+            if (!selectBDand(array('*'), 'voto', 'id_usuario', $id_usuario, 'id_batalla', $id_batalla) && !$denunciada && !$ignorada) {
+                // Comprobar si el usuario denuncia o ignora la batalla
+                if ($accion == 'denunciar') {
+                    // Actualizar número de batallas denunciadas de la tabla de usuario
+                    if (selectBD(array('num_batallas_denunciadas'), 'usuario', 'id', $id_usuario)[0]) {
+                        // Calcular nueva cantidad de batallas votadas
+                        $nueva_cantidad = intval(selectBD(array('num_batallas_denunciadas'), 'usuario', 'id', $id_usuario)[0]) + 1;
+                        // Actualizar votos al elemento votado
+                        updateDB('usuario', 'num_batallas_votadas', $nueva_cantidad, 'id', $id_usuario);
+                    }
+    
+                    // Actualizar tabla usuario_batalla
+                } else if ($accion == 'ignorar') {
+                    // Actualizar número de batallas ignoradas de la tabla de usuario
+                    if (selectBD(array('num_batallas_ignoradas'), 'usuario', 'id', $id_usuario)[0]) {
+                        // Calcular nueva cantidad de batallas votadas
+                        $nueva_cantidad = intval(selectBD(array('num_batallas_ignoradas'), 'usuario', 'id', $id_usuario)[0]) + 1;
+                        // Actualizar votos al elemento votado
+                        updateDB('usuario', 'num_batallas_votadas', $nueva_cantidad, 'id', $id_usuario);
+                    }
+    
+                    // Actualizar tabla usuario_batalla
                 }
-
-                // Actualizar tabla usuario
-                if (selectBD(array('num_batallas_votadas'), 'usuario', 'id', $id_usuario)[0]) {
-                    // Calcular nueva cantidad de batallas votadas
-                    $nueva_cantidad = intval(selectBD(array('num_batallas_votadas'), 'usuario', 'id', $id_usuario)[0]) + 1;
-                    // Actualizar votos al elemento votado
-                    $sumado = updateDB('usuario', 'num_batallas_votadas', $nueva_cantidad, 'id', $id_usuario);
-                }
-
-                $campos = array('id_usuario', 'id_batalla', 'id_elemento', 'fecha');
-                $valores = array($id_usuario, $id_batalla, $id_elemento, date('Y-m-d H:i:s'));
-                // Actualizar tabla voto
-                insertBD('voto', $campos, $valores, $conexion);
             }
-            // Si ya ha votado en esa batalla no hacer nada
-            header("Location: user.php");
+
+            // Refresh de la página para mostrar cambios realizados
+            header("Location: UserView.php");
             exit(); 
         }
     }
