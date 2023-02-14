@@ -4,7 +4,10 @@
     if (isset($_GET['batalla']) && isset($_GET['voto']) && !is_null($_GET['batalla']) && !is_null($_GET['voto']) &&is_numeric(trim($_GET['batalla'])) && is_numeric(trim($_GET['voto']))) {
         // Ejecutamos la votación
         votar($_GET['id'], $_GET['batalla'], $_GET['voto']);
-    }else if (isset($_POST['NO_IGNORAR'])) {
+    } else if (isset($_GET['batalla']) && isset($_GET['voto']) && !is_null($_GET['batalla']) && !is_null($_GET['voto']) &&is_numeric(trim($_GET['batalla'])) && trim($_GET['voto']) == 'denunciar') {
+        // Ejecutamos la votación
+        denunciar_ignorar($_GET['id'], $_GET['batalla'], $_GET['voto']);
+    } else if (isset($_POST['NO_IGNORAR'])) {
         // ACCION CUANDO SE RETIRE EL VOTO DE IGNORAR DE UNA BATALLA
     } else if (isset($_POST['NO_DENUNCIA'])) {
         // ACCION CUANDO SE RETIRE EL VOTO DE DENUNCIA DE UNA BATALLA

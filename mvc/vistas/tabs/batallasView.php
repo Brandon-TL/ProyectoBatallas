@@ -29,7 +29,7 @@
                     <section class="cards">
                         <article class="card card--'.$n.'">
                         <div class="card__img"></div>
-                        <a href="user.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto='.$id_elemento1.'" class="card_link">
+                        <a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto='.$id_elemento1.'" class="card_link">
                             <div class="card__img--hover"></div>
                         </a>
                         <div class="card__info">
@@ -46,7 +46,7 @@
             $n++;
             echo '<article class="card card--'.$n.'">
                         <div class="card__img"></div>
-                        <a href="user.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto='.$id_elemento2.'" class="card_link">
+                        <a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto='.$id_elemento2.'" class="card_link">
                             <div class="card__img--hover"></div>
                         </a>
                         <div class="card__info">
@@ -55,7 +55,9 @@
                             <span class="card__by">'.$lang['batallas_text_creador_elemento'].' <a href="#link_a_perfil" class="card__author" title="author">'. $nombre_creador2.'</a></span>
                         </div>
                     </article>
-                </section>
+                    </section>
+                <div class="denuncia"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=denunciar">DENUNCIAR</a></div>
+                <div class="denuncia"><a href="UserView.php?id='.$id_usuario.'&batalla='.$batalla['id_batalla'].'&voto=ignorar">IGNORAR</a></div>
             </div>';
             echo '<style>
                     .card--'.$n.' .card__img, .card--'.$n.' .card__img--hover {
